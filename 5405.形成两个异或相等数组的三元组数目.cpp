@@ -5,11 +5,17 @@
  */
 
 // @lc code=start
+#include"leetcode.h"
 class Solution {
 public:
     int countTriplets(vector<int>& arr) {
 
     }
 };
+
+int main()
+{
+    return true;
+}
 // @lc code=end
 
