@@ -3,6 +3,8 @@
 #include<memory.h>
 #include<iostream>
 #include<string>
+#include<queue>
+#include<algorithm>
 
 using namespace std;
 struct TreeNode {
