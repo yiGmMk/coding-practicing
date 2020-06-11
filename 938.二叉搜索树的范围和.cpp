@@ -15,68 +15,68 @@
  * };
  */
 //#include"leetcode.h"
-class Solution {
-public:
-    void search(TreeNode*root,vector<int> &vec)
-    {
-        if (!root)
-        {
-            return;
-        }
-        else
-        {
-            vec.push_back(root->val);  
-            search(root->left,vec);
-            search(root->right,vec);
-        }     
+// class Solution {
+// public:
+//     void search(TreeNode*root,vector<int> &vec)
+//     {
+//         if (!root)
+//         {
+//             return;
+//         }
+//         else
+//         {
+//             vec.push_back(root->val);  
+//             search(root->left,vec);
+//             search(root->right,vec);
+//         }     
         
-    }
-    // int rangeSumBST(TreeNode* root, int L, int R) {
-    //     vector<int> vec;
+//     }
+//     // int rangeSumBST(TreeNode* root, int L, int R) {
+//     //     vector<int> vec;
 
-    //     search(root,vec);
-    //     int iRes=0;
-    //     for (size_t i = 0; i < vec.size(); i++)
-    //     {
-    //         if (vec[i]>=L && vec[i]<=R)
-    //         {
-    //              iRes+=vec[i];
-    //         }                   
+//     //     search(root,vec);
+//     //     int iRes=0;
+//     //     for (size_t i = 0; i < vec.size(); i++)
+//     //     {
+//     //         if (vec[i]>=L && vec[i]<=R)
+//     //         {
+//     //              iRes+=vec[i];
+//     //         }                   
           
-    //     }
-    //     return iRes;        
-    // }
-    void BinarySearch(TreeNode* root,int &res,int L,int R)
-    {
-        if (!root)
-        {
-            return;
-        }
-        if (root->val>=L && root->val<=R)
-        {
-            res+=root->val;
-            BinarySearch(root->right,res,L,R);
-            BinarySearch(root->left,res,L,R);
-        }
-        else if (root->val<L)
-        {
-           BinarySearch(root->right,res,L,R);
-        }
-        else if (root->val>R)
-        {
-            BinarySearch(root->left,res,L,R);
-        }
+//     //     }
+//     //     return iRes;        
+//     // }
+//     void BinarySearch(TreeNode* root,int &res,int L,int R)
+//     {
+//         if (!root)
+//         {
+//             return;
+//         }
+//         if (root->val>=L && root->val<=R)
+//         {
+//             res+=root->val;
+//             BinarySearch(root->right,res,L,R);
+//             BinarySearch(root->left,res,L,R);
+//         }
+//         else if (root->val<L)
+//         {
+//            BinarySearch(root->right,res,L,R);
+//         }
+//         else if (root->val>R)
+//         {
+//             BinarySearch(root->left,res,L,R);
+//         }
         
         
         
-    }
-    int rangeSumBST(TreeNode* root, int L, int R) {
-        int iRes=0;
-        BinarySearch(root,iRes,L,R);
+//     }
+//     int rangeSumBST(TreeNode* root, int L, int R) {
+//         int iRes=0;
+//         BinarySearch(root,iRes,L,R);
 
-        return iRes;
-    }
-};
+//         return iRes;
+//     }
+// };
 
 
 
@@ -90,24 +90,26 @@ public:
 // 来源：力扣（LeetCode）
 // 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
-// class Solution {
-//     int ans;
-//     public int rangeSumBST(TreeNode root, int L, int R) {
-//         ans = 0;
-//         dfs(root, L, R);
-//         return ans;
-//     }
+class Solution {
+public:
 
-//     public void dfs(TreeNode node, int L, int R) {
-//         if (node != null) {
-//             if (L <= node.val && node.val <= R)
-//                 ans += node.val;
-//             if (L < node.val)
-//                 dfs(node.left, L, R);
-//             if (node.val < R)
-//                 dfs(node.right, L, R);
-//         }
-//     }
-// }
+    int ans;
+    int rangeSumBST(TreeNode *root, int L, int R) {
+        ans = 0;
+        dfs(root, L, R);
+        return ans;
+    }
+
+    void dfs(TreeNode *node, int L, int R) {
+        if (node != nullptr) {
+            if (L <= node->val && node->val <= R)
+                ans += node->val;
+            if (L < node->val)
+                dfs(node->left, L, R);
+            if (node->val < R)
+                dfs(node->right, L, R);
+        }
+    }
+};
 // @lc code=end
 
