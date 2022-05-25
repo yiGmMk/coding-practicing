@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-// 从下往上,从左往右,z字型搜索
+// 从下往上,从左往右,z字型搜索,比fC方案差,每次换行都从头开始,其实不需要的
 var fP = func(matrix [][]int, target int) bool {
 	if len(matrix) == 0 || len(matrix[0]) == 0 {
 		return false
@@ -66,13 +66,37 @@ var fSort = func(matrix [][]int, target int) bool {
 	return false
 }
 
-func TestSearch(t *testing.T) {
-	/* 1 2  3
-	   4 15 6
-	   7 8  9
-	*/
-	f := fSort // 搜索逻辑代码
+/*
+作者：LeetCode-Solution
+链接：https://leetcode.cn/problems/search-a-2d-matrix-ii/solution/sou-suo-er-wei-ju-zhen-ii-by-leetcode-so-9hcx/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+*/
+var fC = func(matrix [][]int, target int) bool {
+	m, n := len(matrix), len(matrix[0])
+	x, y := 0, n-1
+	for x < m && y >= 0 {
+		if matrix[x][y] == target {
+			return true
+		}
+		if matrix[x][y] > target {
+			y--
+		} else {
+			x++
+		}
+	}
+	return false
+}
 
+func TestSearch(t *testing.T) {
+	/* 	   1 2  3
+		   4 5  6
+		   7 8  9
+	       find target  4  按照f-c
+		   0-3 0-2
+		       1-2 1-1
+	*/
+	f := fC // 搜索逻辑代码
 	ts := []struct {
 		data   [][]int
 		target int
