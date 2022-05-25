@@ -92,7 +92,7 @@ func TestSearch(t *testing.T) {
 	/* 	   1 2  3
 		   4 5  6
 		   7 8  9
-	       find target  4  按照f-c
+	       find target  4  按照fC方案
 		   0-3 0-2
 		       1-2 1-1
 	*/
