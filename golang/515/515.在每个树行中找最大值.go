@@ -55,12 +55,12 @@
  *     Right *TreeNode
  * }
  */
+//TODO  提交时还不能带package包
 package jzoffer
 
 import (
 	"container/list"
-
-	"github.com/yiGmMk/leetcode/golang/util"
+	"math"
 )
 
 func Max(a, b int) int {
@@ -70,31 +70,32 @@ func Max(a, b int) int {
 	return b
 }
 
-type TreeNode util.TreeNode
-
 func largestValues(root *TreeNode) []int {
 	out := []int{}
 	if root == nil {
 		return out
 	}
 	level := list.New()
-	for n := level.Len(); n > 0; {
-		max := level.Front().Value.(*TreeNode).Val
-		for i := 0; i < n; i++ {
-			val := level.Front()
+	level.PushBack(root)
+	for level.Len() > 0 {
+		nl := level.Len()
+		max := math.MinInt32
+		for i := 0; i < nl; i++ {
+			node := level.Front()
+			level.Remove(node)
+			val := node.Value.(*TreeNode)
 			if val == nil {
 				continue
 			}
-			max = Max(max, val.Value.(*TreeNode).Val)
-			left := val.Value.(*TreeNode).Left
+			max = Max(max, val.Val)
+			left := val.Left
 			if left != nil {
 				level.PushBack(left)
 			}
-			right := val.Value.(*TreeNode).Right
+			right := val.Right
 			if right != nil {
 				level.PushBack(right)
 			}
-			level.Remove(val)
 		}
 		out = append(out, max)
 	}
