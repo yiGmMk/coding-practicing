@@ -56,7 +56,7 @@
  * }
  */
 //TODO  提交时还不能带package包
-package jzoffer
+//package jzoffer
 
 import (
 	"container/list"
@@ -70,7 +70,8 @@ func Max(a, b int) int {
 	return b
 }
 
-func largestValues(root *TreeNode) []int {
+// 使用go的list实现
+func largestValuesUsingList(root *TreeNode) []int {
 	out := []int{}
 	if root == nil {
 		return out
@@ -98,6 +99,38 @@ func largestValues(root *TreeNode) []int {
 			}
 		}
 		out = append(out, max)
+	}
+	return out
+}
+
+// 使用切片实现
+func largestValues(root *TreeNode) []int {
+	out := []int{}
+	if root == nil {
+		return out
+	}
+	level := []*TreeNode{root}
+	levelNum := len(level)
+	for levelNum > 0 {
+		max := math.MinInt32
+		for i := 0; i < levelNum; i++ {
+			node := level[0]
+			level = level[1:]
+			if node == nil {
+				continue
+			}
+			if node.Val > max {
+				max = node.Val
+			}
+			if node.Left != nil {
+				level = append(level, node.Left)
+			}
+			if node.Right != nil {
+				level = append(level, node.Right)
+			}
+		}
+		out = append(out, max)
+		levelNum = len(level)
 	}
 	return out
 }

@@ -46,9 +46,35 @@ var fFix = func(root *TreeNode) []int {
 	return out
 }
 
+// 使用切片实现
 var fFixUsingSlice = func(root *TreeNode) []int {
 	out := []int{}
-
+	if root == nil {
+		return out
+	}
+	level := []*TreeNode{root}
+	levelNum := len(level)
+	for levelNum > 0 {
+		max := math.MinInt32
+		for i := 0; i < levelNum; i++ {
+			node := level[0]
+			level = level[1:]
+			if node == nil {
+				continue
+			}
+			if node.Val > max {
+				max = node.Val
+			}
+			if node.Left != nil {
+				level = append(level, node.Left)
+			}
+			if node.Right != nil {
+				level = append(level, node.Right)
+			}
+		}
+		out = append(out, max)
+		levelNum = len(level)
+	}
 	return out
 }
 
@@ -61,7 +87,7 @@ func Test515(t *testing.T) {
 		{[]string{"1", "3", "2", "5", "3", "null", "9"}, []int{1, 3, 9}},
 	}
 
-	f := fFix
+	f := fFixUsingSlice
 	for _, v := range ts {
 		tree, err := util.NewFromArray(v.node)
 		if err != nil {
