@@ -61,7 +61,7 @@
  */
 
 // top k的问题首先应该想到用堆解决
-//package jzoffer
+package jzoffer
 
 import "container/heap"
 
@@ -99,7 +99,11 @@ func (h HP) Swap(i, j int)       { h.data[i], h.data[j] = h.data[j], h.data[i] }
 func (h *HP) Push(v interface{}) { h.data = append(h.data, v.(pair)) }
 func (h *HP) Pop() interface{}   { a := h.data; v := a[len(a)-1]; h.data = a[:len(a)-1]; return v }
 
-// 小顶堆
+// --------------------------大顶堆---------------------------------------------
+/* 维护一个大顶堆,堆顶是最大元素,保存最小的k个元素,
+   堆顶是最大(当有k个元素后,出现比堆顶小的元素时将堆顶元素删除,再插入新的元素)
+   => 保证堆内是最小的k个元素
+*/
 var _ heap.Interface = &minHeap{}
 
 type node struct {
@@ -129,7 +133,7 @@ func kSmallestPairs(nums1 []int, nums2 []int, k int) [][]int {
 			if h.Len() < k {
 				heap.Push(&h, node{x: nums1[i], y: nums2[j], sum: nums1[i] + nums2[j]})
 			} else if nums1[i]+nums2[j] <= h.data[0].sum {
-				heap.Pop(&h) //为什么不是 heap.Pop(&h) => 小顶堆,Pop最小的那个即堆顶元素
+				heap.Pop(&h) //删除堆顶元素
 				heap.Push(&h, node{x: nums1[i], y: nums2[j], sum: nums1[i] + nums2[j]})
 				heap.Fix(&h, h.Len()-1)
 			}
