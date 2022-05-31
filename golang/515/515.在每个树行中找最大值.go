@@ -56,7 +56,7 @@
  * }
  */
 //TODO  提交时还不能带package包
-//package jzoffer
+package jzoffer
 
 import (
 	"container/list"
