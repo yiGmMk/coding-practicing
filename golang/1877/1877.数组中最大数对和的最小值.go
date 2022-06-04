@@ -3,6 +3,13 @@
  *
  * [1877] 数组中最大数对和的最小值
  */
+package main
+
+import (
+	"fmt"
+	"math"
+	"sort"
+)
 
 // @lc code=start
 func minPairSum(nums []int) int {
@@ -22,4 +29,3 @@ func minPairSum(nums []int) int {
 }
 
 // @lc code=end
-
