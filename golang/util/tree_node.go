@@ -51,12 +51,14 @@ func NewFromArray(strArray []string) (*TreeNode, error) {
 		}
 		nodes[id] = node
 		if id == 0 {
-
 			continue
 		}
 		index := id + 1
-		if !(index/2 >= 0 && index/2 < len(nodes)) {
+		if !(index/2 >= 0 && index/2 <= len(nodes)) {
 			return nil, fmt.Errorf("index out of range")
+		}
+		if nodes[(index/2)-1] == nil {
+			continue
 		}
 		if index%2 == 0 {
 			nodes[(index/2)-1].Left = node
