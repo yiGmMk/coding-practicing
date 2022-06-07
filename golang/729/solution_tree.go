@@ -30,6 +30,12 @@ func Constructor2() *MyCalendar2 {
 	}
 }
 
+/*
+			 min   max
+               -2 -1
+                   10 20
+				0 10  20 30
+*/
 func (m *MyCalendar2) Book(start, end int) bool {
 	cur := m.root
 	for {
