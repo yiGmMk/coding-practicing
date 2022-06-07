@@ -53,7 +53,7 @@ func TestCases(t *testing.T) {
 	}
 	var handdler Handler
 	for _, tt := range ts {
-		handdler = Constructor1()
+		handdler = Constructor2()
 		for _, n := range tt.nodes {
 			if handdler.Book(n.val.start, n.val.end) != n.res {
 				t.Errorf("error,node:%+v", n)

@@ -60,100 +60,43 @@
 //
 package jzoffer
 
-import (
-	"log"
-	"math"
-)
-
-type Node struct {
-	prev, next *Node
-	start, end int
+type MyCalendar struct {
+	root *node
 }
 
-// @lc code=start
-type MyCalendar struct {
-	head, tail *Node
-	nsMap      map[int]*Node
+type node struct {
+	min, max    int
+	left, right *node
 }
 
 func Constructor() MyCalendar {
-
-	return MyCalendar{nsMap: make(map[int]*Node)}
+	return MyCalendar{
+		root: &node{
+			min: -2,
+			max: -1,
+		},
+	}
 }
 
-func (this *MyCalendar) Book(start int, end int) bool {
-	if len(this.nsMap) == 0 {
-		node := &Node{start: start, end: end}
-		this.nsMap[start/100] = node
-		this.head = node
-		this.tail = node
-		return true
-	}
-	if this.head.start > end {
-		node := &Node{start: start, end: end}
-		this.nsMap[start/100] = node
-		tmp := this.head
-		this.head = node
-		this.head.next = tmp
-		tmp.prev = this.head
-		return true
-	}
-	if this.tail.end < start {
-		node := &Node{start: start, end: end}
-		this.nsMap[start/100] = node
-		tmp := this.tail
-		this.tail = node
-		this.head.prev = tmp
-		tmp.next = this.head
-		return true
-	}
-	modStart := start / 100
-	modeEnd := end / 100
-
-	var sNode, eNode *Node
-	sK, eK := math.MinInt32, math.MaxInt32
-	for k, v := range this.nsMap {
-		if k <= modStart && k > sK {
-			sNode = v
-			sK = k
-		}
-		if k >= modeEnd && k < eK {
-			eNode = v
-			eK = k
-		}
-	}
-	if sNode == nil && eNode == nil {
-		log.Println("sNode == nil && eNode == nil")
-		return false
-	}
-
-	for sNode != nil {
-		if sNode.start < start && sNode.end <= start && (sNode.next == nil || (sNode.next != nil && sNode.start > start && sNode.next.start > end)) {
-			node := &Node{start: start, end: end, prev: sNode, next: sNode.next}
-			this.nsMap[start/100] = node
-			tmp := sNode.next
-			sNode.next = node
-			if tmp != nil {
-				tmp.prev = node
+func (m *MyCalendar) Book(start, end int) bool {
+	cur := m.root
+	for {
+		if cur.min >= end {
+			if cur.left == nil {
+				cur.left = &node{min: start, max: end}
+				return true
 			}
-			return true
-		}
-		sNode = sNode.next
-	}
-	for eNode != nil {
-		if eNode.start < start && eNode.end <= start && (eNode.next == nil || (eNode.next != nil && eNode.start > start && eNode.next.start > end)) {
-			node := &Node{start: start, end: end, prev: sNode, next: sNode.next}
-			this.nsMap[start/100] = node
-			tmp := sNode.next
-			sNode.next = node
-			if tmp != nil {
-				tmp.prev = node
+			cur = cur.left
+		} else if cur.max <= start {
+			if cur.right == nil {
+				cur.right = &node{min: start, max: end}
+				return true
 			}
-			return true
+			cur = cur.right
+		} else {
+			return false
 		}
-		eNode = eNode.next
 	}
-	return false
 }
 
 /**
