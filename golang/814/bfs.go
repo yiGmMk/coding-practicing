@@ -13,9 +13,11 @@ func fBFS(root *TreeNode) *TreeNode {
 		return root
 	}
 	queue := []*WithParent{{Node: root, Parent: nil}}
+	levels := [][]*WithParent{}
 	qL := len(queue)
 	for qL > 0 {
 		n := len(queue)
+		level := []*WithParent{}
 		for i := 0; i < n; i++ {
 			node := queue[0]
 			queue = queue[1:]
@@ -25,15 +27,24 @@ func fBFS(root *TreeNode) *TreeNode {
 			if node.Node.Right != nil {
 				queue = append(queue, &WithParent{Node: node.Node.Right, Parent: node.Node})
 			}
-			if node.Node.Left == nil && node.Node.Right == nil && node.Node.Val == 0 {
-				if node.left {
-					node.Parent.Left = nil
+			level = append(level, node)
+		}
+		qL = len(queue)
+		levels = append(levels, level)
+	}
+	for i := len(levels) - 1; i >= 0; i-- {
+		for _, n := range levels[i] {
+			if n.Node.Left == nil && n.Node.Right == nil && n.Node.Val == 0 {
+				if n.Parent == nil {
+					return nil // 没有parent的是root,root也符合条件直接返回nil
+				}
+				if n.left {
+					n.Parent.Left = nil
 				} else {
-					node.Parent.Right = nil
+					n.Parent.Right = nil
 				}
 			}
 		}
-		qL = len(queue)
 	}
 	return root
 }
