@@ -34,3 +34,16 @@ func TestDfs(t *testing.T) {
 		}
 	}
 }
+
+func TestBfsLeetcode(t *testing.T) {
+	var cc BTreeCodec
+	cc = &BfsLeetcode{}
+	for _, tc := range ts {
+		in := strings.Join(tc, ",")
+		root := cc.Deserialize(in)
+		res := cc.Serialize(root)
+		if in != res {
+			t.Errorf("in: %v, res: %v not equal", in, res)
+		}
+	}
+}
