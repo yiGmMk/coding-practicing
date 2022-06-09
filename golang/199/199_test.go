@@ -26,10 +26,7 @@ func TestSolution(t *testing.T) {
 		},
 	}
 	for _, tc := range ts {
-		root, err := util.NewFromArray(tc.tree)
-		if err != nil {
-			t.Errorf("生成tree失败,输入参数:%s", tc.tree)
-		}
+		root := util.Strs2TreeNode(tc.tree)
 		res := fBFS(root)
 		if !reflect.DeepEqual(res, tc.res) {
 			t.Errorf("error,case:%+v,res:%+v", tc, res)

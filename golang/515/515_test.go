@@ -89,11 +89,7 @@ func Test515(t *testing.T) {
 
 	f := fFixUsingSlice
 	for _, v := range ts {
-		tree, err := util.NewFromArray(v.node)
-		if err != nil {
-			t.Error(err)
-			continue
-		}
+		tree := util.Strs2TreeNode(v.node)
 		root := (*TreeNode)(tree)
 		res := f(root)
 		if !reflect.DeepEqual(res, v.max) {

@@ -37,8 +37,15 @@ func (t *TreeNode) AddRight(node *TreeNode) {
       5_4  3_5   9_7
 为[1,3,2,5,3,null,9]    i*2 i*2+1
    0,1,2,3,4, 5,  6
+由于有["1", "2", "3", "null", "null", "4", "5", "6", "7"],这种情况,下面的方法要优化,同层次中有null节点且在array中不体现的
+无法构建成树
+    1
+2        3
+     4      5
+   6   7
+TODO: ! 层序数组(leetcode格式的)
 */
-func NewFromArray(strArray []string) (*TreeNode, error) {
+func NewFromArrayNotWithLeetcode(strArray []string) (*TreeNode, error) {
 	if len(strArray) == 0 {
 		return nil, nil
 	}
@@ -72,6 +79,37 @@ func NewFromArray(strArray []string) (*TreeNode, error) {
 	return nil, nil
 }
 
+// 字符串数组转二叉树
+// references:git@github.com:halfrost/LeetCode-Go.git
+func Strs2TreeNode(strs []string) *TreeNode {
+	n := len(strs)
+	if n == 0 {
+		return nil
+	}
+	root, _ := NewNodeFromString(strs[0])
+	queue := make([]*TreeNode, 1, n*2)
+	queue[0] = root
+	i := 1
+	for i < n {
+		node := queue[0]
+		queue = queue[1:]
+		if i < n && strs[i] != NullNode {
+			left, _ := NewNodeFromString(strs[i])
+			node.Left = left
+			queue = append(queue, left)
+		}
+		i++
+		if i < n && strs[i] != NullNode {
+			right, _ := NewNodeFromString(strs[i])
+			node.Right = right
+			queue = append(queue, right)
+		}
+		i++
+	}
+	return root
+}
+
+// 字符串转二叉树节点
 func NewNodeFromString(str string) (*TreeNode, error) {
 	if str == NullNode {
 		return nil, nil
@@ -151,15 +189,42 @@ func TreeSource(root *TreeNode) []string {
 			}
 			out = append(out, strconv.Itoa(nVal.Val))
 
-			// 叶子节点不要加null了,不然多一层null,无意义
-			if nVal.Left == nil && nVal.Right == nil {
-				continue
-			}
 			// 不同时为空,左右子节点必定是要加入的,不管是有值还是nil
 			nodeList.PushBack(nVal.Left)
 			nodeList.PushBack(nVal.Right)
 		}
 	}
+	// 去除最后一层的NullNode
+	i := len(out)
+	for i > 0 && out[i-1] == NullNode {
+		i--
+	}
+	return out[:i]
+}
 
-	return out
+// 二叉树,转leetcode格式的层序数组,按行还原
+func Tree2Strs(root *TreeNode) []string {
+	out := []string{}
+	if root == nil {
+		return out
+	}
+	queue := []*TreeNode{root}
+	for len(queue) > 0 {
+		size := len(queue)
+		for i := 0; i < size; i++ {
+			node := queue[i]
+			if node == nil {
+				out = append(out, NullNode)
+				continue
+			}
+			queue = append(queue, node.Left, node.Right)
+			out = append(out, strconv.Itoa(node.Val))
+		}
+		queue = queue[size:]
+	}
+	i := len(out)
+	for i > 0 && out[i-1] == NullNode {
+		i--
+	}
+	return out[:i]
 }
