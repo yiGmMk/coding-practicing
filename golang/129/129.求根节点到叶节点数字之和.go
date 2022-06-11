@@ -84,6 +84,7 @@ func sumNumbers(root *TreeNode) int {
 	res = dfs(root, 0)
 	return res
 }
+
 func dfs(root *TreeNode, num int) int {
 	if root == nil {
 		return 0
@@ -99,6 +100,25 @@ func dfs(root *TreeNode, num int) int {
 		return dfs(root.Left, num)
 	}
 	return dfs(root.Right, num)
+}
+
+//
+func sumNumbers2(root *TreeNode) int {
+	res := 0
+	res = dfs2(root, 0)
+	return res
+}
+
+func dfs2(root *TreeNode, num int) int {
+	if root == nil {
+		return 0
+	}
+	num = num*10 + root.Val
+	if root.Left == nil && root.Right == nil {
+		return num
+	}
+
+	return dfs2(root.Left, num) + dfs2(root.Right, num)
 }
 
 // @lc code=end

@@ -36,3 +36,17 @@ func Test129(t *testing.T) {
 		}
 	}
 }
+
+func Test129_2(t *testing.T) {
+	for _, tc := range ts {
+		tree := util.Strs2TreeNode(tc.tree)
+		if tree == nil && len(tc.tree) != 0 {
+			continue
+		}
+
+		res := sumNumbers2(tree)
+		if res != tc.res {
+			t.Errorf("sumNumbers(%v) = %v, want %v", tc.tree, res, tc.res)
+		}
+	}
+}
