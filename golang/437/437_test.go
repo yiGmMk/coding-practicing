@@ -27,6 +27,27 @@ func pathSum(root *TreeNode, targetSum int) (ans int) {
 	return
 }
 
-func Test437(t *testing.T) {
+type TestCase struct {
+	tree   []string
+	res    int
+	target int
+}
 
+func Test437(t *testing.T) {
+	ts := []TestCase{
+		{
+			tree:   []string{"10", "5", "-3", "3", "2", "null", "11", "3", "-2", "null", "1"},
+			target: 8,
+			res:    3,
+		},
+	}
+
+	fFix := pathSum
+	for _, tc := range ts {
+		root := util.Strs2TreeNode(tc.tree)
+		res := fFix(root, tc.target)
+		if res != tc.res {
+			t.Errorf("expected: %v, got: %v", tc.res, res)
+		}
+	}
 }
