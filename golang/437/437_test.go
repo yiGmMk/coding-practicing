@@ -21,7 +21,6 @@ func pathSum(root *TreeNode, targetSum int) (ans int) {
 		dfs(node.Left, curr)
 		dfs(node.Right, curr)
 		preSum[curr]--
-		return
 	}
 	dfs(root, 0)
 	return
