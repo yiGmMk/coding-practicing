@@ -36,6 +36,14 @@ type TestCase struct {
 func Test437(t *testing.T) {
 	ts := []TestCase{
 		{
+			/*     10
+			 *     /  \
+			 *    5   -3
+			 *   / \   \
+			 *  3   2   11
+			 * / \   \
+			 * 3  -2   1
+			 */
 			tree:   []string{"10", "5", "-3", "3", "2", "null", "11", "3", "-2", "null", "1"},
 			target: 8,
 			res:    3,
