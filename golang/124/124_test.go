@@ -25,6 +25,11 @@ func Test124(t *testing.T) {
 		if res != tc.res {
 			t.Errorf("expected: %v, got: %v", tc.res, res)
 		}
+
+		res = maxPathSum(root)
+		if res != tc.res {
+			t.Errorf("expected: %v, got: %v", tc.res, res)
+		}
 	}
 }
 
