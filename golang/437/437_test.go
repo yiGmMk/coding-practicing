@@ -8,7 +8,7 @@ import (
 
 type TreeNode = util.TreeNode
 
-func pathSum(root *TreeNode, targetSum int) (ans int) {
+func pathSum01(root *TreeNode, targetSum int) (ans int) {
 	preSum := map[int64]int{0: 1}
 	var dfs func(*TreeNode, int64)
 	dfs = func(node *TreeNode, curr int64) {
