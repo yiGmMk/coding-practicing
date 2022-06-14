@@ -9,10 +9,6 @@ import (
 	"github.com/yiGmMk/leetcode/golang/util"
 )
 
-// Definition for a binary tree node.
-
-type TreeNode = util.TreeNode
-
 // 从上往下,层序遍历数,每层计算最大值,加入数据
 var fFix = func(root *TreeNode) []int {
 	out := []int{}

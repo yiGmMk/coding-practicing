@@ -61,6 +61,8 @@ package jzoffer
 import (
 	"container/list"
 	"math"
+
+	"github.com/yiGmMk/leetcode/golang/util"
 )
 
 func Max(a, b int) int {
@@ -69,6 +71,9 @@ func Max(a, b int) int {
 	}
 	return b
 }
+
+// Definition for a binary tree node.
+type TreeNode = util.TreeNode
 
 // 使用go的list实现
 func largestValuesUsingList(root *TreeNode) []int {
