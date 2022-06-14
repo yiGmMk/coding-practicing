@@ -75,9 +75,5 @@
 
 package jzoffer
 
-func pruneTree(root *TreeNode) *TreeNode {
-
-	return root
-}
 
 // @lc code=end

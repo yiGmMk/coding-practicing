@@ -68,25 +68,6 @@
 //
 package jzoffer
 
-type Node struct {
-	head, tail *Node
-	start, end int
-}
-
-// @lc code=start
-type MyCalendar struct {
-	nsMap map[int]*Node
-}
-
-func Constructor() MyCalendar {
-
-	return MyCalendar{}
-}
-
-func (this *MyCalendar) Book(start int, end int) bool {
-
-	return false
-}
 
 /**
  * Your MyCalendar object will be instantiated and called as such:

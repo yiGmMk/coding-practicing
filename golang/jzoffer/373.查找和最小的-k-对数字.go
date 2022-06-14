@@ -71,7 +71,6 @@
 // top k的问题首先应该想到用堆解决
 package jzoffer
 
-import "container/heap"
 
 // import "container/heap"
 
@@ -91,75 +90,5 @@ import "container/heap"
 // 	}
 // 	return
 // }
-
-type pair struct{ i, j int }
-type HP struct {
-	data         []pair
-	nums1, nums2 []int
-}
-
-func (h HP) Len() int { return len(h.data) }
-func (h HP) Less(i, j int) bool {
-	a, b := h.data[i], h.data[j]
-	return h.nums1[a.i]+h.nums2[a.j] < h.nums1[b.i]+h.nums2[b.j]
-}
-func (h HP) Swap(i, j int)       { h.data[i], h.data[j] = h.data[j], h.data[i] }
-func (h *HP) Push(v interface{}) { h.data = append(h.data, v.(pair)) }
-func (h *HP) Pop() interface{}   { a := h.data; v := a[len(a)-1]; h.data = a[:len(a)-1]; return v }
-
-// --------------------------大顶堆---------------------------------------------
-/* 维护一个大顶堆,堆顶是最大元素,保存最小的k个元素,
-   堆顶是最大(当有k个元素后,出现比堆顶小的元素时将堆顶元素删除,再插入新的元素)
-   => 保证堆内是最小的k个元素
-*/
-var _ heap.Interface = &maxHeap{}
-
-type node struct {
-	x, y, sum int
-}
-
-// 堆的实现
-type maxHeap struct {
-	data []node
-}
-
-func (h maxHeap) Len() int            { return len(h.data) }
-func (h maxHeap) Less(i, j int) bool  { return h.data[i].sum > h.data[j].sum }
-func (h maxHeap) Swap(i, j int)       { h.data[i], h.data[j] = h.data[j], h.data[i] }
-func (h *maxHeap) Push(x interface{}) { h.data = append(h.data, x.(node)) }
-
-// 移除堆顶元素,这里是最大元素
-func (h *maxHeap) Pop() interface{} {
-	x := h.data[h.Len()-1]
-	h.data = h.data[:h.Len()-1]
-	return x
-}
-
-func (h *maxHeap) Top() (int, bool) {
-	if h.Len() == 0 {
-		return 0, false
-	}
-	return h.data[0].sum, true
-}
-
-func kSmallestPairs(nums1 []int, nums2 []int, k int) [][]int {
-	out := [][]int{}
-	h := maxHeap{}
-	for i := 0; i < len(nums1) && i < k; i++ {
-		for j := 0; j < len(nums2) && j < k; j++ {
-			if h.Len() < k {
-				heap.Push(&h, node{x: nums1[i], y: nums2[j], sum: nums1[i] + nums2[j]})
-			} else if nums1[i]+nums2[j] <= h.data[0].sum {
-				heap.Pop(&h) //删除堆顶元素
-				heap.Push(&h, node{x: nums1[i], y: nums2[j], sum: nums1[i] + nums2[j]})
-			}
-		}
-	}
-	for h.Len() > 0 && len(out) < k {
-		n := heap.Pop(&h).(node)
-		out = append(out, []int{n.x, n.y})
-	}
-	return out
-}
 
 // @lc code=end

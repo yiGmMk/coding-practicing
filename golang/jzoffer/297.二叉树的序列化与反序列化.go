@@ -74,22 +74,22 @@
  */
 package jzoffer
 
-type Codec struct {
-}
+// type Codec struct {
+// }
 
-func Constructor() Codec {
+// func Constructor() Codec {
+// return Codec{}
+// }
 
-}
+// // Serializes a tree to a single string.
+// func (this *Codec) serialize(root *TreeNode) string {
+// return ""
+// }
 
-// Serializes a tree to a single string.
-func (this *Codec) serialize(root *TreeNode) string {
-
-}
-
-// Deserializes your encoded data to tree.
-func (this *Codec) deserialize(data string) *TreeNode {
-
-}
+// // Deserializes your encoded data to tree.
+// func (this *Codec) deserialize(data string) *TreeNode {
+// return &TreeNode{}
+// }
 
 /**
  * Your Codec object will be instantiated and called as such:

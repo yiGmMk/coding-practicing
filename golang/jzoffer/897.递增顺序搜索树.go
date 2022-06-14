@@ -63,8 +63,5 @@
 
 package jzoffer
 
-func increasingBST(root *TreeNode) *TreeNode {
-
-}
 
 // @lc code=end

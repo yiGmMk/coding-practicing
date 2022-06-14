@@ -69,40 +69,40 @@
  * }
  */
 
-package jzoffer
+ package jzoffer
 
-import "github.com/yiGmMk/leetcode/golang/util"
+// import "github.com/yiGmMk/leetcode/golang/util"
 
-type TreeNode = util.TreeNode
+// type TreeNode = util.TreeNode
 
-func rightSideView(root *TreeNode) []int {
-	out := []int{}
-	if root == nil {
-		return out
-	}
-	queue := []*TreeNode{root}
-	qL := len(queue)
-	for qL > 0 {
-		n := len(queue)
-		for i := 0; i < n; i++ {
-			node := queue[0]
-			queue = queue[1:]
-			if node == nil {
-				continue
-			}
-			if i == n-1 {
-				out = append(out, node.Val)
-			}
-			if node.Left != nil {
-				queue = append(queue, node.Left)
-			}
-			if node.Right != nil {
-				queue = append(queue, node.Right)
-			}
-		}
-		qL = len(queue)
-	}
-	return out
-}
+// func rightSideView(root *TreeNode) []int {
+// 	out := []int{}
+// 	if root == nil {
+// 		return out
+// 	}
+// 	queue := []*TreeNode{root}
+// 	qL := len(queue)
+// 	for qL > 0 {
+// 		n := len(queue)
+// 		for i := 0; i < n; i++ {
+// 			node := queue[0]
+// 			queue = queue[1:]
+// 			if node == nil {
+// 				continue
+// 			}
+// 			if i == n-1 {
+// 				out = append(out, node.Val)
+// 			}
+// 			if node.Left != nil {
+// 				queue = append(queue, node.Left)
+// 			}
+// 			if node.Right != nil {
+// 				queue = append(queue, node.Right)
+// 			}
+// 		}
+// 		qL = len(queue)
+// 	}
+// 	return out
+// }
 
 // @lc code=end
