@@ -6,8 +6,6 @@ import (
 	"github.com/yiGmMk/leetcode/golang/util"
 )
 
-type TreeNode = util.TreeNode
-
 func pathSum01(root *TreeNode, targetSum int) (ans int) {
 	preSum := map[int64]int{0: 1}
 	var dfs func(*TreeNode, int64)
