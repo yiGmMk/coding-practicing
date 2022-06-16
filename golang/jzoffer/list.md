@@ -1,0 +1,62 @@
+# jzoffer list
+
+  all,pattern(index in jzoffer,index in leetcode)
+
+- 剑指 Offer II 001 两数之和
+- 剑指 Offer II 002 两数相加
+- 剑指 Offer II 003 无重复字符的最长子串
+- 剑指 Offer II 004 寻找两个正序数组的中位数
+- 剑指 Offer II 005 最长回文子串
+- 剑指 Offer II 006 Z 字形变换
+- 剑指 Offer II 005 单词长度的最大乘积
+- 剑指 Offer II 006 排序数组中两个数字之和
+- 剑指 Offer II 007 数组中和为 0 的三个数
+- 剑指 Offer II 008 和大于等于 target 的最短子数组
+- 剑指 Offer II 009 乘积小于 K 的子数组
+- 剑指 Offer II 010 和为 k 的子数组
+- 剑指 Offer II 011 0 和 1 个数相同的子数组
+- 剑指 Offer II 012 左右两边子数组的和相等
+- 剑指 Offer II 013 二维子矩阵的和
+- 剑指 Offer II 014 字符串中的变位词
+- 剑指 Offer II 015 字符串中的所有变位词
+- 剑指 Offer II 016 不含重复字符的最长子字符串
+- 剑指 Offer II 017 含有所有字符的最短字符串
+- 剑指 Offer II 018 有效的回文
+- 剑指 Offer II 019 最多删除一个字符得到回文
+- 剑指 Offer II 020 回文子字符串的个数
+- 剑指 Offer II 021 删除链表的倒数第 n 个结点
+- 剑指 Offer II 022 链表中环的入口节点
+- 剑指 Offer II 023 两个链表的第一个重合节点
+- 剑指 Offer II 024 反转链表
+- 剑指 Offer II 025 链表中的两数相加
+- 剑指 Offer II 026 重排链表
+- 剑指 Offer II 027 回文链表
+- 剑指 Offer II 028 展平多级双向链表
+- 剑指 Offer II 029 排序的循环链表
+- 剑指 Offer II 030 插入、删除和随机访问都是 O(1) 的容器
+- 剑指 Offer II 031 最近最少使用缓存
+- 剑指 Offer II 032 有效的变位词
+- 剑指 Offer II 033 变位词组
+- 剑指 Offer II 034 外星语言是否排序
+- 剑指 Offer II 035 最小时间差
+- 剑指 Offer II 036 后缀表达式
+- 剑指 Offer II 037 小行星碰撞
+- 剑指 Offer II 038 每日温度
+- 剑指 Offer II 039 直方图最大矩形面积
+- 剑指 Offer II 040 矩阵中最大的矩形
+- 剑指 Offer II 041 滑动窗口的平均值
+- 剑指 Offer II 042 最近请求次数
+- 剑指 Offer II 043 往完全二叉树添加节点
+- 剑指 Offer II 044 二叉树每层的最大值
+- 剑指 Offer II 045 二叉树最底层最左边的值
+- 剑指 Offer II 046 二叉树的右侧视图
+- 剑指 Offer II 047 二叉树剪枝
+- 剑指 Offer II 048 序列化与反序列化二叉树
+- 剑指 Offer II 049 从根节点到叶节点的路径数字之和
+- 剑指 Offer II 050 向下的路径节点之和
+- 剑指 Offer II 051 节点之和最大的路径
+- 剑指 Offer II 052 展平二叉搜索树
+- 剑指 Offer II 053 二叉搜索树中的中序后继
+- 剑指 Offer II 054 所有大于等于节点的值之和
+
+## 按tag查看
