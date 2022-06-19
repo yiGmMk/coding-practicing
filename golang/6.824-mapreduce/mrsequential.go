@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"hash/fnv"
 	"io/ioutil"
 	"log"
 	"os"
@@ -62,7 +63,7 @@ func mapReduce(files []string) {
 
 	sort.Sort(ByKey(intermediate))
 
-	oname := "mr-out-0"
+	oname := "mr-out-correct"
 	ofile, _ := os.Create(oname)
 
 	//
@@ -111,4 +112,14 @@ func loadPlugin(filename string) (func(string, string) []KeyValue, func(string, 
 	reducef := xreducef.(func(string, []string) string)
 
 	return mapf, reducef
+}
+
+//
+// use ihash(key) % NReduce to choose the reduce
+// task number for each KeyValue emitted by Map.
+//
+func ihash(key string) int {
+	h := fnv.New32a()
+	h.Write([]byte(key))
+	return int(h.Sum32() & 0x7fffffff)
 }
