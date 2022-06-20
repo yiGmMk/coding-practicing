@@ -5,6 +5,7 @@ go 1.18
 require (
 	github.com/duke-git/lancet/v2 v2.0.7
 	github.com/emirpasic/gods v1.18.1
+	github.com/go-playground/assert/v2 v2.0.1
 	github.com/go-resty/resty/v2 v2.7.0
 	github.com/mackerelio/go-osstat v0.2.2
 	github.com/samber/lo v1.21.0
