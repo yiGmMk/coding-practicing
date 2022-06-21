@@ -9,6 +9,7 @@ require (
 	github.com/go-resty/resty/v2 v2.7.0
 	github.com/mackerelio/go-osstat v0.2.2
 	github.com/samber/lo v1.21.0
+	github.com/sergi/go-diff v1.2.0
 	github.com/smartystreets/goconvey v1.7.2
 	github.com/spf13/cobra v1.4.0
 	github.com/urfave/cli/v2 v2.8.1
