@@ -10,6 +10,18 @@ import (
 	"sort"
 )
 
+type KeyVal struct {
+	Key   string
+	Value int
+}
+
+type KeyValByKey []KeyVal
+
+// for sorting by key.
+func (a KeyValByKey) Len() int           { return len(a) }
+func (a KeyValByKey) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
+func (a KeyValByKey) Less(i, j int) bool { return a[i].Key < a[j].Key }
+
 type KeyValue struct {
 	Key   string
 	Value string
