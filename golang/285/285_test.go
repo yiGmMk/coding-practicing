@@ -27,7 +27,7 @@ func Test285(t *testing.T) {
 	for _, tc := range tcs {
 		root := util.Strs2TreeNode(tc.tree)
 		p := util.Strs2TreeNode([]string{tc.p})
-		res := inorderSuccessor(root, p)
+		res := inorderSuccessor3(root, p)
 		if res != nil && res.Val != tc.target.Val || (res != nil && tc.target == nil) {
 			t.Errorf("got %v, want %v", res, tc.target)
 		}
