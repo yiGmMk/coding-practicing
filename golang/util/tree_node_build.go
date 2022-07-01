@@ -2,7 +2,6 @@ package util
 
 import (
 	"container/list"
-	"fmt"
 	"strconv"
 )
 
@@ -26,57 +25,6 @@ func (t *TreeNode) AddLeft(node *TreeNode) {
 
 func (t *TreeNode) AddRight(node *TreeNode) {
 	t.Right = node
-}
-
-/*
-由数组构建二叉树,数组是程序遍历的二叉树
-如   	  1_1
-          / \
-        3_2   2_3
-        / \     \
-      5_4  3_5   9_7
-为[1,3,2,5,3,null,9]    i*2 i*2+1
-   0,1,2,3,4, 5,  6
-由于有["1", "2", "3", "null", "null", "4", "5", "6", "7"],这种情况,下面的方法要优化,同层次中有null节点且在array中不体现的
-无法构建成树
-    1
-2        3
-     4      5
-   6   7
-TODO: ! 层序数组(leetcode格式的)
-*/
-func NewFromArrayNotWithLeetcode(strArray []string) (*TreeNode, error) {
-	if len(strArray) == 0 {
-		return nil, nil
-	}
-	nodes := make([]*TreeNode, len(strArray))
-
-	for id, str := range strArray {
-		node, err := NewNodeFromString(str)
-		if err != nil {
-			return nil, err
-		}
-		nodes[id] = node
-		if id == 0 {
-			continue
-		}
-		index := id + 1
-		if !(index/2 >= 0 && index/2 <= len(nodes)) {
-			return nil, fmt.Errorf("index out of range")
-		}
-		if nodes[(index/2)-1] == nil {
-			continue
-		}
-		if index%2 == 0 {
-			nodes[(index/2)-1].Left = node
-		} else {
-			nodes[(index/2)-1].Right = node
-		}
-	}
-	if len(nodes) > 0 {
-		return nodes[0], nil
-	}
-	return nil, nil
 }
 
 // 字符串数组转二叉树
@@ -119,39 +67,6 @@ func NewNodeFromString(str string) (*TreeNode, error) {
 		return nil, err
 	}
 	return &TreeNode{Val: val}, nil
-}
-
-// 层序遍历二叉树,空的返回null
-// TODO has bug need fix
-func (t TreeNode) sourceToFix(root *TreeNode) []string {
-	out := []string{}
-	if root == nil {
-		return out
-	}
-	ns := []*TreeNode{root}
-	for l := len(ns); l > 0; { // 每次l都是1,不知道为什么
-		for _, v := range ns {
-			// 当前这一层的节点值
-			if v == nil {
-				out = append(out, NullNode)
-				continue
-			}
-			out = append(out, strconv.Itoa(v.Val))
-			// 下一层节点
-			if v.Left != nil {
-				ns = append(ns, v.Left)
-			} else {
-				ns = append(ns, nil)
-			}
-			if v.Right != nil {
-				ns = append(ns, v.Right)
-			} else {
-				ns = append(ns, nil)
-			}
-		}
-		ns = ns[l:]
-	}
-	return out
 }
 
 /*
