@@ -3,6 +3,7 @@ package util
 import (
 	"strconv"
 	"strings"
+	"unicode"
 )
 
 func Str2Int(strs []string) ([]int, error) {
@@ -27,6 +28,13 @@ func LeetcodeArrayStringToArray(array string) []string {
 	if array == "[]" {
 		return res
 	}
+	// 删除空格
+	array = strings.Map(func(r rune) rune {
+		if unicode.IsSpace(r) {
+			return -1
+		}
+		return r
+	}, array)
 	array = array[1 : len(array)-1]
 	res = strings.Split(array, ",")
 	return res
