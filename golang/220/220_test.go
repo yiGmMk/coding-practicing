@@ -1,6 +1,8 @@
 package jzoffer
 
-import "testing"
+import (
+	"testing"
+)
 
 var ts = []struct {
 	nums []int

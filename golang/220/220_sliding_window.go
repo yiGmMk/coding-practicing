@@ -30,3 +30,41 @@ public:
 来源：力扣（LeetCode）
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 */
+import (
+	"math"
+
+	"github.com/duke-git/lancet/v2/lancetconstraints"
+	"github.com/liyue201/gostl/ds/set"
+)
+
+func max[T lancetconstraints.Number](x T, y T) T {
+	if x > y {
+		return x
+	}
+	return y
+}
+
+func min[T lancetconstraints.Number](x T, y T) T {
+	if x < y {
+		return x
+	}
+	return y
+}
+
+func containsNearbyAlmostDuplicateSlidingWindow(nums []int, k int, t int) bool {
+	s := set.New(set.WithGoroutineSafe())
+	for i, v := range nums {
+		iter := s.LowerBound(max(v, math.MinInt+t) - t)
+		if iter != s.Last() &&
+			iter.IsValid() &&
+			iter.Value().(int) <= min(v, math.MaxInt-t)+t {
+			return true
+		}
+
+		s.Insert(v)
+		if i >= k {
+			s.Erase(nums[i-k])
+		}
+	}
+	return false
+}
