@@ -1,7 +1,6 @@
 package util
 
 import (
-	"container/list"
 	"fmt"
 	"testing"
 )
@@ -33,45 +32,74 @@ func TestDisplayTree(t *testing.T) {
 	for _, tc := range trees {
 		strs := LeetcodeArrayStringToArray(tc.tree)
 		root := Strs2TreeNode(strs)
-		// fmt.Println(tc.tree, "", root)
+		fmt.Println(tc.tree, "", root)
 
-		fmt.Println(PrintBinaryTree(root))
+		// 	fmt.Println(PrintBinaryTree(root))
 	}
 }
 
-func PrintBinaryTree(root *TreeNode) string {
-	if root == nil {
-		return ""
-	}
-	out := ""
-	nodeList := list.New()
-	nodeList.PushBack(root)
-	for nodeList.Len() > 0 {
-		nL := nodeList.Len()
-		curLevel := ""
-		next := ""
-		for i := 0; i < nL; i++ {
-			node := nodeList.Front().Value.(*TreeNode)
-			nodeList.Remove(nodeList.Front())
-			if node == nil {
-				continue
-			}
+// func PrintBinaryTree(root *TreeNode) string {
+// 	if root == nil {
+// 		return ""
+// 	}
+// 	out := ""
+// 	nodeList := list.New()
+// 	nodeList.PushBack(root)
+// 	levels := []*TreeNode{}
+// 	for nodeList.Len() > 0 {
+// 		nL := nodeList.Len()
+// 		for i := 0; i < nL; i++ {
+// 			node := nodeList.Front().Value.(*TreeNode)
+// 			nodeList.Remove(nodeList.Front())
+// 			if node == nil {
+// 				continue
+// 			}
+// 			if node.Left != nil {
+// 				nodeList.PushBack(node.Left)
+// 				next += "/" + " "
+// 			}
+// 			if node.Right != nil {
+// 				nodeList.PushBack(node.Right)
+// 				next += "\\" + " "
+// 			}
+// 		}
+// 		out += curLevel + "\n" + next + "\n"
+// 	}
+// 	return out
+// }
 
-			curLevel += fmt.Sprintf("%d", node.Val)
-			if node.Left != nil {
-				nodeList.PushBack(node.Left)
-				next += "/" + " "
-			} else {
-				next += " "
+/*
+可以分配a[2^d-1]={NULL} 数组，用dfs(node, m) 遍历，
+从 dfs(root, 1) 开始，
+填入a[m] = node，
+递归 dfs(node->left, m * 2);
+dfs(node->right, m * 2 + 1)。
+那么画顺序第 m 个节点及其向父的分支时，若 a[m] 非空则画出节点和分支，否则画空格。
+ 0
+1 2
+[0,"","",1,] len=2^3-1=7
+int main() {
+	int i, j, k, depth = 4;
+	for (j = 0; j < depth; j++) {
+		int w = 1 << (depth - j + 1);
+		if (j == 0)
+			printf("%*c\n", w, '_');
+		else {
+			for (i = 0; i < 1 << (j - 1); i++) {
+				printf("%*c", w + 1, ' ');
+				for (k = 0; k < w - 3; k++) printf("_");
+				printf("/ \");
+				for (k = 0; k < w - 3; k++) printf("_");
+				printf("%*c", w + 2, ' ');
 			}
-			if node.Right != nil {
-				nodeList.PushBack(node.Right)
-				next += "\\" + " "
-			} else {
-				next += " "
-			}
+			printf("\n");
+			for (i = 0; i < 1 << (j - 1); i++)
+				printf("%*c/%*c_%*c", w, '_', w * 2 - 2, '\', w, ' ');
+			printf("\n");
 		}
-		out += curLevel + "\n" + next + "\n"
+		for (i = 0; i < 1 << j; i++)
+			printf("%*c_)%*c", w - 1, '(', w - 1, ' ');
+		printf("\n");
 	}
-	return out
 }
+*/

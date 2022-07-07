@@ -9,6 +9,19 @@ import (
 	"github.com/emirpasic/gods/utils"
 )
 
+/*
+RedBlackTree
+│   ┌── 2
+└── 1
+
+RedBlackTree
+│           ┌── 6
+│       ┌── 5
+│   ┌── 4
+│   │   └── 3
+└── 2
+    └── 1
+*/
 func TestRedblackTree(t *testing.T) {
 	s := utils.ToString(struct{ L, R int }{L: 1, R: 2})
 	log.Println(s)
