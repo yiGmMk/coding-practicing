@@ -65,29 +65,24 @@ package jzoffer
 // @lc code=start
 type Trie struct {
 	isTail   bool
-	children []*Trie
+	children [26]*Trie
 }
 
 func Constructor() Trie {
-	out := Trie{
-		children: make([]*Trie, 26),
-	}
+	out := Trie{}
 	return out
 }
 
 func (this *Trie) Insert(word string) {
 	p := this
-	for id, v := range word {
-		if p.children[v-'a'] == nil {
-			p.children[v-'a'] = &Trie{
-				children: make([]*Trie, 26),
-			}
+	for _, v := range word {
+		ch := v - 'a'
+		if p.children[ch] == nil {
+			p.children[ch] = &Trie{}
 		}
-		p = p.children[v-'a']
-		if id == len(word)-1 {
-			p.isTail = true
-		}
+		p = p.children[ch]
 	}
+	p.isTail = true
 }
 
 func (this *Trie) Search(word string) bool {
