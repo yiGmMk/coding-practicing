@@ -36,6 +36,10 @@ func TestRedblackTree(t *testing.T) {
 	tree.Put(4, 4)
 	tree.Put(5, 5)
 	tree.Put(6, 6)
+	tree.Put(30, 3)
+	tree.Put(40, 4)
+	tree.Put(50, 5)
+	tree.Put(60, 6)
 
 	fmt.Println(tree)
 }

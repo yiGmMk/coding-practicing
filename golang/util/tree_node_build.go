@@ -3,6 +3,8 @@ package util
 import (
 	"container/list"
 	"strconv"
+
+	"github.com/duke-git/lancet/v2/lancetconstraints"
 )
 
 const (
@@ -142,4 +144,28 @@ func Tree2Strs(root *TreeNode) []string {
 		i--
 	}
 	return out[:i]
+}
+
+// 树的最大深度
+// return the max depth of a tree
+func (root *TreeNode) Depth() int {
+	if root == nil {
+		return 0
+	}
+	maximum := 0
+	if root.Left != nil {
+		maximum = Max(maximum, root.Left.Depth())
+	}
+	if root.Right != nil {
+		maximum = Max(maximum, root.Right.Depth())
+	}
+	return maximum + 1
+}
+
+// return max value
+func Max[T lancetconstraints.Number](a, b T) T {
+	if a > b {
+		return a
+	}
+	return b
 }

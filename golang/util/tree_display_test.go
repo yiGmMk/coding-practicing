@@ -2,6 +2,7 @@ package util
 
 import (
 	"fmt"
+	"strings"
 	"testing"
 )
 
@@ -9,11 +10,12 @@ var trees = []struct {
 	tree string
 }{
 	{
-		tree: "[0,2,1]",
-	},
-	{
 		tree: "[4,1,6,0,2,5,7,null,null,null,3,null,null,null,8]",
 	},
+	{
+		tree: "[0,2,1]",
+	},
+
 	{
 		tree: "[0,null,1]",
 	},
@@ -32,10 +34,35 @@ func TestDisplayTree(t *testing.T) {
 	for _, tc := range trees {
 		strs := LeetcodeArrayStringToArray(tc.tree)
 		root := Strs2TreeNode(strs)
-		fmt.Println(tc.tree, "", root)
 
-		// 	fmt.Println(PrintBinaryTree(root))
+		fmt.Println(printTree1(root))
+
+		fmt.Println(root.PrintHorizontally())
+		//d := root.Depth()
+		// fmt.Println(tc.tree, "", root, "tree-depth:", d, "")
+
+		//printTree(strs, d)
+		// fmt.Println(PrintBinaryTree(root))
+
 	}
+}
+
+// TODO, print tree like
+/*  0
+ * / \
+ * 1   2
+ */
+func printTree(ns []string, depth int) {
+	out := strings.Builder{}
+	i, j, depth := 0, 0, depth
+	for j = 0; j < depth; j++ {
+		w := 1 << (depth - j + 1)
+		for i = 0; i < 1<<j; i++ {
+			out.WriteString(strings.Repeat(" ", w) + "0" + strings.Repeat(" ", w) + " ")
+		}
+		out.WriteString("\n")
+	}
+	fmt.Println(out.String())
 }
 
 // func PrintBinaryTree(root *TreeNode) string {
@@ -103,3 +130,33 @@ int main() {
 	}
 }
 */
+//| | | | | | |1| | | | | |
+//| | | | | |/| |\| | | | |
+//| | | | |/| | | |\| | | |
+//| | | |0| | | | | |2| | |
+//| | |/| |\| | | |/| |\| |
+//| |1| | | |1| |0| | | |1|
+
+// #include <stdio.h>
+
+// int main() {
+// 	int i, j, depth = 4;
+// 	for (j = 0; j < depth; j++) {
+// 		int w = 1 << (depth - j + 1);
+// 		for (i = 0; i < 1 << j; i++)
+// 			printf("%*c%*c", w, 'o', w, ' ');
+// 		printf("\n");
+// 	}
+// }
+// func printTree(ns []string, depth int) {
+// 	out := strings.Builder{}
+// 	i, j, depth := 0, 0, depth
+// 	for j = 0; j < depth; j++ {
+// 		w := 1 << (depth - j + 1)
+// 		for i = 0; i < 1<<j; i++ {
+// 			out.WriteString(strings.Repeat(" ", w) + "0" + strings.Repeat(" ", w) + " ")
+// 		}
+// 		out.WriteString("\n")
+// 	}
+// 	fmt.Println(out.String())
+// }
