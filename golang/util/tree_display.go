@@ -118,60 +118,89 @@ func printTree2(node *TreeNode, prefix string, isTail bool, str *string) {
 	}
 }
 
-/*
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
-public class BTreePrinterTest {
-class Node<T extends Comparable<?>> {
-    Node<T> left, right;
-    T data;
-
-    public Node(T data) {
-        this.data = data;
-    }
+func Repeat(in string, count int) string {
+	if count <= 0 {
+		return ""
+	}
+	return strings.Repeat(in, count)
 }
 
-class BTreePrinter {
-    public static <T extends Comparable<?>> void printNode(Node<T> root) {
-        int maxLevel = BTreePrinter.maxLevel(root);
-        printNodeInternal(Collections.singletonList(root), 1, maxLevel);
-    }
+/* references:https://stackoverflow.com/questions/4965335/how-to-print-binary-tree-diagram-in-java
+ * print tree like this:
+ *   0
+ *  / \
+ * 1   2
+ */
 
-    private static <T extends Comparable<?>> void printNodeInternal(List<Node<T>> nodes, int level, int maxLevel) {
-        if (nodes.isEmpty() || BTreePrinter.isAllElementsNull(nodes))
-            return;
+func (root *TreeNode) PrintVertically() string {
+	return printTree3(root)
+}
 
-        int floor = maxLevel - level;
-        int endgeLines = (int) Math.pow(2, (Math.max(floor - 1, 0)));
-        int firstSpaces = (int) Math.pow(2, (floor)) - 1;
-        int betweenSpaces = (int) Math.pow(2, (floor + 1)) - 1;
+func printTree3(root *TreeNode) string {
+	builder := strings.Builder{}
+	var print func(root []*TreeNode, cur, maxDepth int)
+	print = func(nodes []*TreeNode, cur, maxDepth int) {
+		if len(nodes) == 0 || isAllNull(nodes) || cur > maxDepth {
+			return
+		}
+		floor := maxDepth - cur
+		endgeLines := 1 << (Max(floor-1, 0))
+		firstSpaces := 1<<(floor) - 1
+		betweenSpaces := 1<<(floor+1) - 1
 
-        BTreePrinter.printWhitespaces(firstSpaces);
+		builder.WriteString(Repeat(" ", firstSpaces))
 
-        List<Node<T>> newNodes = new ArrayList<Node<T>>();
-        for (Node<T> node : nodes) {
-            if (node != null) {
-                System.out.print(node.data);
-                newNodes.add(node.left);
-                newNodes.add(node.right);
-            } else {
-                newNodes.add(null);
-                newNodes.add(null);
-                System.out.print(" ");
-            }
+		newNodes := []*TreeNode{}
+		for _, node := range nodes {
+			if node != nil {
+				builder.WriteString(fmt.Sprintf("%d", node.Val))
+				newNodes = append(newNodes, node.Left)
+				newNodes = append(newNodes, node.Right)
+			} else {
+				newNodes = append(newNodes, nil, nil)
+				builder.WriteString(" ")
+			}
 
-            BTreePrinter.printWhitespaces(betweenSpaces);
-        }
-        System.out.println("");
+			builder.WriteString(Repeat(" ", betweenSpaces))
+		}
+		builder.WriteString("\n")
 
-        for (int i = 1; i <= endgeLines; i++) {
-            for (int j = 0; j < nodes.size(); j++) {
-                BTreePrinter.printWhitespaces(firstSpaces - i);
-                if (nodes.get(j) == null) {
-                    BTreePrinter.printWhitespaces(endgeLines + endgeLines + i + 1);
-                    continue;
-                }
+		for i := 1; i <= endgeLines; i++ {
+			for j := 0; j < len(nodes); j++ {
+				builder.WriteString(Repeat(" ", firstSpaces-i))
+				if nodes[j] == nil {
+					builder.WriteString(Repeat(" ", endgeLines+endgeLines+i+1))
+					continue
+				}
 
-*/
+				if nodes[j].Left != nil {
+					builder.WriteString("/")
+				} else {
+					builder.WriteString(" ")
+				}
+
+				builder.WriteString(Repeat(" ", i+i-1))
+
+				if nodes[j].Right != nil {
+					builder.WriteString("\\")
+				} else {
+					builder.WriteString(" ")
+				}
+				builder.WriteString(Repeat(" ", endgeLines+endgeLines-i))
+			}
+			builder.WriteString("\n")
+		}
+		print(newNodes, cur+1, maxDepth)
+	}
+	print([]*TreeNode{root}, 1, root.Depth())
+	return builder.String()
+}
+
+func isAllNull(nodes []*TreeNode) bool {
+	for _, n := range nodes {
+		if n != nil {
+			return false
+		}
+	}
+	return true
+}

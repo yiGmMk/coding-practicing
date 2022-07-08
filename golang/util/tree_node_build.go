@@ -152,14 +152,8 @@ func (root *TreeNode) Depth() int {
 	if root == nil {
 		return 0
 	}
-	maximum := 0
-	if root.Left != nil {
-		maximum = Max(maximum, root.Left.Depth())
-	}
-	if root.Right != nil {
-		maximum = Max(maximum, root.Right.Depth())
-	}
-	return maximum + 1
+
+	return Max(root.Left.Depth(), root.Right.Depth()) + 1
 }
 
 // return max value
