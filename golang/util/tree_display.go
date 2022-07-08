@@ -21,10 +21,29 @@ func (root *TreeNode) String() string {
 	return printTree1(root)
 }
 
+/* display tree like this:
+ *  BinaryTree
+ * │           ┌── 6
+ * │       ┌── 5
+ * │   ┌── 4
+ * │   │   └── 3
+ * └── 2
+ *     └── 1
+ */
 func (root *TreeNode) PrintHorizontally() string {
 	output := "BinaryTree\n"
 	printTree2(root, "", true, &output)
 	return output
+}
+
+/* references:https://stackoverflow.com/questions/4965335/how-to-print-binary-tree-diagram-in-java
+ * print tree like this:
+ *   0
+ *  / \
+ * 1   2
+ */
+func (root *TreeNode) PrintVertically() string {
+	return printTree3(root)
 }
 
 func (node *TreeNode) val() string {
@@ -82,7 +101,7 @@ func printTree1(root *TreeNode) string {
 /*
  * print tree like this,copy code from:github.com/emirpasic/gods/trees/redblacktree
  * 输出二叉树,打印到控制台
- *  RedBlackTree
+ *  BinaryTree
  * │           ┌── 6
  * │       ┌── 5
  * │   ┌── 4
@@ -123,17 +142,6 @@ func Repeat(in string, count int) string {
 		return ""
 	}
 	return strings.Repeat(in, count)
-}
-
-/* references:https://stackoverflow.com/questions/4965335/how-to-print-binary-tree-diagram-in-java
- * print tree like this:
- *   0
- *  / \
- * 1   2
- */
-
-func (root *TreeNode) PrintVertically() string {
-	return printTree3(root)
 }
 
 func printTree3(root *TreeNode) string {
