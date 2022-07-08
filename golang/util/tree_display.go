@@ -154,10 +154,11 @@ func printTree3(root *TreeNode) string {
 		floor := maxDepth - cur
 		endgeLines := 1 << (Max(floor-1, 0))
 		firstSpaces := 1<<(floor) - 1
-		betweenSpaces := 1<<(floor+1) - 1
+		betweenSpaces := 1<<(floor+1) - 1 //
 
 		builder.WriteString(Repeat(" ", firstSpaces))
 
+		// print node values
 		newNodes := []*TreeNode{}
 		for _, node := range nodes {
 			if node != nil {
@@ -173,6 +174,7 @@ func printTree3(root *TreeNode) string {
 		}
 		builder.WriteString("\n")
 
+		// edges between levels
 		for i := 1; i <= endgeLines; i++ {
 			for j := 0; j < len(nodes); j++ {
 				builder.WriteString(Repeat(" ", firstSpaces-i))
