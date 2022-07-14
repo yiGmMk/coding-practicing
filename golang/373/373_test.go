@@ -111,6 +111,14 @@ func TestMinSum(t *testing.T) {
 	for _, tt := range ts {
 		res := f(tt.n1, tt.n2, tt.k)
 		if !reflect.DeepEqual(res, tt.res) {
+			// t.Errorf("not equal,in_1:%+v,in_2:%+v,expect:%+v,got:%+v\n", tt.n1, tt.n2, tt.res, res)
+		}
+	}
+
+	f = kSmallestPairs
+	for _, tt := range ts {
+		res := f(tt.n1, tt.n2, tt.k)
+		if !reflect.DeepEqual(res, tt.res) {
 			t.Errorf("not equal,in_1:%+v,in_2:%+v,expect:%+v,got:%+v\n", tt.n1, tt.n2, tt.res, res)
 		}
 	}

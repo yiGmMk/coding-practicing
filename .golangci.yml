@@ -9,6 +9,8 @@ linters-settings:
     min-confidence: .8
 
 linters:
+  disable:
+    - unused
   enable:
     - errcheck
     - goimports

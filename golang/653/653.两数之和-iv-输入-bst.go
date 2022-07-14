@@ -53,11 +53,11 @@
  *     Right *TreeNode
  * }
  */
-// package jzoffer
+package jzoffer
 
-// import "github.com/yiGmMk/leetcode/golang/util"
+import "github.com/yiGmMk/leetcode/golang/util"
 
-// type TreeNode = util.TreeNode
+type TreeNode = util.TreeNode
 
 func findTarget(root *TreeNode, k int) bool {
 	nodeMap := make(map[int]int, 0)
