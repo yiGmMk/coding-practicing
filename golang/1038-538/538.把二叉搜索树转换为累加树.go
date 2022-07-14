@@ -94,7 +94,6 @@ func convertBST(root *TreeNode) *TreeNode {
 		sum += root.Val
 		root.Val = sum
 		dfs(root.Left)
-		return
 	}
 	dfs(root)
 	return root

@@ -44,7 +44,7 @@ func worker(id int, redisAddress string) {
 		log.Println(id, ".worker,second:", now.Second(), "deal with:", vs, " count:", len(vs))
 		index++
 		if index == 100 {
-			//break
+			break
 		}
 	}
 }
@@ -80,7 +80,11 @@ func TestTime(t *testing.T) {
 	go producer(7, redisAddress)
 	go producer(11, redisAddress)
 	go producer(15, redisAddress)
-	for {
 
+	now := time.Now()
+	for {
+		if time.Now().After(now.Add(time.Minute * 2)) {
+			break
+		}
 	}
 }

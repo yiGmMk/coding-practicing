@@ -5,12 +5,16 @@ run:
 
 
 linters-settings:
+  revive:
+    fast: true
+    min-confidence: .8
   golint:
     min-confidence: .8
 
 linters:
   disable:
     - unused
+
   enable:
     - errcheck
     - goimports
@@ -19,7 +23,7 @@ linters:
     - staticcheck
     - structcheck
     - gofmt
-    - revive
+    # - revive
     # - wsl 空格检测
 
 issues:

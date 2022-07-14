@@ -12,7 +12,8 @@ func TestTreeNode(t *testing.T) {
 		[]string{"1", "2", "3", "null", "null", "4", "5"},
 		[]string{"1", "3", "2", "5", "3", "null", "9"},
 		[]string{"1", "2", "3"},
-		[]string{}}
+		[]string{},
+	}
 	for _, v := range ts {
 		tree := Strs2TreeNode(v)
 		if tree == nil && len(v) != 0 {
