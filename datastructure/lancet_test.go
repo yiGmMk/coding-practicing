@@ -7,7 +7,7 @@ import (
 )
 
 func TestLanct(t *testing.T) {
-	exist := slice.Contain[int]([]int{1, 2, 3}, 1)
+	exist := slice.Contain([]int{1, 2, 3}, 1)
 	if !exist {
 		t.Error("should be true")
 	}
