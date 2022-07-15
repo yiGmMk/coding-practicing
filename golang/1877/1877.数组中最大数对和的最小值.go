@@ -3,7 +3,7 @@
  *
  * [1877] 数组中最大数对和的最小值
  */
-package main
+package jzoffer
 
 import (
 	"fmt"

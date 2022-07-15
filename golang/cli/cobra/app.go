@@ -47,8 +47,14 @@ func main() {
 	rootCmd.AddCommand(subCmd)
 
 	rootCmd.SetArgs([]string{""})
-	rootCmd.Execute()
+	err := rootCmd.Execute()
+	if err != nil {
+		fmt.Println(err)
+	}
 	fmt.Println()
 	rootCmd.SetArgs([]string{"sub", "arg1", "arg2"})
-	rootCmd.Execute()
+	err = rootCmd.Execute()
+	if err != nil {
+		fmt.Println(err)
+	}
 }

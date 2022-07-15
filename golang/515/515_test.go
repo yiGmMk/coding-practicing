@@ -83,11 +83,24 @@ func Test515(t *testing.T) {
 		{[]string{"1", "3", "2", "5", "3", "null", "9"}, []int{1, 3, 9}},
 	}
 
-	f := fFixUsingSlice
 	for _, v := range ts {
 		tree := util.Strs2TreeNode(v.node)
-		root := (*TreeNode)(tree)
-		res := f(root)
+		root := tree
+		res := fFixUsingSlice(root)
+		if !reflect.DeepEqual(res, v.max) {
+			t.Errorf("max not equal,expect:%+v,got:%+v", v.max, res)
+		}
+		res = fFix(root)
+		if !reflect.DeepEqual(res, v.max) {
+			t.Errorf("max not equal,expect:%+v,got:%+v", v.max, res)
+		}
+
+		res = largestValuesUsingList(root)
+		if !reflect.DeepEqual(res, v.max) {
+			t.Errorf("max not equal,expect:%+v,got:%+v", v.max, res)
+		}
+
+		res = largestValues(root)
 		if !reflect.DeepEqual(res, v.max) {
 			t.Errorf("max not equal,expect:%+v,got:%+v", v.max, res)
 		}

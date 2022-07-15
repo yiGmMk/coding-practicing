@@ -6,12 +6,11 @@ import (
 )
 
 var ts = [][]string{
-	[]string{"1", "2", "3", "null", "null", "4", "5", "6", "7"},
+	{"1", "2", "3", "null", "null", "4", "5", "6", "7"},
 }
 
 func TestBuild(t *testing.T) {
-	var cc BTreeCodec
-	cc = &BTreeBfsCodec{}
+	cc := &BTreeBfsCodec{}
 	for _, tc := range ts {
 		in := strings.Join(tc, ",")
 		root := cc.Deserialize(in)
@@ -23,8 +22,7 @@ func TestBuild(t *testing.T) {
 }
 
 func TestDfs(t *testing.T) {
-	var cc BTreeCodec
-	cc = &CodecDfs{}
+	cc := &CodecDfs{}
 	for _, tc := range ts {
 		in := strings.Join(tc, ",")
 		root := cc.Deserialize(in)

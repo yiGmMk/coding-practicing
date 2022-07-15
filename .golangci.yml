@@ -14,15 +14,15 @@ linters-settings:
 linters:
   disable:
     - unused
-
+    - deadcode
   enable:
     - errcheck
     - goimports
-    # - golint
     - govet
     - staticcheck
-    - structcheck
     - gofmt
+    # - golint
+    # - structcheck
     # - revive
     # - wsl 空格检测
 

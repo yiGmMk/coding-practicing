@@ -3,11 +3,9 @@ package concurrency
 import (
 	"fmt"
 	"log"
-	"sync"
 	"time"
 )
 
-var lock = sync.Mutex{}
 var i int
 
 func Range() {
