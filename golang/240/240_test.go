@@ -137,5 +137,9 @@ func TestSearch(t *testing.T) {
 		if f(v.data, v.target) != v.res {
 			t.Errorf("error,search failed from %+v,target:%d", v.data, v.target)
 		}
+
+		if searchMatrix(v.data, v.target) != v.res {
+			t.Errorf("error,search failed from %+v,target:%d", v.data, v.target)
+		}
 	}
 }
