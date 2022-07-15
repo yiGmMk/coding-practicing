@@ -49,15 +49,15 @@ func TestDisplayTree(t *testing.T) {
  * / \
  * 1   2
  */
-func printTree(ns []string, depth int) {
-	out := strings.Builder{}
-	i, j, depth := 0, 0, depth
-	for j = 0; j < depth; j++ {
-		w := 1 << (depth - j + 1)
-		for i = 0; i < 1<<j; i++ {
-			out.WriteString(strings.Repeat(" ", w) + "0" + strings.Repeat(" ", w) + " ")
-		}
-		out.WriteString("\n")
-	}
-	fmt.Println(out.String())
-}
+// func printTree(ns []string, depth int) {
+// 	out := strings.Builder{}
+// 	i, j, depth := 0, 0, depth
+// 	for j = 0; j < depth; j++ {
+// 		w := 1 << (depth - j + 1)
+// 		for i = 0; i < 1<<j; i++ {
+// 			out.WriteString(strings.Repeat(" ", w) + "0" + strings.Repeat(" ", w) + " ")
+// 		}
+// 		out.WriteString("\n")
+// 	}
+// 	fmt.Println(out.String())
+// }
