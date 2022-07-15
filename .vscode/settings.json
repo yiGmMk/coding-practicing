@@ -3,5 +3,6 @@
     "files.associations": {
         "queue": "cpp",
         "algorithm": "cpp"
-    }
+    },
+    "go.inferGopath": false
 }

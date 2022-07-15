@@ -15,10 +15,10 @@ func TestLoApi(t *testing.T) {
 		t.Errorf("uniq not right,uniq:%v", uniq)
 	}
 
-	result1 := lop.Map[int, string]([]int{1, 2, 3, 4}, func(x int, _ int) string {
+	result1 := lop.Map([]int{1, 2, 3, 4}, func(x int, _ int) string {
 		return "Hello"
 	})
-	result2 := lop.Map[int64, string]([]int64{1, 2, 3, 4}, func(x int64, _ int) string {
+	result2 := lop.Map([]int64{1, 2, 3, 4}, func(x int64, _ int) string {
 		return strconv.FormatInt(x, 10)
 	})
 
