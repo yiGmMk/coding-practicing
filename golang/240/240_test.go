@@ -6,7 +6,7 @@ import (
 )
 
 // 从下往上,从左往右,z字型搜索,比fC方案差,每次换行都从头开始,其实不需要的
-var fP = func(matrix [][]int, target int) bool {
+func fP(matrix [][]int, target int) bool {
 	if len(matrix) == 0 || len(matrix[0]) == 0 {
 		return false
 	}
@@ -32,7 +32,7 @@ var fP = func(matrix [][]int, target int) bool {
 }
 
 // 从上往下,从右往左,z型搜
-var fN = func(matrix [][]int, target int) bool {
+func fN(matrix [][]int, target int) bool {
 	if len(matrix) == 0 || len(matrix[0]) == 0 {
 		return false
 	}
@@ -56,7 +56,7 @@ var fN = func(matrix [][]int, target int) bool {
 }
 
 // 每行二分搜索
-var fSort = func(matrix [][]int, target int) bool {
+func fSort(matrix [][]int, target int) bool {
 	for _, row := range matrix {
 		index := sort.SearchInts(row, target)
 		if index < len(row) && row[index] == target {

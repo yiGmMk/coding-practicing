@@ -8,7 +8,7 @@ import (
 // https://leetcode.cn/problems/iSwD2y/solution/zui-duan-de-dan-ci-bian-ma-by-leetcode-s-qjxw/
 func minimumLengthEncodingSet(words []string) int {
 	s := set.New()
-	for i, _ := range words {
+	for i := range words {
 		s.Insert(words[i])
 	}
 	out := 0
@@ -24,7 +24,7 @@ func minimumLengthEncodingSet(words []string) int {
 }
 
 func minimumLengthEncodingSet2(words []string) int {
-	s := datastructure.NewSet[string](words...)
+	s := datastructure.NewSet(words...)
 
 	out := 0
 	for _, work := range words {

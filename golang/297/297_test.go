@@ -34,8 +34,7 @@ func TestDfs(t *testing.T) {
 }
 
 func TestBfsLeetcode(t *testing.T) {
-	var cc BTreeCodec
-	cc = &BfsLeetcode{}
+	cc := &BfsLeetcode{}
 	for _, tc := range ts {
 		in := strings.Join(tc, ",")
 		root := cc.Deserialize(in)
