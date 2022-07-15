@@ -156,7 +156,6 @@ func Reduce(files []string, outfile string) ([]KeyValue, error) {
 			return nil, fmt.Errorf("open file failed,%w", err)
 		}
 		defer f.Close()
-
 		dec := json.NewDecoder(f)
 		for {
 			var kv KeyValue
