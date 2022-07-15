@@ -37,10 +37,10 @@ func TestCreateOrAppendFile(t *testing.T) {
 		os.RemoveAll(fileName)
 	}()
 	err := CreateOrAppendFile(fileName, []string{time.Now().Format("2006-01-02 13:04:05"), "hello", "world", "\n"})
-	log.Println(lo.Must[error](err, nil))
+	log.Println(lo.Must(err, nil))
 
 	err = CreateOrAppendFile(fileName, []string{time.Now().Format("2006-01-02 13:04:05"), "hello", "world"})
-	log.Println(lo.Must[error](err, nil))
+	log.Println(lo.Must(err, nil))
 }
 
 // 文件不存在则创建,存在则追加
