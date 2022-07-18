@@ -36,4 +36,12 @@ func TestListBase(t *testing.T) {
 	if popVal != "a" {
 		t.Errorf("popVal should be a, but got %s", popVal)
 	}
+
+	posVal, err := r.LindexCtx(ctx, "list", 0)
+	if err != nil {
+		t.Error(err)
+	}
+	if posVal != "b" {
+		t.Errorf("posVal should be b, but got %s", posVal)
+	}
 }
