@@ -62,7 +62,7 @@ func mapReduce(files []string) {
 		if err != nil {
 			log.Fatalf("cannot read %v", filename)
 		}
-		file.Close()
+		_ = file.Close()
 		kva := mapf(filename, string(content))
 		intermediate = append(intermediate, kva...)
 	}
@@ -100,7 +100,7 @@ func mapReduce(files []string) {
 		i = j
 	}
 
-	ofile.Close()
+	_ = ofile.Close()
 }
 
 //

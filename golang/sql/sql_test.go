@@ -18,14 +18,17 @@ func TestSql(t *testing.T) {
 		if err != nil {
 			t.Error(err)
 		}
-		defer db.Close()
+		defer func() {
+			_ = db.Close()
+		}()
 
 		tx, err := db.Begin()
 		if err != nil {
 			t.Error("start transaction", err)
 		}
-		defer tx.Rollback()
-
+		defer func() {
+			_ = tx.Rollback()
+		}()
 	})
 }
 

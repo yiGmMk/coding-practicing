@@ -39,7 +39,7 @@ func worker(id int, redisAddress string) {
 			log.Println(err)
 			continue
 		} else {
-			r.Del(Key(now.Second()))
+			_, _ = r.Del(Key(now.Second()))
 		}
 		log.Println(id, ".worker,second:", now.Second(), "deal with:", vs, " count:", len(vs))
 		index++
@@ -55,7 +55,7 @@ func producer(id int, redisAddress string) {
 
 	for now := range time.Tick(time.Second) {
 		if now.Second()%id == 0 {
-			r.Sadd(Key(now.Add(time.Second).Second()), id)
+			_, _ = r.Sadd(Key(now.Add(time.Second).Second()), id)
 			log.Println(id, ".producer,second:", now.Add(time.Second).Second(), "add:", id)
 		}
 	}

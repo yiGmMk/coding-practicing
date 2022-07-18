@@ -44,11 +44,13 @@ func TestMcr2(t *testing.T) {
 			if err != nil {
 				continue
 			}
-			defer outFile.Close()
+			defer func() {
+				_ = outFile.Close()
+			}()
 			enc := json.NewEncoder(outFile)
 
 			for _, kv := range kvs {
-				enc.Encode(&kv)
+				_ = enc.Encode(&kv)
 			}
 		}
 	}

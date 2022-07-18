@@ -39,7 +39,7 @@ func TestCheckFile(t *testing.T) {
 			log.Fatalln("open file failed:", err)
 			return
 		}
-		defer file.Close()
+		defer func() { _ = file.Close() }()
 		bf := bufio.NewReader(file)
 
 		for {
@@ -69,7 +69,7 @@ func TestCheckFile(t *testing.T) {
 	if err != nil {
 		log.Fatalln("open result file failed:", err)
 	}
-	defer rf.Close()
+	defer func() { _ = rf.Close() }()
 	for _, kv := range kvs {
 		fmt.Fprintf(rf, "%v %v\n", kv.Key, kv.Value)
 	}
@@ -87,7 +87,7 @@ func TestMapReduce(t *testing.T) {
 	}
 
 	kvs := []KeyVal{}
-	mr.MapReduce(func(source chan<- interface{}) {
+	_, _ = mr.MapReduce(func(source chan<- interface{}) {
 		for _, file := range files {
 			if file.IsDir() {
 				continue
@@ -106,7 +106,7 @@ func TestMapReduce(t *testing.T) {
 			log.Fatalln("open file failed:", err)
 			return
 		}
-		defer file.Close()
+		defer func() { _ = file.Close() }()
 		bf := bufio.NewReader(file)
 
 		for {
@@ -137,7 +137,9 @@ func TestMapReduce(t *testing.T) {
 	if err != nil {
 		log.Fatalln("open result file failed:", err)
 	}
-	defer rf.Close()
+	defer func() {
+		_ = rf.Close()
+	}()
 	for _, kv := range kvs {
 		fmt.Fprintf(rf, "%v %v\n", kv.Key, kv.Value)
 	}

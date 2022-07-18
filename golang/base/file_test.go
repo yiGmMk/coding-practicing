@@ -34,7 +34,7 @@ func TestCreateOrAppendFile(t *testing.T) {
 		if r := recover(); r != nil {
 			t.Errorf("TestCreateOrAppendFile panic,recover:%+v", r)
 		}
-		os.RemoveAll(fileName)
+		_ = os.RemoveAll(fileName)
 	}()
 	err := CreateOrAppendFile(fileName, []string{time.Now().Format("2006-01-02 13:04:05"), "hello", "world", "\n"})
 	log.Println(lo.Must(err, nil))
@@ -51,7 +51,9 @@ func CreateOrAppendFile(filename string, contents []string) error {
 	if err != nil {
 		return fmt.Errorf("open file error:%w", err)
 	}
-	defer file.Close()
+	defer func() {
+		_ = file.Close()
+	}()
 
 	enc := json.NewEncoder(file)
 	for _, content := range contents {
@@ -100,8 +102,14 @@ func TestReduce(t *testing.T) {
 		return
 	}
 	defer func() {
-		outFile.Close()
-		os.RemoveAll(outPut)
+		err = outFile.Close()
+		if err != nil {
+			log.Println(err)
+		}
+		err = os.RemoveAll(outPut)
+		if err != nil {
+			log.Println(err)
+		}
 	}()
 
 	writeOutput2File(outFile, kvs)
@@ -155,7 +163,12 @@ func Reduce(files []string, outfile string) ([]KeyValue, error) {
 		if err != nil {
 			return nil, fmt.Errorf("open file failed,%w", err)
 		}
-		defer f.Close()
+		defer func() {
+			err = f.Close()
+			if err != nil {
+				log.Println(err)
+			}
+		}()
 		dec := json.NewDecoder(f)
 		for {
 			var kv KeyValue

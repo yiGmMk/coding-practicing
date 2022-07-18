@@ -18,11 +18,15 @@ func TestFileSave(t *testing.T) {
 		log.Panicf("create temp file failed,%v", err)
 		return
 	}
-	defer os.Remove(f.Name())
+	defer func() {
+		_ = os.Remove(f.Name())
+	}()
 	err = os.Rename(f.Name(), file)
 	if err != nil {
 		log.Panicf("rename file failed,%v", err)
 		return
 	}
-	defer os.Remove(file)
+	defer func() {
+		_ = os.Remove(file)
+	}()
 }

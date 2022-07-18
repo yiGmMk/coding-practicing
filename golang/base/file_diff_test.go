@@ -24,7 +24,7 @@ func TestGoDiff(t *testing.T) {
 }
 
 func DiffFile(before string, after string) {
-	os.Remove(after + ".line.diff")
+	_ = os.Remove(after + ".line.diff")
 	content1, _ := ioutil.ReadFile(before)
 	content2, _ := ioutil.ReadFile(after)
 
@@ -66,7 +66,12 @@ func AppendToFile(name string, data []byte) {
 	if err != nil {
 		panic(err)
 	}
-	defer file.Close()
+	defer func() {
+		_ = file.Close()
+	}()
 
-	file.Write(data)
+	_, err = file.Write(data)
+	if err != nil {
+		log.Println(err)
+	}
 }
