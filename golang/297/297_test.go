@@ -15,7 +15,7 @@ func TestBuild(t *testing.T) {
 		in := strings.Join(tc, ",")
 		root := cc.Deserialize(in)
 		res := cc.Serialize(root)
-		if in != res {
+		if !strings.HasPrefix(res, in) {
 			t.Errorf("in: %v, res: %v not equal", in, res)
 		}
 	}
@@ -27,7 +27,7 @@ func TestDfs(t *testing.T) {
 		in := strings.Join(tc, ",")
 		root := cc.Deserialize(in)
 		res := cc.Serialize(root)
-		if in != res {
+		if !strings.HasPrefix(res, in) {
 			t.Errorf("in: %v, res: %v not equal", in, res)
 		}
 	}
@@ -39,7 +39,7 @@ func TestBfsLeetcode(t *testing.T) {
 		in := strings.Join(tc, ",")
 		root := cc.Deserialize(in)
 		res := cc.Serialize(root)
-		if in != res {
+		if !strings.HasPrefix(res, in) {
 			t.Errorf("in: %v, res: %v not equal", in, res)
 		}
 	}

@@ -2,7 +2,8 @@ package jzoffer
 
 import (
 	"container/heap"
-	"reflect"
+	"strconv"
+	"strings"
 	"testing"
 )
 
@@ -110,7 +111,7 @@ func TestMinSum(t *testing.T) {
 	var f = fFix
 	for _, tt := range ts {
 		res := f(tt.n1, tt.n2, tt.k)
-		if !reflect.DeepEqual(res, tt.res) {
+		if !check(res, tt.res) {
 			t.Errorf("not equal,in_1:%+v,in_2:%+v,expect:%+v,got:%+v\n", tt.n1, tt.n2, tt.res, res)
 		}
 	}
@@ -118,10 +119,31 @@ func TestMinSum(t *testing.T) {
 	f = kSmallestPairs
 	for _, tt := range ts {
 		res := f(tt.n1, tt.n2, tt.k)
-		if !reflect.DeepEqual(res, tt.res) {
+		if !check(res, tt.res) {
 			t.Errorf("not equal,in_1:%+v,in_2:%+v,expect:%+v,got:%+v\n", tt.n1, tt.n2, tt.res, res)
 		}
 	}
+}
+
+func check(in, target [][]int) bool {
+	targetMap := make(map[string]struct{}, len(target))
+	for _, v := range target {
+		strV := []string{}
+		for _, vv := range v {
+			strV = append(strV, strconv.Itoa(vv))
+		}
+		targetMap[strings.Join(strV, ",")] = struct{}{}
+	}
+	for _, v := range in {
+		strV := []string{}
+		for _, vv := range v {
+			strV = append(strV, strconv.Itoa(vv))
+		}
+		if _, ok := targetMap[strings.Join(strV, ",")]; !ok {
+			return false
+		}
+	}
+	return true
 }
 
 func fkSmallestPairs(nums1, nums2 []int, k int) (ans [][]int) {
