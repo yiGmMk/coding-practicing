@@ -2,7 +2,8 @@
     "python.pythonPath": "/usr/bin/python3",
     "files.associations": {
         "queue": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "random": "cpp"
     },
     "go.inferGopath": false
 }
