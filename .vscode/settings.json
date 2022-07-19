@@ -3,7 +3,8 @@
     "files.associations": {
         "queue": "cpp",
         "algorithm": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "ostream": "cpp"
     },
     "go.inferGopath": false
 }
