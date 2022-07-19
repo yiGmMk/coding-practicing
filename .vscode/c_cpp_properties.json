@@ -3,10 +3,10 @@
         {
             "name": "Linux",
             "includePath": [
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**" // 这里仅需导入自定义的头文件
             ],
             "defines": [],
-            "compilerPath": "/usr/bin/g++", // Path to the compiler.
+            "compilerPath": "/usr/bin/g++", // Path to the compiler.会同时导入标准库的头文件
             "cStandard": "c89",
             "cppStandard": "c++17",
             "intelliSenseMode": "linux-gcc-x64",
