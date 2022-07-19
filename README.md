@@ -4,6 +4,13 @@ leetcode题解
 
 ## c++
 
+### 依赖
+
+- gcc
+- g++
+- gdb
+- vscode
+
 ### 编译/Compile
 
 - VScode
