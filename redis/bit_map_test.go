@@ -16,7 +16,10 @@ func TestBitMap(t *testing.T) {
 		t.Fatal("count should be 0")
 	}
 	for i := int64(0); i < 10000; /*_0000*/ i++ {
-		r.SetBit(bitKey, i, 1)
+		_, err = r.SetBit(bitKey, i, 1)
+		if err != nil {
+			t.Error(err)
+		}
 	}
 	count, err = r.BitCount(bitKey, 0, -1)
 	if err != nil {

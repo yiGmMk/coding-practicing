@@ -7,9 +7,10 @@ import (
 const (
 	//^uint(0)        32位系统0XFFFFFFFF ; 64位系统0xFFFFFFFFFFFFFFFF
 	//^uint(0) >> 63  32位为0 ;64位为1
+	//32<<(^uint(0)>>63) 32位为32 ;64位为64
 	_a       = uint(0)
-	_b       = ^uint(0)
-	_c       = ^uint(0) >> 63
+	_b       = ^_a
+	_c       = _b >> 63
 	_bitSize = 32 << _c
 )
 
