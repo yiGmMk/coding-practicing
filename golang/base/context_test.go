@@ -25,11 +25,11 @@ func TestContext(t *testing.T) {
 func TestContextTimeout(t *testing.T) {
 	cur := time.Now()
 	withTimeout(time.Second * 8)
-	log.Println("finish,cost time:", time.Now().Sub(cur).Seconds())
+	log.Println("finish,cost time:", time.Since(cur).Seconds())
 }
 
 func BenchmarkCommonParentCancel(b *testing.B) {
-	root := context.WithValue(context.Background(), "key", "value")
+	root := context.WithValue(context.Background(), contextKey("key"), "value")
 	shared, sharedcancel := context.WithCancel(root)
 	defer sharedcancel()
 
@@ -38,7 +38,7 @@ func BenchmarkCommonParentCancel(b *testing.B) {
 		x := 0
 		for pb.Next() {
 			ctx, cancel := context.WithCancel(shared)
-			if ctx.Value("key").(string) != "value" {
+			if ctx.Value(contextKey("key")).(string) != "value" {
 				b.Fatal("should not be reached")
 			}
 			for i := 0; i < 100; i++ {

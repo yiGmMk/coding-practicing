@@ -10,8 +10,10 @@ import (
 	"github.com/google/uuid"
 )
 
+type contextKey string
+
 const (
-	_trace_id = "trace_id"
+	_trace_id contextKey = "trace_id"
 )
 
 func NewTraceID() string {
