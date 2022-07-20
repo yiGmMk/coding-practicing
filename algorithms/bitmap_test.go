@@ -10,7 +10,7 @@ import (
 )
 
 func TestBitmap1(t *testing.T) {
-	max := int64(10_0000_0000)
+	max := int64(1_0000_0000)
 	nums := []int64{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100, 1000, 1000_000, max}
 	b := NewBitmap(max)
 	for _, v := range nums {
@@ -31,7 +31,7 @@ func TestBitmap1(t *testing.T) {
 }
 
 func TestBitmap2(t *testing.T) {
-	max := int64(10_0000_0000)
+	max := int64(1_0000_0000)
 	notIn := datastructure.NewSet[int64]()
 	b := NewBitmap(max)
 	for i := int64(0); i < max; i++ {
