@@ -29,6 +29,19 @@ var _searchTestCases = []SearchTestCase{
 	},
 }
 
+var _searchStringTestCases = []SearchStringTestCase{
+	{
+		values:   []string{"a", "b", "c", "d", "e", "f", "g", "h", "i", "j"},
+		target:   "e",
+		expected: 4,
+	},
+	{
+		values:   []string{"a", "b", "c", "d", "e", "f", "g", "h", "i", "j"},
+		target:   "z",
+		expected: -1,
+	},
+}
+
 func TestBinary(t *testing.T) {
 	for _, val := range _searchTestCases {
 		index := BinarySearch(val.values, val.target)
@@ -38,6 +51,24 @@ func TestBinary(t *testing.T) {
 		}
 
 		insertIndex := sort.SearchInts(val.values, val.target)
+		if index != insertIndex {
+			log.Println(
+				"search ", val.target,
+				"in ", val.values,
+				"my_version:", index, "sort.SearchInts:", insertIndex)
+		}
+	}
+}
+
+func TestBinaryString(t *testing.T) {
+	for _, val := range _searchStringTestCases {
+		index := BinarySearch(val.values, val.target)
+		if index != val.expected {
+			t.Errorf("BinarySearch(%v, %v) = %v, expected %v",
+				val.values, val.target, index, val.expected)
+		}
+
+		insertIndex := sort.SearchStrings(val.values, val.target)
 		if index != insertIndex {
 			log.Println(
 				"search ", val.target,
