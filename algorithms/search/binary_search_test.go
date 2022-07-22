@@ -1,6 +1,8 @@
 package algorithms
 
 import (
+	"log"
+	"sort"
 	"testing"
 )
 
@@ -33,6 +35,14 @@ func TestBinary(t *testing.T) {
 		if index != val.expected {
 			t.Errorf("BinarySearch(%v, %v) = %v, expected %v",
 				val.values, val.target, index, val.expected)
+		}
+
+		insertIndex := sort.SearchInts(val.values, val.target)
+		if index != insertIndex {
+			log.Println(
+				"search ", val.target,
+				"in ", val.values,
+				"my_version:", index, "sort.SearchInts:", insertIndex)
 		}
 	}
 }
