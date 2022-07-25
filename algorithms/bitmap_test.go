@@ -10,8 +10,8 @@ import (
 )
 
 func TestBitmap1(t *testing.T) {
-	max := int64(1_0000_0000)
-	nums := []int64{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100, 1000, 1000_000, max}
+	max := (1_0000_0000)
+	nums := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100, 1000, 1000_000, max}
 	b := NewBitmap(max)
 	for _, v := range nums {
 		b.Set(v)
@@ -31,10 +31,10 @@ func TestBitmap1(t *testing.T) {
 }
 
 func TestBitmap2(t *testing.T) {
-	max := int64(1_0000_0000)
-	notIn := datastructure.NewSet[int64]()
+	max := (1_0000_0000)
+	notIn := datastructure.NewSet[int]()
 	b := NewBitmap(max)
-	for i := int64(0); i < max; i++ {
+	for i := (0); i < max; i++ {
 		if rand.Int()%555 == 3 {
 			notIn.Add(i)
 			continue
@@ -44,7 +44,7 @@ func TestBitmap2(t *testing.T) {
 
 	log.Println("len:", len(b), "size of b:", unsafe.Sizeof(b))
 
-	for i := int64(0); i < max; i++ {
+	for i := (0); i < max; i++ {
 		if !b.Get(i) && !notIn.Contain(i) {
 			t.Errorf("%d should be member of Bitmap", i)
 		}
