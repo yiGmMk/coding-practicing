@@ -66,7 +66,6 @@ package jzoffer
 
 import (
 	"math"
-	"sort"
 )
 
 // @lc code=start
@@ -97,27 +96,55 @@ func min(a, b int) int {
 	return b
 }
 
-func minSubArrayLen(target int, nums []int) int {
-	res := math.MaxInt
-	sum, sums := 0, make(map[int]int, len(nums))
-	for i := 0; i < len(nums); i++ {
-		sum += nums[i]
-		sums[i] = sum
+// func minSubArrayLen(target int, nums []int) int {
+// 	res := math.MaxInt
+// 	sum, sums := 0, make(map[int]int, len(nums))
+// 	for i := 0; i < len(nums); i++ {
+// 		sum += nums[i]
+// 		sums[i] = sum
+// 	}
+// 	for i := 0; i < len(nums); i++ {
+// 		num := target + sums[i]
+// 		bound := sort.SearchInts(nums, num)
+// 		if bound < 0 {
+// 			bound = -bound
+// 		}
+// 		if bound < len(nums) {
+// 			res = min(res, bound-i)
+// 		}
+// 	}
+// 	if res != math.MaxInt {
+// 		return res
+// 	}
+// 	return 0
+// }
+
+func minSubArrayLen(s int, nums []int) int {
+	n := len(nums)
+	if n == 0 {
+		return 0
 	}
-	for i := 0; i < len(nums); i++ {
-		num := target + sums[i]
-		bound := sort.SearchInts(nums, num)
-		if bound < 0 {
-			bound = -bound
+	ans := math.MaxInt32
+	start, end := 0, 0
+	sum := 0
+	for end < n {
+		sum += nums[end]
+		for sum >= s {
+			ans = min(ans, end-start+1)
+			sum -= nums[start]
+			start++
 		}
-		if bound < len(nums) {
-			res = min(res, bound-i)
-		}
+		end++
 	}
-	if res != math.MaxInt {
-		return res
+	if ans == math.MaxInt32 {
+		return 0
 	}
-	return 0
+	return ans
 }
+
+// 作者：LeetCode-Solution
+// 链接：https://leetcode.cn/problems/2VG8Kg/solution/he-da-yu-deng-yu-target-de-zui-duan-zi-s-ixef/
+// 来源：力扣（LeetCode）
+// 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 // @lc code=end
