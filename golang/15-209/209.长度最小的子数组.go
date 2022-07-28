@@ -129,29 +129,6 @@ func minSubArrayLen(s int, nums []int) int {
 // 来源：力扣（LeetCode）
 // 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
-func minSubArrayLenMyBinary(target int, nums []int) int {
-	res := math.MaxInt
-	sum, sums := 0, make([]int, len(nums))
-	for i := 0; i < len(nums); i++ {
-		sum += nums[i]
-		sums[i] = sum
-	}
-	for i := 0; i < len(nums); i++ {
-		num := target + sums[i]
-		bound := sort.SearchInts(sums, num)
-		if bound < 0 {
-			bound = -bound
-		}
-		if bound < len(nums) {
-			res = min(res, bound-i)
-		}
-	}
-	if res != math.MaxInt {
-		return res
-	}
-	return 0
-}
-
 // 前缀和 + 二分查找
 func minSubArrayLenBinary(s int, nums []int) int {
 	n := len(nums)

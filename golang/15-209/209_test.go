@@ -9,6 +9,11 @@ var _209TestCase = []struct {
 	target, res int
 }{
 	{
+		nums:   []int{1, 2, 3, 4, 5},
+		target: 15,
+		res:    5,
+	},
+	{
 		nums:   []int{2, 3, 1, 2, 4, 3},
 		target: 7,
 		res:    2,
@@ -36,10 +41,6 @@ func Test209(t *testing.T) {
 			t.Errorf("%v,target:%v,got:%v,res:%v", tc.nums, tc.target, res, tc.res)
 		}
 		res = minSubArrayLenBinary(tc.target, tc.nums)
-		if res != tc.res {
-			t.Errorf("%v,target:%v,got:%v,res:%v", tc.nums, tc.target, res, tc.res)
-		}
-		res = minSubArrayLenMyBinary(tc.target, tc.nums)
 		if res != tc.res {
 			t.Errorf("%v,target:%v,got:%v,res:%v", tc.nums, tc.target, res, tc.res)
 		}
