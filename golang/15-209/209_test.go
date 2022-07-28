@@ -35,5 +35,13 @@ func Test209(t *testing.T) {
 		if res != tc.res {
 			t.Errorf("%v,target:%v,got:%v,res:%v", tc.nums, tc.target, res, tc.res)
 		}
+		res = minSubArrayLenBinary(tc.target, tc.nums)
+		if res != tc.res {
+			t.Errorf("%v,target:%v,got:%v,res:%v", tc.nums, tc.target, res, tc.res)
+		}
+		res = minSubArrayLenMyBinary(tc.target, tc.nums)
+		if res != tc.res {
+			t.Errorf("%v,target:%v,got:%v,res:%v", tc.nums, tc.target, res, tc.res)
+		}
 	}
 }
