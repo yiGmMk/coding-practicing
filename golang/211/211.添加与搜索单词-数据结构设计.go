@@ -88,7 +88,8 @@ func (this *WordDictionary) AddWord(word string) {
 	root.istail = true
 }
 
-func (this *WordDictionary) Search(word string) bool {
+// 偶尔能过,偶尔超时
+func (this *WordDictionary) SearchTimeOut(word string) bool {
 	root := this.root
 	nodes := []*trie{root}
 	for _, c := range word {
@@ -114,6 +115,37 @@ func (this *WordDictionary) Search(word string) bool {
 		}
 	}
 	return false
+}
+
+// dfs
+func (this *WordDictionary) Search(word string) bool {
+	var dfs func(int, *trie) bool
+	dfs = func(index int, node *trie) bool {
+		if index == len(word) {
+			return node.istail
+		}
+		ch := word[index]
+		if ch != '.' {
+			child := node.children[ch-'a']
+			if child != nil && dfs(index+1, child) {
+				return true
+			}
+		} else {
+			for i := range node.children {
+				child := node.children[i]
+				if child != nil && dfs(index+1, child) {
+					return true
+				}
+			}
+		}
+		return false
+	}
+	return dfs(0, this.root)
+
+	// 作者：LeetCode-Solution
+	// 链接：https://leetcode.cn/problems/design-add-and-search-words-data-structure/solution/tian-jia-yu-sou-suo-dan-ci-shu-ju-jie-go-n4ud/
+	// 来源：力扣（LeetCode）
+	// 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 }
 
 /**
