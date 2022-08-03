@@ -130,12 +130,13 @@ func (this *WordDictionary) Search(word string) bool {
 			if child != nil && dfs(index+1, child) {
 				return true
 			}
-		} else {
-			for i := range node.children {
-				child := node.children[i]
-				if child != nil && dfs(index+1, child) {
-					return true
-				}
+			return false
+		}
+		// search .
+		for i := range node.children {
+			child := node.children[i]
+			if child != nil && dfs(index+1, child) {
+				return true
 			}
 		}
 		return false
