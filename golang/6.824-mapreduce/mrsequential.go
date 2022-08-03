@@ -116,12 +116,12 @@ func loadPlugin(filename string) (func(string, string) []KeyValue, func(string, 
 	if err != nil {
 		log.Fatalf("cannot find Map in %v", filename)
 	}
-	mapf := xmapf.(func(string, string) []KeyValue)
+	mapf, _ := xmapf.(func(string, string) []KeyValue)
 	xreducef, err := p.Lookup("Reduce")
 	if err != nil {
 		log.Fatalf("cannot find Reduce in %v", filename)
 	}
-	reducef := xreducef.(func(string, []string) string)
+	reducef, _ := xreducef.(func(string, []string) string)
 
 	return mapf, reducef
 }

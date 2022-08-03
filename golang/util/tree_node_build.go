@@ -99,7 +99,7 @@ func TreeSource(root *TreeNode) []string {
 			// 	out = append(out, NullNode)
 			// 	continue
 			// }
-			nVal := node.Value.(*TreeNode)
+			nVal, _ := node.Value.(*TreeNode)
 			if nVal == nil {
 				out = append(out, NullNode)
 				continue
