@@ -23,7 +23,7 @@ var fFix = func(root *TreeNode) []int {
 		for i := 0; i < nl; i++ {
 			node := level.Front()
 			level.Remove(node)
-			val := node.Value.(*TreeNode)
+			val, _ := node.Value.(*TreeNode)
 			if val == nil {
 				continue
 			}
