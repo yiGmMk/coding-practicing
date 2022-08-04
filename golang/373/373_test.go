@@ -22,7 +22,7 @@ var fFix = func(nums1 []int, nums2 []int, k int) [][]int {
 		}
 	}
 	for h.Len() > 0 && len(out) < k {
-		n := heap.Pop(&h).(node)
+		n, _ := heap.Pop(&h).(node)
 		out = append(out, []int{n.x, n.y})
 	}
 	return out
@@ -146,6 +146,7 @@ func check(in, target [][]int) bool {
 	return true
 }
 
+// TODO:
 func fkSmallestPairs(nums1, nums2 []int, k int) (ans [][]int) {
 	m, n := len(nums1), len(nums2)
 	h := HP{nil, nums1, nums2}
@@ -153,7 +154,7 @@ func fkSmallestPairs(nums1, nums2 []int, k int) (ans [][]int) {
 		h.data = append(h.data, pair{i, 0})
 	}
 	for h.Len() > 0 && len(ans) < k {
-		p := heap.Pop(&h).(pair)
+		p, _ := heap.Pop(&h).(pair)
 		i, j := p.i, p.j
 		ans = append(ans, []int{nums1[i], nums2[j]})
 		if j+1 < n {

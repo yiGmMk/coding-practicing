@@ -97,7 +97,12 @@ func (h HP) Less(i, j int) bool {
 }
 func (h HP) Swap(i, j int)       { h.data[i], h.data[j] = h.data[j], h.data[i] }
 func (h *HP) Push(v interface{}) { h.data = append(h.data, v.(pair)) }
-func (h *HP) Pop() interface{}   { a := h.data; v := a[len(a)-1]; h.data = a[:len(a)-1]; return v }
+func (h *HP) Pop() interface{} {
+	a := h.data
+	v := a[len(a)-1]
+	h.data = a[:len(a)-1]
+	return v
+}
 
 // --------------------------大顶堆---------------------------------------------
 /* 维护一个大顶堆,堆顶是最大元素,保存最小的k个元素,
@@ -148,7 +153,7 @@ func kSmallestPairs(nums1 []int, nums2 []int, k int) [][]int {
 		}
 	}
 	for h.Len() > 0 && len(out) < k {
-		n := heap.Pop(&h).(node)
+		n, _ := heap.Pop(&h).(node)
 		out = append(out, []int{n.x, n.y})
 	}
 	return out
