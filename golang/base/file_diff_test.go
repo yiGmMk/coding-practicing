@@ -2,7 +2,6 @@ package base
 
 import (
 	"bytes"
-	"io/ioutil"
 	"log"
 	"os"
 	"strings"
@@ -25,8 +24,8 @@ func TestGoDiff(t *testing.T) {
 
 func DiffFile(before string, after string) {
 	_ = os.Remove(after + ".line.diff")
-	content1, _ := ioutil.ReadFile(before)
-	content2, _ := ioutil.ReadFile(after)
+	content1, _ := os.ReadFile(before)
+	content2, _ := os.ReadFile(after)
 
 	lines1 := strings.Split(string(content1), "\n")
 	lines2 := strings.Split(string(content2), "\n")

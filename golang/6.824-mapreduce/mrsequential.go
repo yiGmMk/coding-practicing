@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"hash/fnv"
-	"io/ioutil"
+	"io"
 	"log"
 	"os"
 	"plugin"
@@ -58,7 +58,7 @@ func mapReduce(files []string) {
 		if err != nil {
 			log.Fatalf("cannot open %v", filename)
 		}
-		content, err := ioutil.ReadAll(file)
+		content, err := io.ReadAll(file)
 		if err != nil {
 			log.Fatalf("cannot read %v", filename)
 		}

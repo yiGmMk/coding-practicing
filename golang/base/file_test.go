@@ -3,7 +3,6 @@ package base
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"log"
 	"os"
 	"sort"
@@ -191,11 +190,12 @@ func Reduce(files []string, outfile string) ([]KeyValue, error) {
 
 // diff two file to check if is the same
 func fileDiff(f1, f2 string) error {
-	c1, err := ioutil.ReadFile(f1)
+	c1, err := os.ReadFile(f1)
 	if err != nil {
 		return err
 	}
-	c2, err := ioutil.ReadFile(f2)
+
+	c2, err := os.ReadFile(f2)
 	if err != nil {
 		return err
 	}

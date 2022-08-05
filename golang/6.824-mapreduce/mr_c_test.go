@@ -2,7 +2,7 @@ package main
 
 import (
 	"encoding/json"
-	"io/ioutil"
+	"io"
 	"log"
 	"os"
 	"sort"
@@ -24,7 +24,7 @@ func TestMcr2(t *testing.T) {
 			log.Println(err)
 			continue
 		}
-		content, err := ioutil.ReadAll(f)
+		content, err := io.ReadAll(f)
 		if err != nil {
 			log.Println(err)
 			continue

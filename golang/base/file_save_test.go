@@ -1,7 +1,6 @@
 package base
 
 import (
-	"io/ioutil"
 	"log"
 	"os"
 	"testing"
@@ -13,7 +12,7 @@ import (
 func TestFileSave(t *testing.T) {
 	dir, file := ".", "test.txt"
 	// 创建临时文件
-	f, err := ioutil.TempFile(dir, file)
+	f, err := os.CreateTemp(dir, file)
 	if err != nil {
 		log.Panicf("create temp file failed,%v", err)
 		return
