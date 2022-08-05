@@ -23,5 +23,13 @@ func Test567(t *testing.T) {
 		if result := checkInclusion(testCase.s1, testCase.s2); result != testCase.result {
 			t.Errorf("checkInclusion(%s, %s) return %t, want %t", testCase.s1, testCase.s2, result, testCase.result)
 		}
+
+		if res := checkInclusionDiff(testCase.s1, testCase.s2); res != testCase.result {
+			t.Errorf("checkInclusionDiff(%s, %s) return %t, want %t", testCase.s1, testCase.s2, res, testCase.result)
+		}
+
+		if res := checkInclusion2(testCase.s1, testCase.s2); res != testCase.result {
+			t.Errorf("checkInclusionDiff(%s, %s) return %t, want %t", testCase.s1, testCase.s2, res, testCase.result)
+		}
 	}
 }
