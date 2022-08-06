@@ -5,10 +5,10 @@ jobs:
     name: Auto triggered CI job
     runs-on: ubuntu-latest
     steps:
-    - name: Set up Go 1.18
+    - name: Set up Go 1.19
       uses: actions/setup-go@v3
       with:
-        go-version: 1.18
+        go-version: 1.19
       id: go
     - name: Check out code into the Go module directory
       uses: actions/checkout@v2

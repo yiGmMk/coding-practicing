@@ -20,7 +20,8 @@ RedBlackTree
 │   ┌── 4
 │   │   └── 3
 └── 2
-    └── 1
+
+	└── 1
 */
 func TestRedblackTree(t *testing.T) {
 	s := utils.ToString(struct{ L, R int }{L: 1, R: 2})

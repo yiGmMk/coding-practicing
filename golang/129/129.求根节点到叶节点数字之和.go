@@ -102,7 +102,6 @@ func dfs(root *TreeNode, num int) int {
 	return dfs(root.Right, num)
 }
 
-//
 func sumNumbers2(root *TreeNode) int {
 	res := 0
 	res = dfs2(root, 0)
