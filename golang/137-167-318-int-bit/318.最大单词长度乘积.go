@@ -55,7 +55,7 @@ package jzoffer
 
 import "github.com/yiGmMk/leetcode/golang/util"
 
-//只有26个字母,字符串中出现的字母可以使用int标识32
+// 只有26个字母,字符串中出现的字母可以使用int标识32
 // @lc code=start
 func maxProduct01(words []string) int {
 	var res int32

@@ -10,7 +10,7 @@ func QuickSort[T algorithms.Ordered](values []T) {
 	quickSort(values, 0, len(values)-1)
 }
 
-//partition returns the index of the pivot after partitioning the array.
+// partition returns the index of the pivot after partitioning the array.
 func partition[T algorithms.Ordered](values []T, left, right int) int {
 	pivot := values[right]
 	index := left - 1

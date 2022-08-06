@@ -74,12 +74,15 @@ func NewNodeFromString(str string) (*TreeNode, error) {
 /*
 由数组构建二叉树,数组是程序遍历的二叉树
 如   	  1_1
-          / \
-        3_2   2_3
-        / \     \
-      5_4  3_5   9_7
+
+	    / \
+	  3_2   2_3
+	  / \     \
+	5_4  3_5   9_7
+
 为[1,3,2,5,3,null,9]    i*2 i*2+1
-   0,1,2,3,4, 5,  6
+
+	0,1,2,3,4, 5,  6
 */
 func TreeSource(root *TreeNode) []string {
 	out := []string{}

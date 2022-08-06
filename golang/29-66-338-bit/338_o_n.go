@@ -51,7 +51,7 @@ func onesCount(x int) (ones int) {
 }
 
 // O(n*log(n))
-//利用Brian Kernighan算法，可以在一定程度上进一步提升计算速度。
+// 利用Brian Kernighan算法，可以在一定程度上进一步提升计算速度。
 func countBitsBrianKernighan(n int) []int {
 	bits := make([]int, n+1)
 	for i := range bits {

@@ -103,10 +103,8 @@ func mapReduce(files []string) {
 	_ = ofile.Close()
 }
 
-//
 // load the application Map and Reduce functions
 // from a plugin file, e.g. ../mrapps/wc.so
-//
 func loadPlugin(filename string) (func(string, string) []KeyValue, func(string, []string) string) {
 	p, err := plugin.Open(filename)
 	if err != nil {
@@ -126,10 +124,8 @@ func loadPlugin(filename string) (func(string, string) []KeyValue, func(string, 
 	return mapf, reducef
 }
 
-//
 // use ihash(key) % NReduce to choose the reduce
 // task number for each KeyValue emitted by Map.
-//
 func ihash(key string) int {
 	h := fnv.New32a()
 	h.Write([]byte(key))

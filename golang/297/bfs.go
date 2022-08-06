@@ -19,60 +19,63 @@ Java我们可以链表来实现
 具体BFS、DFS解题如下：
 ---------------bfs------------
 class Codec:
-    def serialize(self, root):
-        if not root:
-            return ""
-        dq = deque([root])
-        res = []
-        while dq:
-            node = dq.popleft()
-            if node:
-                res.append(str(node.val))
-                dq.append(node.left)
-                dq.append(node.right)
-            else:
-                res.append('None')
-        return ','.join(res)
 
-    def deserialize(self, data):
-        if not data:
-            return []
-        dataList = data.split(',')
-        root = TreeNode(int(dataList[0]))
-        dq = deque([root])
-        i = 1
-        while dq:
-            node = dq.popleft()
-            if dataList[i] != 'None':
-                node.left = TreeNode(int(dataList[i]))
-                dq.append(node.left)
-            i += 1
-            if dataList[i] != 'None':
-                node.right = TreeNode(int(dataList[i]))
-                dq.append(node.right)
-            i += 1
-        return root
+	def serialize(self, root):
+	    if not root:
+	        return ""
+	    dq = deque([root])
+	    res = []
+	    while dq:
+	        node = dq.popleft()
+	        if node:
+	            res.append(str(node.val))
+	            dq.append(node.left)
+	            dq.append(node.right)
+	        else:
+	            res.append('None')
+	    return ','.join(res)
+
+	def deserialize(self, data):
+	    if not data:
+	        return []
+	    dataList = data.split(',')
+	    root = TreeNode(int(dataList[0]))
+	    dq = deque([root])
+	    i = 1
+	    while dq:
+	        node = dq.popleft()
+	        if dataList[i] != 'None':
+	            node.left = TreeNode(int(dataList[i]))
+	            dq.append(node.left)
+	        i += 1
+	        if dataList[i] != 'None':
+	            node.right = TreeNode(int(dataList[i]))
+	            dq.append(node.right)
+	        i += 1
+	    return root
+
 -------------------DFS解题--------------------------
 from collections import deque
 class Codec:
-    def serialize(self, root):
-        if not root:
-            return 'None'
-        root.left = self.serialize(root.left)
-        root.right = self.serialize(root.right)
-        return f"{root.val},{root.left},{root.right}"
 
-    def deserialize(self, data):
-        dq = deque(data.split(','))
-        def dfs(li):
-            val = li.popleft()
-            if val == "None":
-                return None
-            root = TreeNode(int(val))
-            root.left = dfs(li)
-            root.right = dfs(li)
-            return root
-        return dfs(dq)
+	def serialize(self, root):
+	    if not root:
+	        return 'None'
+	    root.left = self.serialize(root.left)
+	    root.right = self.serialize(root.right)
+	    return f"{root.val},{root.left},{root.right}"
+
+	def deserialize(self, data):
+	    dq = deque(data.split(','))
+	    def dfs(li):
+	        val = li.popleft()
+	        if val == "None":
+	            return None
+	        root = TreeNode(int(val))
+	        root.left = dfs(li)
+	        root.right = dfs(li)
+	        return root
+	    return dfs(dq)
 */
 type BTreeCodec interface {
 	Serialize(root *TreeNode) string

@@ -2,7 +2,7 @@ package jzoffer
 
 import "math"
 
-//TODO:
+// TODO:
 func divideBinary(a, b int) int {
 	if a == math.MinInt32 { // 考虑被除数为最小值的情况
 		if b == 1 {

@@ -61,8 +61,10 @@ func producer(id int, redisAddress string) {
 	}
 }
 
-/* producer 每次把当前需要处理的数据加入下一秒的队列中
-   worker   逐秒处理队列中的数据
+/*
+producer 每次把当前需要处理的数据加入下一秒的队列中
+
+	worker   逐秒处理队列中的数据
 */
 func TestTime(t *testing.T) {
 	redisAddress, err := NewRedis()
