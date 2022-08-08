@@ -59,6 +59,22 @@ func findAnagrams(s string, p string) []int {
 	if n < m {
 		return res
 	}
+	var cnt [26]int
+	for i := 0; i < m && i < n; i++ {
+		cnt[p[i]-'a']--
+	}
+	left := 0
+	for right, v := range s {
+		ch := v - 'a'
+		cnt[ch]++
+		for cnt[ch] > 0 {
+			cnt[s[left]-'a']--
+			left++
+		}
+		if right-left+1 == m {
+			res = append(res, left)
+		}
+	}
 	return res
 }
 
