@@ -5,7 +5,8 @@ import (
 	"testing"
 )
 
-/**/
+/* defer 求值的时机 f1,f2,f3不同在哪里
+ */
 func f1(nums []int) {
 	for _, v := range nums {
 		defer println(v)
@@ -43,4 +44,9 @@ func TestDefer(t *testing.T) {
 
 	log.Println("f3")
 	f3(nums)
+}
+
+func TestDeferslice(t *testing.T) {
+	deferSlice()
+	deferSlice2()
 }

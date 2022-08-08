@@ -55,7 +55,10 @@ package jzoffer
 // @lc code=start
 func findAnagrams(s string, p string) []int {
 	var res []int
-
+	n, m := len(s), len(p)
+	if n < m {
+		return res
+	}
 	return res
 }
 
