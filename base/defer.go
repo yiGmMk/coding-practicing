@@ -6,9 +6,11 @@ import "fmt"
 /*
  * 1. [3/3]0xc0000e4018 3 [1 2 3]
  *
- * 1. [1/1]0xc0000b4458 1 [3]
+ * 1. [1/1]0xc0000b0458 1 [3]
  *
- * 1.in defer [3/3]0xc0000e4018 3 [1 2 3]
+ * 1.in defer,nums: [1/1]0xc0000b0458 1 [3]
+ *
+ * 1.in defer,n: [3/3]0xc0000e4018 3 [1 2 3]
  *
  * 2. [1/1]0xc0000b4490 1 [3]
  *
@@ -19,9 +21,14 @@ func deferSlice() {
 	println("1.", nums, len(nums), fmt.Sprintln(nums))
 
 	defer func(n []int) {
-		println("1.in defer", n, len(n), fmt.Sprintln(n))
+		println("1.in defer,n:", n, len(n), fmt.Sprintln(n))
 		// 切片不是公用底层数组吗,为什么这里不是打印3
 	}(nums)
+
+	defer func() {
+		println("1.in defer,nums:", nums, len(nums), fmt.Sprintln(nums))
+		// 切片不是公用底层数组吗,为什么这里不是打印3
+	}()
 
 	nums = []int{3}
 	_ = nums
