@@ -1,6 +1,8 @@
 package redis
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestRedis(t *testing.T) {
 
