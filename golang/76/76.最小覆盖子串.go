@@ -113,9 +113,9 @@ func minWindowTimeout(s string, t string) string {
 
 func minWindowFixTimeout(s string, t string) string {
 	var res string
-	cmap := make(map[rune]int /*, len(t)*/) // 实际需要比较的数据远小于len(t),这就是超时的原因
+	tmap := make(map[rune]int /*, len(t)*/) // 实际需要比较的数据远小于len(t),这就是超时的原因
 	for _, c := range t {
-		cmap[c]++
+		tmap[c]++
 	}
 
 	check := func(cur, tar map[rune]int) bool {
@@ -128,27 +128,28 @@ func minWindowFixTimeout(s string, t string) string {
 	}
 
 	left := 0
-	num := len(t)
-	has, curNum := make(map[rune]int /*, len(t)*/), 0 // 实际需要比较的数据远小于len(t)
+	tLen := len(t)
+	smap, curLen := make(map[rune]int /*, len(t)*/), 0 // 实际需要比较的数据远小于len(t)
 	for right, v := range s {
-		if cmap[v] <= 0 {
-			curNum++
+		if tmap[v] <= 0 {
+			curLen++
 			continue
 		}
-		has[v]++
-		curNum++
-		if curNum >= num {
-			for check(has, cmap) && left <= right {
-				if res != "" {
-					res = min(res, s[left:right+1])
-				} else {
-					res = s[left : right+1]
-				}
-
-				has[rune(s[left])]--
-				left++
-				curNum--
+		smap[v]++
+		curLen++
+		if curLen < tLen {
+			continue
+		}
+		for check(smap, tmap) && left <= right {
+			if res != "" {
+				res = min(res, s[left:right+1])
+			} else {
+				res = s[left : right+1]
 			}
+
+			smap[rune(s[left])]--
+			left++
+			curLen--
 		}
 	}
 
