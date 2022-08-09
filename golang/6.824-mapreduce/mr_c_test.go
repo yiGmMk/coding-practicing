@@ -46,7 +46,11 @@ func TestMcr2(t *testing.T) {
 			}
 			defer func() {
 				_ = outFile.Close()
+
+				// 删除结果文件
+				os.Remove(outf)
 			}()
+
 			enc := json.NewEncoder(outFile)
 
 			for _, kv := range kvs {
