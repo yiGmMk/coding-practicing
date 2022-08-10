@@ -19,6 +19,10 @@ func NewRedisInmemory(t *testing.T, options ...zeroRedis.Option) *zeroRedis.Redi
 	r := miniredis.RunT(t)
 
 	return zeroRedis.New(r.Addr(), options...)
+
+	/*
+		return zeroRedis.New("127.0.0.1:6379", options...)
+	*/
 }
 
 func NewClient(t *testing.T, options ...zeroRedis.Option) *redis.Client {
@@ -26,6 +30,15 @@ func NewClient(t *testing.T, options ...zeroRedis.Option) *redis.Client {
 
 	return redis.NewClient(&redis.Options{
 		Addr:         r.Addr(),
+		DB:           defaultDatabase,
+		MaxRetries:   maxRetries,
+		MinIdleConns: idleConns,
+	})
+}
+
+func NewClientFromOptions(t *testing.T, r *zeroRedis.Redis) *redis.Client {
+	return redis.NewClient(&redis.Options{
+		Addr:         r.Addr,
 		DB:           defaultDatabase,
 		MaxRetries:   maxRetries,
 		MinIdleConns: idleConns,
