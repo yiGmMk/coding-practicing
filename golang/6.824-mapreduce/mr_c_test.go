@@ -48,7 +48,7 @@ func TestMcr2(t *testing.T) {
 				_ = outFile.Close()
 
 				// 删除结果文件
-				os.Remove(outf)
+				_ = os.Remove(outf)
 			}()
 
 			enc := json.NewEncoder(outFile)

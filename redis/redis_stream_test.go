@@ -22,7 +22,7 @@ func TestStream(t *testing.T) {
 		return
 	}
 	defer func() {
-		file.Close()
+		_ = file.Close()
 		_ = os.Remove(fileName)
 	}()
 	go func() {
