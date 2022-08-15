@@ -48,5 +48,9 @@ func Test29(t *testing.T) {
 		if result != testCase.result {
 			t.Errorf("%d / %d = %d, expected %d", testCase.dividend, testCase.divisor, result, testCase.result)
 		}
+
+		if res := _divide(int32(testCase.dividend), int32(testCase.divisor)); res != int32(testCase.result) {
+			t.Errorf("%d / %d = %d, expected %d", testCase.dividend, testCase.divisor, res, testCase.result)
+		}
 	}
 }

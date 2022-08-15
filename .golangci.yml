@@ -16,8 +16,8 @@ linters-settings:
     check-blank: false
     exclude-functions:
       - "(*jzoffer.WordDictionary).Error"
-      - "(*golang/211/jzoffer.WordDictionary).Error"
-      - "(jzoffer.WordDictionary).Error"
+      # - "(*golang/211/jzoffer.WordDictionary).Error"
+      # - "(jzoffer.WordDictionary).Error"
     disable-default-exclusions: false
   # golint:
   #   min-confidence: .8
@@ -33,6 +33,7 @@ linters:
     - goimports
     - govet
     - staticcheck
+    # - deadcode
     # - gofmt
     # - golint
     # - structcheck
