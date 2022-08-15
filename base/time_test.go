@@ -32,3 +32,23 @@ func Test119(t *testing.T) {
 	d := ed.Sub(st).Abs()
 	log.Println("d:", d.Hours())
 }
+
+// time timer使用
+func TestTimer(t *testing.T) {
+	start := time.Now()
+	total := time.Second * 180
+	timer := time.NewTimer(total)
+LOOP:
+	for {
+		duration := time.Since(start)
+		timer.Reset(total - duration)
+		log.Println("duration:", duration.Seconds())
+		select {
+		case <-timer.C:
+			break LOOP
+		default:
+			time.Sleep(time.Second * 10)
+		}
+	}
+	log.Println("timer done")
+}
