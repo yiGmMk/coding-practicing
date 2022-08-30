@@ -59,6 +59,12 @@ func Strs2TreeNode(strs []string) *TreeNode {
 	return root
 }
 
+func NewTreeFromString(tree string) *TreeNode {
+	nodes := LeetcodeArrayStringToArray(tree)
+	root := Strs2TreeNode(nodes)
+	return root
+}
+
 // 字符串转二叉树节点
 func NewNodeFromString(str string) (*TreeNode, error) {
 	if str == NullNode {
