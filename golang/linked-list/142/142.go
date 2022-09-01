@@ -1,12 +1,7 @@
 package jzoffer
 
-// 1----2----3
-//
-//	|    |
-//	|____|
-//
 // @lc code=start
-// O(1)空间
+// O(1)空间,快慢指针
 func detectCycle(head *ListNode) *ListNode {
 	slow, fast := head, head
 	for fast != nil {
