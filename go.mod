@@ -19,6 +19,7 @@ require (
 	github.com/sergi/go-diff v1.2.0
 	github.com/smartystreets/goconvey v1.7.2
 	github.com/spf13/cobra v1.4.0
+	github.com/tidwall/gjson v1.13.0
 	github.com/urfave/cli/v2 v2.8.1
 	github.com/yiGmMk/go-pdf v1.0.0
 	github.com/zeromicro/go-zero v1.3.4
@@ -65,7 +66,6 @@ require (
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/stathat/consistent v1.0.0 // indirect
 	github.com/stretchr/objx v0.2.0 // indirect
-	github.com/tidwall/gjson v1.13.0 // indirect
 	github.com/tidwall/match v1.1.1 // indirect
 	github.com/tidwall/pretty v1.2.0 // indirect
 	github.com/xrash/smetrics v0.0.0-20201216005158-039620a65673 // indirect
