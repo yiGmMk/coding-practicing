@@ -90,7 +90,6 @@ func TestJosnInterface(t *testing.T) {
 		fmt.Println("age =", age)
 	}
 	flexibleJsonUnmarshal()
-
 }
 
 // json包提供了Number类型来存储JSON文本中的各类数值类型，并可以转换为整型（int64）、浮点型（float64）及字符串
