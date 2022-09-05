@@ -85,9 +85,8 @@ func TestJosnInterface(t *testing.T) {
 		m := map[string]interface{}{}
 		_ = json.Unmarshal([]byte(s), &m)
 
-		age := m["age"].(int)
 		// panic: interface conversion: interface {} is float64, not int
-		fmt.Println("age =", age)
+		fmt.Println("age =", m["age"].(int))
 	}
 	flexibleJsonUnmarshal()
 }

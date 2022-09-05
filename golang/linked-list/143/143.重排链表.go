@@ -180,7 +180,8 @@ func reorderList(head *ListNode) {
 
 	rev := reverse(back)
 
-	head = merge(head, rev)
+	/*head =*/
+	merge(head, rev)
 }
 
 // @lc code=end
