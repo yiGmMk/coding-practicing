@@ -3,6 +3,8 @@ package base
 import (
 	"encoding/json"
 	"fmt"
+	"log"
+	"os"
 	"strings"
 	"testing"
 )
@@ -109,4 +111,32 @@ func TestFlexibleJsonUnmarshalImproved(t *testing.T) {
 		// cash = 33.33
 	}
 	flexibleJsonUnmarshalImproved()
+}
+
+func TestEncoder(t *testing.T) {
+	tmp := "encoder"
+	file, err := os.CreateTemp("", tmp)
+	if err != nil {
+		return
+	}
+	defer func() {
+		name := file.Name()
+
+		_ = file.Close()
+		_ = os.RemoveAll(name)
+	}()
+
+	data := struct {
+		Name string
+		Age  int
+	}{
+		Name: "23455",
+		Age:  12334,
+	}
+	e := json.NewEncoder(file)
+	err = e.Encode(data)
+	if err != nil {
+		log.Println(err)
+		return
+	}
 }
