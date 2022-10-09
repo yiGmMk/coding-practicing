@@ -155,7 +155,7 @@ func TestChan(t *testing.T) {
 
 	fmt.Fprintf(writer, "\n")
 
-	writer.Flush()
+	_ = writer.Flush()
 }
 
 func readLine(reader *bufio.Reader) string {
