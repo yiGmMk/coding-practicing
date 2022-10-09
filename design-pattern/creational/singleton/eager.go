@@ -2,8 +2,8 @@ package singleton
 
 import "github.com/google/uuid"
 
-var eagerInstance = &Singleton{Uid: uuid.NewString()}
+var eagerInstance = &singleton{Uid: uuid.NewString()}
 
-func EagerSingleton() *Singleton {
+func EagerSingleton() *singleton {
 	return eagerInstance
 }

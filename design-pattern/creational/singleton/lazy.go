@@ -6,18 +6,18 @@ import (
 	"github.com/google/uuid"
 )
 
-type Singleton struct {
+type singleton struct {
 	Uid string
 }
 
 var (
 	once     sync.Once
-	instance *Singleton
+	instance *singleton
 )
 
-func LazySingleton() *Singleton {
+func LazySingleton() *singleton {
 	once.Do(func() {
-		instance = &Singleton{Uid: uuid.NewString()}
+		instance = &singleton{Uid: uuid.NewString()}
 	})
 	return instance
 }

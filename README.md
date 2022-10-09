@@ -1,8 +1,8 @@
-# leetcode
+# coding & practicing
 
-leetcode题解
+## leetcode
 
-## c++
+### c++
 
 ### 依赖
 
@@ -29,9 +29,35 @@ leetcode题解
 
 - 点击对应的cpp源文件F5开始调试
 
-## golang
+### golang
 
 ### lint
 
 - 使用github action + golangci-lint
 - lint配置文件: .golangci.yml
+
+## design patterns
+
+### 创建型模式/creational-patterns
+
+### 结构型模式
+
+### 行为型模式
+
+## algorithm & datastructure
+
+### algorithm
+
+#### sort
+
+#### search
+
+#### bitmap
+
+### datastructure
+
+#### tree
+
+#### list
+
+#### array
