@@ -68,13 +68,22 @@ func (ps Pairs) Less(i, j int) bool { return ps[i].l < ps[j].l }
 func (ps Pairs) Len() int           { return len(ps) }
 func (ps Pairs) Swap(i, j int)      { ps[i], ps[j] = ps[j], ps[i] }
 
+// 按照右边界排序，就要从左向右遍历，因为右边界越小越好，只要右边界越小，留给下一个区间的空间就越大，所以从左向右遍历，优先选右边界小的
+// 按照左边界排序，就要从右向左遍历，因为左边界数值越大越好（越靠右），这样就给前一个区间的空间就越大，所以可以从右向左遍历。
+// 如果按照左边界排序，还从左向右遍历的话，要处理各个区间右边界的各种情况
+// 这里没有直接去求移除区间的个数，而是转换一下思路，先去求非交叉区间的个数
+// 用总个数 减去 非交叉区间个数 ，最终求得需要移除的区间个数
 func eraseOverlapIntervals(intervals [][]int) int {
 	n := len(intervals)
 	if n == 0 {
 		return 0
 	}
+	// 按右边界排序
 	sort.Slice(intervals, func(i, j int) bool { return intervals[i][1] < intervals[j][1] })
+
+	// 不交叉区间个数
 	ans, right := 1, intervals[0][1]
+
 	for _, p := range intervals[1:] {
 		if p[0] >= right {
 			ans++
@@ -89,6 +98,7 @@ func eraseOverlapIntervalsTimeOut(intervals [][]int) int {
 	if n == 0 {
 		return 0
 	}
+	// 按左边界排序
 	sort.Slice(intervals, func(i, j int) bool { return intervals[i][0] < intervals[j][0] })
 	dp := make([]int, n)
 	for i := range dp {
@@ -96,6 +106,7 @@ func eraseOverlapIntervalsTimeOut(intervals [][]int) int {
 	}
 	for i := 1; i < n; i++ {
 		for j := 0; j < i; j++ {
+			// r <= l
 			if intervals[j][1] <= intervals[i][0] {
 				dp[i] = max(dp[i], dp[j]+1)
 			}
