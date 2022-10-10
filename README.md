@@ -83,3 +83,28 @@
 #### list
 
 #### array
+
+## awesome xxx & mark
+
+### collection
+
+1. [awesome-go-cn,Go框架、库和软件的中文收录大全](https://github.com/yinggaozhen/awesome-go-cn)
+2. [开发者头条,博客/公众号各种站点资讯,提供订阅服务](https://toutiao.io/posts/hot/30)
+3. [架构师](https://github.com/xingshaocheng/architect-awesome)
+4. [github 资讯](https://github.com/GitHubDaily/GitHubDaily)
+
+### database
+
+1. [SQL 审核查询平台](https://github.com/hhyo/Archery)
+
+### blog
+
+1. [小林coding](https://xiaolincoding.com/)
+
+### notes
+
+- [笔记,汇总](https://programnotes.cn/a-set-of-notes-blogs/index.html)
+
+### language
+
+- [python](https://docs.python.org/zh-cn/3.10/tutorial/index.html)
