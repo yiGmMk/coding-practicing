@@ -35,15 +35,16 @@ from sortedcontainers import SortedList
 
 
 def getThreeNonOverlappingIntervals(starting, ending):
+
     inters = sorted(set(zip(starting, ending)))
     # ([1,3],[2,4]) => left=SortedList([]),right=([1,2])
     left, right = SortedList(), SortedList([b for b, e in inters])
     res = 0
-    for b, e in inters:
-        right.remove(b)
-        l, r = left.bisect_left(b), right.bisect_right(e)
+    for start, end in inters:
+        right.remove(start)
+        l, r = left.bisect_left(start), right.bisect_right(end)
         res += l*(len(right)-r)
-        left.add(e)
+        left.add(end)
     print(res)
     return res
 

@@ -145,6 +145,16 @@ func remove(vs []int, v int) []int {
 	return out
 }
 
+func remove2(vs [][]int, i int) [][]int {
+	var out [][]int
+	for id, val := range vs {
+		if id != i {
+			out = append(out, val)
+		}
+	}
+	return out
+}
+
 // https://leetcode.cn/circle/discuss/YJ3bL9/
 // 按starting排序
 // 再对每一个区间，求左边不与该区间重叠的区间个数 (即左边 ending[l] < starting[i] 的个数)，和右边不重叠的区间个数，乘起来，并累加到答案中。
@@ -153,14 +163,18 @@ func remove(vs []int, v int) []int {
 // 链接：https://leetcode.cn/circle/discuss/YJ3bL9/view/Rt8mRc/
 // 来源：力扣（LeetCode）
 // 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+// O(nlogn)
 func getThreeNonOverlappingIntervals(starting, ending []int) int {
+	// 区间组装
 	intervals := getIntervals(starting, ending)
 	// 右边界排序
 	sort.Slice(intervals, func(i, j int) bool { return intervals[i][0] < intervals[j][0] })
 	var (
-		sorted      [][]int
+		sorted [][]int
+		// 区间左边的区间和右边的区间
 		left, right []int
 	)
+	// 去重
 	for i, v := range intervals {
 		if i > 0 && equal(intervals, i, i-1) {
 			continue
@@ -184,6 +198,63 @@ func getThreeNonOverlappingIntervals(starting, ending []int) int {
 				return true
 			}
 			return right[id] > ed //
+		})
+
+		res += l * (len(right) - r)
+		left = append(left, ed)
+	}
+
+	return res
+}
+
+func getDistinctIntervals(st, ed []int) [][]int {
+	type interval struct{ l, r int }
+	set := make(map[interval]struct{})
+	res := [][]int{}
+	for i, v := range st {
+		line := interval{l: v, r: ed[i]}
+		if _, ok := set[line]; ok {
+			continue
+		}
+		set[line] = struct{}{}
+		res = append(res, []int{v, ed[i]})
+	}
+	return res
+}
+
+// 重复数据很多的排序特别慢,改为先去重再排序(空间换时间),O(nlogn)
+func getThreeNonOverlappingIntervals1(starting, ending []int) int {
+	// 区间组装
+	intervals := getDistinctIntervals(starting, ending)
+	// 右边界排序
+	sort.Slice(intervals, func(i, j int) bool { return intervals[i][0] < intervals[j][0] })
+	var (
+		// 区间左边的区间和右边的区间
+		left, right []int
+	)
+
+	for _, v := range intervals {
+		right = append(right, v[0]) // 区间的左端
+	}
+
+	var res int
+	for i, v := range intervals {
+		st, ed := v[0], v[1]
+
+		right = remove(right, i)
+		// 区间的左/右边的区间个数
+		// 左边的 left[i].r  < st
+		// 右边的 right[i].l > ed
+		l, r := sort.Search(len(left), func(id int) bool {
+			if len(left) <= 0 {
+				return true
+			}
+			return left[id] >= st // left中全是ed(即区间的r)
+		}), sort.Search(len(right), func(id int) bool {
+			if len(right) <= 0 {
+				return true
+			}
+			return right[id] > ed // right中是区间的l
 		})
 
 		res += l * (len(right) - r)
