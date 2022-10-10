@@ -163,7 +163,7 @@ func remove2(vs [][]int, i int) [][]int {
 // 链接：https://leetcode.cn/circle/discuss/YJ3bL9/view/Rt8mRc/
 // 来源：力扣（LeetCode）
 // 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
-// O(nlogn)
+// O(nlogn) 遍历中间区间,计算左右区间,左/右区间相乘为此时的选择数量
 func getThreeNonOverlappingIntervals(starting, ending []int) int {
 	// 区间组装
 	intervals := getIntervals(starting, ending)
