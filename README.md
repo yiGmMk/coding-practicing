@@ -6,10 +6,7 @@
 
 #### 依赖
 
-- gcc
-- g++
-- gdb
-- vscode
+gcc,g++,gdb,vscode
 
 #### 编译/Compile
 
@@ -65,6 +62,12 @@
 ### 结构型模式
 
 ### 行为型模式
+
+### ref
+
+- [refactoringguru.cn](https://refactoringguru.cn/design-patterns/abstract-factory)
+- <https://lailin.xyz/post/factory.html>
+- <https://www.yuque.com/aceld/lfhu8y/pebesh>
 
 ## algorithm & datastructure
 
