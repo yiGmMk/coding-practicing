@@ -133,6 +133,18 @@ func getThreeNonOverlappingIntervalsTimeout2(starting, ending []int) int {
 	return res
 }
 
+func remove(vs []int, v int) []int {
+	// n := len(vs)
+	// i := sort.Search(n, func(i int) bool { return vs[i] == v })
+	var out []int
+	for _, val := range vs {
+		if v != val {
+			out = append(out, val)
+		}
+	}
+	return out
+}
+
 // https://leetcode.cn/circle/discuss/YJ3bL9/
 // 按starting排序
 // 再对每一个区间，求左边不与该区间重叠的区间个数 (即左边 ending[l] < starting[i] 的个数)，和右边不重叠的区间个数，乘起来，并累加到答案中。
@@ -142,22 +154,40 @@ func getThreeNonOverlappingIntervalsTimeout2(starting, ending []int) int {
 // 来源：力扣（LeetCode）
 // 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 func getThreeNonOverlappingIntervals(starting, ending []int) int {
-
 	intervals := getIntervals(starting, ending)
 	// 右边界排序
-	sort.Slice(intervals, func(i, j int) bool { return intervals[i][1] < intervals[j][1] })
-
+	sort.Slice(intervals, func(i, j int) bool { return intervals[i][0] < intervals[j][0] })
 	var (
-		res int
-		n   = len(intervals)
-		// dp  = make(map[int]int, 0)
+		sorted      [][]int
+		left, right []int
 	)
-	// dp[i]=dp[i-1]+
-	for i := 0; i < n; i++ {
-		k := n - 1
-		for j := i + 1; j < k; j++ {
-
+	for i, v := range intervals {
+		if i > 0 && equal(intervals, i, i-1) {
+			continue
 		}
+		sorted = append(sorted, v)
+		right = append(right, v[0])
+	}
+
+	var res int
+	for _, v := range sorted {
+		st, ed := v[0], v[1]
+
+		right = remove(right, st)
+		l, r := sort.Search(len(left), func(id int) bool {
+			if len(left) <= 0 {
+				return true
+			}
+			return left[id] >= st //
+		}), sort.Search(len(right), func(id int) bool {
+			if len(right) <= 0 {
+				return true
+			}
+			return right[id] > ed //
+		})
+
+		res += l * (len(right) - r)
+		left = append(left, ed)
 	}
 
 	return res

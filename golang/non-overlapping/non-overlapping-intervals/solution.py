@@ -41,8 +41,8 @@ def getThreeNonOverlappingIntervals(starting, ending):
     res = 0
     for b, e in inters:
         right.remove(b)
-        l, r = left.bisect_left(b), len(right)-right.bisect_right(e)
-        res += l*r
+        l, r = left.bisect_left(b), right.bisect_right(e)
+        res += l*(len(right)-r)
         left.add(e)
     print(res)
     return res
@@ -75,3 +75,19 @@ for v in qTestCases:
     res = getThreeNonOverlappingIntervals(v["starting"], v["ending"])
     if res != v["expected"]:
         print("want:", v["expected"], "got:", res)
+
+
+# []        1 bisect_left    0
+# [2,3,4,7] 3 bisect_right=> 2
+
+# [3]       2 bisect_left    0
+# [3,4,7]   4 bisect_right=> 2
+
+# [3,4]     3 bisect_left    0
+# [4,7]     5 bisect_right=> 1
+
+# [3,4,5]   4 bisect_left    1
+# [7]       6 bisect_right=> 0
+
+# [3,4,5,6] 7 bisect_left    4
+# []        8 bisect_right=> 0
