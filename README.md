@@ -99,6 +99,8 @@ gcc,g++,gdb,vscode
 ### database
 
 1. [SQL 审核查询平台](https://github.com/hhyo/Archery)
+2. [极客时间 丁奇 Mysql45讲](https://time.geekbang.org/column/intro/100020801)
+3. [mysql 日期相关函数](https://blog.csdn.net/hu1010037197/article/details/115391335)
 
 ### blog
 
