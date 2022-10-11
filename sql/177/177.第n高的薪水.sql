@@ -133,6 +133,7 @@ BEGIN
         DISTINCT salary INTO ans
     FROM 
         (SELECT 
+            # IF(condition, value_if_true, value_if_false) => salary相同rnk不加,否则rnk+1,p每次更新为这一行的salary
             salary, @r:=IF(@p=salary, @r, @r+1) AS rnk,  @p:= salary 
         FROM  
             employee, (SELECT @r:=0, @p:=NULL)init 
