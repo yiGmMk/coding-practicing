@@ -1,5 +1,65 @@
 # coding & practicing
 
+## design patterns
+
+### 创建型模式/creational-patterns
+
+### 结构型模式
+
+### 行为型模式
+
+### ref
+
+- [refactoringguru.cn](https://refactoringguru.cn/design-patterns/abstract-factory)
+- <https://lailin.xyz/post/factory.html>
+- <https://www.yuque.com/aceld/lfhu8y/pebesh>
+
+## algorithm & datastructure
+
+### algorithm
+
+#### sort
+
+#### search
+
+#### bitmap
+
+### datastructure
+
+#### tree
+
+#### list
+
+#### array
+
+## awesome xxx & mark
+
+### collection
+
+1. [awesome-go-cn,Go框架、库和软件的中文收录大全](https://github.com/yinggaozhen/awesome-go-cn)
+2. [开发者头条,博客/公众号各种站点资讯,提供订阅服务](https://toutiao.io/posts/hot/30)
+3. [架构师](https://github.com/xingshaocheng/architect-awesome)
+4. [github 资讯](https://github.com/GitHubDaily/GitHubDaily)
+
+### database
+
+1. [SQL 审核查询平台](https://github.com/hhyo/Archery)
+2. [极客时间 丁奇 Mysql45讲](https://time.geekbang.org/column/intro/100020801)
+3. [mysql 日期相关函数](https://blog.csdn.net/hu1010037197/article/details/115391335)
+4. [博文:LeetCode题解 mysql 查询策略,窗口函数,排序](https://leetcode.cn/problems/nth-highest-salary/solution/mysql-zi-ding-yi-bian-liang-by-luanz/)
+
+### blog
+
+1. [小林coding](https://xiaolincoding.com/)
+
+### notes
+
+- [笔记,汇总](https://programnotes.cn/a-set-of-notes-blogs/index.html)
+
+### language
+
+- [python](https://docs.python.org/zh-cn/3.10/tutorial/index.html)
+
 ## leetcode
 
 ### c++
@@ -54,62 +114,3 @@ gcc,g++,gdb,vscode
    - 清华镜像 <https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/>
    - miniconda <https://docs.conda.io/en/latest/miniconda.html>
    - linux下载的都是脚本通过脚本安装
-
-## design patterns
-
-### 创建型模式/creational-patterns
-
-### 结构型模式
-
-### 行为型模式
-
-### ref
-
-- [refactoringguru.cn](https://refactoringguru.cn/design-patterns/abstract-factory)
-- <https://lailin.xyz/post/factory.html>
-- <https://www.yuque.com/aceld/lfhu8y/pebesh>
-
-## algorithm & datastructure
-
-### algorithm
-
-#### sort
-
-#### search
-
-#### bitmap
-
-### datastructure
-
-#### tree
-
-#### list
-
-#### array
-
-## awesome xxx & mark
-
-### collection
-
-1. [awesome-go-cn,Go框架、库和软件的中文收录大全](https://github.com/yinggaozhen/awesome-go-cn)
-2. [开发者头条,博客/公众号各种站点资讯,提供订阅服务](https://toutiao.io/posts/hot/30)
-3. [架构师](https://github.com/xingshaocheng/architect-awesome)
-4. [github 资讯](https://github.com/GitHubDaily/GitHubDaily)
-
-### database
-
-1. [SQL 审核查询平台](https://github.com/hhyo/Archery)
-2. [极客时间 丁奇 Mysql45讲](https://time.geekbang.org/column/intro/100020801)
-3. [mysql 日期相关函数](https://blog.csdn.net/hu1010037197/article/details/115391335)
-
-### blog
-
-1. [小林coding](https://xiaolincoding.com/)
-
-### notes
-
-- [笔记,汇总](https://programnotes.cn/a-set-of-notes-blogs/index.html)
-
-### language
-
-- [python](https://docs.python.org/zh-cn/3.10/tutorial/index.html)
