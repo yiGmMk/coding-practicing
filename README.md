@@ -47,6 +47,7 @@
 2. [极客时间 丁奇 Mysql45讲](https://time.geekbang.org/column/intro/100020801)
 3. [mysql 日期相关函数](https://blog.csdn.net/hu1010037197/article/details/115391335)
 4. [博文:LeetCode题解 mysql 查询策略,窗口函数,排序](https://leetcode.cn/problems/nth-highest-salary/solution/mysql-zi-ding-yi-bian-liang-by-luanz/)
+5. [知乎专栏,mysql 优化](https://www.zhihu.com/column/c_1439702957097447424)
 
 ### blog
 
@@ -54,7 +55,11 @@
 
 ### notes
 
-- [笔记,汇总](https://programnotes.cn/a-set-of-notes-blogs/index.html)
+- [笔记,汇总 programnotes.cn](https://programnotes.cn/a-set-of-notes-blogs/index.html)
+
+### linux
+
+1. [shell配置,bashrc,profile](https://zhuanlan.zhihu.com/p/405174594)
 
 ### language
 
