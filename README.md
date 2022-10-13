@@ -2,17 +2,13 @@
 
 ## design patterns
 
-### 创建型模式/creational-patterns
+![design patterns](./design-pattern/view.PNG)
 
-### 结构型模式
-
-### 行为型模式
-
-### ref
+### references
 
 - [refactoringguru.cn](https://refactoringguru.cn/design-patterns/abstract-factory)
-- <https://lailin.xyz/post/factory.html>
-- <https://www.yuque.com/aceld/lfhu8y/pebesh>
+- [博文,设计模式](https://lailin.xyz/post/factory.html)
+- [博文,刘丹冰aceld,设计模式](https://www.yuque.com/aceld/lfhu8y/pebesh)
 
 ## algorithm & datastructure
 
@@ -48,6 +44,7 @@
 3. [mysql 日期相关函数](https://blog.csdn.net/hu1010037197/article/details/115391335)
 4. [博文:LeetCode题解 mysql 查询策略,窗口函数,排序](https://leetcode.cn/problems/nth-highest-salary/solution/mysql-zi-ding-yi-bian-liang-by-luanz/)
 5. [知乎专栏,mysql 优化](https://www.zhihu.com/column/c_1439702957097447424)
+6. [MySQL TIME_WAIT连接,2MSL](https://blog.csdn.net/fkew2009/article/details/86714699)
 
 ### blog
 
