@@ -14,19 +14,11 @@
 
 ### algorithm
 
-#### sort
-
-#### search
-
-#### bitmap
+sort/search/bitmap
 
 ### datastructure
 
-#### tree
-
-#### list
-
-#### array
+tree/list/array
 
 ## awesome xxx & mark
 
@@ -68,7 +60,37 @@
 
 ### language
 
-- [python](https://docs.python.org/zh-cn/3.10/tutorial/index.html)
+#### python
+
+- [doc](https://docs.python.org/zh-cn/3.10/tutorial/index.html)
+
+#### go
+
+- [effective go](https://golang.google.cn/doc/effective_go.html)
+- [go code review](https://github.com/golang/go/wiki/CodeReviewComments#gofmt)
+
+##### profile
+
+profile通常分为:追踪型(追踪提前设定的事件,如函数调用,含税退出)/采样型
+
+go支持的profile有:cpu/memory/block/goroutine
+
+go的cpu profile在Linux系统使用信号中断(SIGPROF signal)采集运行数据.
+>SIGPROF signal: This signal typically indicates expiration of a timer that measures both CPU time used by the current process, and CPU time expended on behalf of the process by the system. Such a timer is used to implement code profiling facilities, hence the name of this signal.
+go通过SIGPROF注册回调函数每10ms采集一次.
+**需要注意的是:统计时间与用户体验到的时间通常不同**,[profile notes](https://github.com/DataDog/go-profiler-notes/blob/main/guide/README.md),例如一次http请求耗时100ms(数据库耗时95ms,cpu5ms)
+
+memory profile同样基于采样生成
+
+- [go doc,profile&trace](h)
+- [profiling go programs](https://golang.google.cn/blog/pprof)
+- [profile](https://mp.weixin.qq.com/s/DRQWcU2dN-FycoyFZfnklA) go profile原理
+- [Go Profiler Internals](https://www.instana.com/blog/go-profiler-internals/)
+- [repo go-profiler-notes](https://github.com/DataDog/go-profiler-notes) go profile
+
+#### repo & tool
+
+- [apisix](https://apisix.apache.org/zh/blog/2021/05/24/tencent-games/)
 
 ## leetcode
 
@@ -103,7 +125,7 @@ gcc,g++,gdb,vscode
 - 使用github action + golangci-lint
 - lint配置文件: .golangci.yml
 
-### python
+### py
 
 #### issue
 
