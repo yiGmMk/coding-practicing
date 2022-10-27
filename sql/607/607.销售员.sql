@@ -128,9 +128,16 @@ select name
 from salesperson 
 where sales_id not in(
  select distinct sales_id 
- from  orders 
- left join Company   on Company.com_id=Orders.com_id
+ from orders    
+ left join Company  on Company.com_id=Orders.com_id
  where Company.name="RED"
 )
+
+-- left join 反一下就不行了(Company join orders)
+-- 一种场景,所有员工都没有red公司的工单,这时,distinct sales_id 查出来时null
+
+-- 另一种写法orders join company查出来是[]
+-- not in对null和[]不一样
+
 
 -- @lc code=end
