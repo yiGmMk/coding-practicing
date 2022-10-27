@@ -170,6 +170,13 @@ gcc,g++,gdb,vscode
 
    # 尝试使用
    conda -h
+
+   # ubuntu 安装fish v3
+   sudo apt-add-repository ppa:fish-shell/release-3
+   sudo apt update
+   sudo apt install fish
    ```
 
 4. 参考 <https://github.com/conda/conda/issues/11079>
+5. fish配置,输入fish_config,会弹出web页面,可视化配置
+  ![fish_config](image/fish_config.png)
