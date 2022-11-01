@@ -29,6 +29,7 @@ tree/list/array
 3. [架构师](https://github.com/xingshaocheng/architect-awesome)
 4. [github 资讯](https://github.com/GitHubDaily/GitHubDaily)
 5. [repo: algorithm & data structure](https://github.com/KeKe-Li/data-structures-questions)
+6. [repo: it资料大全](https://github.com/0voice)
 
 ### database
 
@@ -91,6 +92,7 @@ memory profile同样基于采样生成
 #### repo & tool
 
 - [apisix](https://apisix.apache.org/zh/blog/2021/05/24/tencent-games/)
+- [Introduction-to-Golang](https://github.com/0voice/Introduction-to-Golang)
 
 ## leetcode
 
