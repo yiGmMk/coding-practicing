@@ -17,7 +17,7 @@ require (
 	github.com/liyue201/gostl v1.0.1
 	github.com/looplab/fsm v0.3.0
 	github.com/mackerelio/go-osstat v0.2.2
-	github.com/samber/lo v1.21.0
+	github.com/samber/lo v1.33.0
 	github.com/sergi/go-diff v1.2.0
 	github.com/smartystreets/goconvey v1.7.2
 	github.com/spf13/cobra v1.6.1
@@ -66,8 +66,7 @@ require (
 	github.com/spaolacci/murmur3 v1.1.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/stathat/consistent v1.0.0 // indirect
-	github.com/stretchr/objx v0.2.0 // indirect
-	github.com/stretchr/testify v1.7.2 // indirect
+	github.com/stretchr/objx v0.4.0 // indirect
 	github.com/tidwall/gjson v1.13.0 // indirect
 	github.com/tidwall/match v1.1.1 // indirect
 	github.com/tidwall/pretty v1.2.0 // indirect
