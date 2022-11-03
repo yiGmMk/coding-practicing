@@ -33,6 +33,7 @@ tree/list/array
 
 ### database
 
+- [mysql 8.0 document](https://dev.mysql.com/doc/refman/8.0/en/preface.html)
 - [repo: TiDB Talent-Plan,分布式数据库,分布式系统](https://github.com/pingcap/talent-plan)
 - [极客时间 丁奇 Mysql45讲](https://time.geekbang.org/column/intro/100020801)
 - [SQL 审核查询平台](https://github.com/hhyo/Archery)
@@ -54,6 +55,7 @@ tree/list/array
 ### notes
 
 - [笔记,汇总 programnotes.cn](https://programnotes.cn/a-set-of-notes-blogs/index.html)
+- 正则表达式
 
 ### linux
 
