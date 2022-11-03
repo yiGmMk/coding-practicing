@@ -68,10 +68,18 @@
 # Write your MySQL query statement below
 
 -- SADIAB100这种不能通过
--- 
+-- select patient_id,patient_name,conditions
+-- from Patients
+-- where conditions rlike "[ ]{1}DIAB1|^DIAB1"
+
+-- 正则表达式 {n,m}=>n,m为非负数
+-- \s 空白符
+-- \S 非空白符
+-- [\s\S]任意字符
+-- [\s\S]* 0个到任意多个字符
+-- [\s\S]*?0个字符，匹配任何字符前的位置。
 select patient_id,patient_name,conditions
 from Patients
-where conditions rlike "[ ]{1}DIAB1|^DIAB1"
-
+where conditions rlike "\\sDIAB1|^DIAB1"
 -- @lc code=end
 
