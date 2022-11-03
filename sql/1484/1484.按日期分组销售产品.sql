@@ -69,6 +69,11 @@
 -- @lc code=start
 # Write your MySQL query statement below
 
+-- mysql 8.0 https://dev.mysql.com/doc/refman/8.0/en/aggregate-functions.html#function_group-concat
+-- GROUP_CONCAT([DISTINCT] expr [,expr ...]
+--              [ORDER BY {unsigned_integer | col_name | expr}
+--                  [ASC | DESC] [,col_name ...]]
+--              [SEPARATOR str_val])
 select sell_date,count(distinct product) as num_sold,group_concat(distinct product order by product asc) as products
 from  Activities
 group by sell_date
