@@ -98,14 +98,31 @@
 --
 
 -- @lc code=start
-# Write your MySQL query statement below
-with t as (
-select user_id,sum(distance) as distance
-from Rides
-group by user_id
-)
-select Users.name,if( distance>0 ,distance,0) as travelled_distance
-from Users left join t on Users.id=t.user_id
-order by travelled_distance desc,Users.name
+
+-- with t as (
+-- select user_id,sum(distance) as distance
+-- from Rides
+-- group by user_id
+-- )
+-- select Users.name,if( distance>0 ,distance,0) as travelled_distance
+-- from Users left join t on Users.id=t.user_id
+-- order by travelled_distance desc,Users.name
+
+
+
+-- 作者：int_64
+-- 链接：https://leetcode.cn/problems/top-travellers/solution/by-jam007-htxi/
+-- 来源：力扣（LeetCode）
+-- 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+-- https://dev.mysql.com/doc/refman/8.0/en/join.html
+-- COALESCE(x, y) = (CASE WHEN x IS NOT NULL THEN x ELSE y END)
+select 
+    name, coalesce(sum(distance), 0) travelled_distance
+from 
+    users u
+left join rides r on u.id=r.user_id
+group by u.id
+order by travelled_distance desc, name;
+
 -- @lc code=end
 
