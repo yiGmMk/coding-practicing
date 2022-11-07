@@ -8,7 +8,7 @@ require (
 	github.com/apache/rocketmq-client-go/v2 v2.1.1
 	github.com/duke-git/lancet/v2 v2.0.7
 	github.com/emirpasic/gods v1.18.1
-	github.com/go-playground/assert/v2 v2.0.1
+	github.com/go-playground/assert/v2 v2.2.0
 	github.com/go-redis/redis/v8 v8.11.5
 	github.com/go-resty/resty/v2 v2.7.0
 	github.com/google/uuid v1.3.0
