@@ -17,7 +17,7 @@ require (
 	github.com/liyue201/gostl v1.0.1
 	github.com/looplab/fsm v0.3.0
 	github.com/mackerelio/go-osstat v0.2.3
-	github.com/samber/lo v1.33.0
+	github.com/samber/lo v1.34.0
 	github.com/sergi/go-diff v1.2.0
 	github.com/smartystreets/goconvey v1.7.2
 	github.com/spf13/cobra v1.6.1
