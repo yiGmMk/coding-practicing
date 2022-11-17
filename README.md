@@ -51,6 +51,7 @@ tree/list/array
 ### blog
 
 1. [小林coding](https://xiaolincoding.com/)
+2. [潘少,ants 作者,go contributor](https://strikefreedom.top/)
 
 ### notes
 
@@ -75,6 +76,8 @@ tree/list/array
 - [go code review](https://github.com/golang/go/wiki/CodeReviewComments#gofmt)
 - [go basic,Golang基础框架图](image/go/Golang基础框架图.png)
 - [repo: gostl,implement datastructure and algorithm with go](https://github.com/liyue201/gostl)
+- [goroutine pool,限制goroutine数量](https://github.com/panjf2000/ants)
+- [go 零拷贝,pipe pool,原理:系统调用splice+pipe,其他实现:HAProxy](https://strikefreedom.top/archives/pipe-pool-for-splice-in-go)
 
 ##### profile
 
@@ -99,6 +102,10 @@ memory profile同样基于采样生成
 
 - [apisix](https://apisix.apache.org/zh/blog/2021/05/24/tencent-games/)
 - [Introduction-to-Golang](https://github.com/0voice/Introduction-to-Golang)
+
+#### 测试
+
+[go测试之道](./base/tests/README.md)
 
 ## leetcode
 
