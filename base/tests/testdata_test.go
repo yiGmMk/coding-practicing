@@ -5,7 +5,6 @@ import (
 	"crypto/md5"
 	"flag"
 	"fmt"
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"testing"
@@ -34,7 +33,7 @@ func TestData(t *testing.T) {
 
 		path := filepath.Join("testdata", v.fileName)
 		if *update {
-			ioutil.WriteFile(path, hash, 0644)
+			os.WriteFile(path, hash, 0644)
 		}
 		want, err := os.ReadFile(path)
 		if err != nil {
