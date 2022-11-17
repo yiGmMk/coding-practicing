@@ -33,7 +33,7 @@ func TestData(t *testing.T) {
 
 		path := filepath.Join("testdata", v.fileName)
 		if *update {
-			os.WriteFile(path, hash, 0644)
+			_ = os.WriteFile(path, hash, 0644)
 		}
 		want, err := os.ReadFile(path)
 		if err != nil {
