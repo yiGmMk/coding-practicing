@@ -140,6 +140,7 @@ mock替身更为强大,除了能提供测试前的预设置返回结果能力之
 #### go官方维护的mock工具
 
 [gomock](https://github.com/golang/mock),支持用mockgen生成代码(用于mock interface,即接口)
+mockgen支持source/reflect两种方式生成mock代码
 
 ## fuzz
 
