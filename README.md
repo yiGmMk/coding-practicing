@@ -30,6 +30,7 @@ tree/list/array
 4. [github 资讯](https://github.com/GitHubDaily/GitHubDaily)
 5. [repo: algorithm & data structure](https://github.com/KeKe-Li/data-structures-questions)
 6. [repo: it资料大全](https://github.com/0voice)
+7. [repo: k8s-tutorials](https://github.com/guangzhengli/k8s-tutorials)
 
 ### database
 
@@ -98,6 +99,10 @@ memory profile同样基于采样生成
 - [Go Profiler Internals](https://www.instana.com/blog/go-profiler-internals/)
 - [repo go-profiler-notes](https://github.com/DataDog/go-profiler-notes) go profile
 
+##### Time
+
+[Time](./base/time/README.md)
+
 #### repo & tool
 
 - [apisix](https://apisix.apache.org/zh/blog/2021/05/24/tencent-games/)
@@ -108,6 +113,8 @@ memory profile同样基于采样生成
 [go测试之道](./base/tests/README.md)
 
 ## leetcode
+
+[常见题型,来源,知乎:https://zhuanlan.zhihu.com/p/349940945](./golang/to-do-list.md)
 
 ### c++
 
