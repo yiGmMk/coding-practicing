@@ -35,8 +35,8 @@ func main() {
 	signal.Notify(c,
 		syscall.SIGFPE,
 		syscall.SIGINT,
-		syscall.SIGKILL)
-
+		// syscall.SIGKILL) //kill -9 强制退出,拦截不了  SA1016: syscall.SIGKILL cannot be trapped (did you mean syscall.SIGTERM?)
+		syscall.SIGTERM) // kill -15
 	wg.Add(2)
 	go func() {
 		catchAsyncSignal(c)
