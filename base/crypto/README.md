@@ -16,3 +16,21 @@
 
 私有密钥（private key，简称私钥）和公共密钥（public key，简称公钥）.
 RSA是世界上使用最广泛的公钥密码算法，Go语言的crypto/rsa包提供了对RSA算法的实现
+
+```go
+// $GOROOT/src/crypto/rsa/rsa.go
+// RSA的公钥可以看成数对(E, N)，而私钥可以看出数对(D, N)
+// 密文= 明文^E mod N (RSA密文就是对代表明文的数字的E次方求mod N的结果)
+// 明文= 密文^D mod N
+type PublicKey struct {
+    N *big.Int // modulus 模数
+    E int      // public exponent 指数
+}
+
+type PrivateKey struct {
+    PublicKey            // 公钥部分
+    D         *big.Int   // 私钥组件
+    Primes    []*big.Int // N的质因数，有2个或2个以上元素
+    ...
+}
+```
