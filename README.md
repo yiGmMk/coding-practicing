@@ -1,5 +1,36 @@
 # coding & practicing
 
+- [coding \& practicing](#coding--practicing)
+  - [design patterns](#design-patterns)
+    - [references](#references)
+  - [algorithm \& datastructure](#algorithm--datastructure)
+    - [algorithm](#algorithm)
+    - [datastructure](#datastructure)
+  - [awesome xxx \& mark](#awesome-xxx--mark)
+    - [collection](#collection)
+    - [database](#database)
+      - [博文](#博文)
+    - [blog](#blog)
+    - [notes](#notes)
+    - [linux](#linux)
+    - [language](#language)
+      - [python](#python)
+      - [go](#go)
+        - [profile](#profile)
+        - [Time](#time)
+      - [repo \& tool](#repo--tool)
+      - [测试](#测试)
+  - [leetcode](#leetcode)
+    - [c++](#c)
+      - [依赖](#依赖)
+      - [编译/Compile](#编译compile)
+    - [golang](#golang)
+      - [lint](#lint)
+    - [py](#py)
+      - [issue](#issue)
+        - [2022-10-10,在contos和ubuntu18.04上默认安装的python3.6.9调试python代码断点不能触发](#2022-10-10在contos和ubuntu1804上默认安装的python369调试python代码断点不能触发)
+      - [fish 部分v2的版本支持conda](#fish-部分v2的版本支持conda)
+
 ## design patterns
 
 ![design patterns](./design-pattern/view.PNG)
@@ -63,7 +94,8 @@ tree/list/array
 
 ### linux
 
-1. [shell配置,bashrc,profile](https://zhuanlan.zhihu.com/p/405174594)
+- [shell配置,bashrc,profile](https://zhuanlan.zhihu.com/p/405174594)
+- [shell代码含义,explain shell online](https://explainshell.com/)
 
 ### language
 
