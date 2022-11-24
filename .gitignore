@@ -3,3 +3,5 @@
 goreport/*
 main
 core.*
+
+tmp/
