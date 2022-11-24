@@ -6,6 +6,7 @@ run:
   skip-dirs:
     - "cpp"
     - "python"
+    - "base/unsafe"
 
 linters-settings:
   revive:

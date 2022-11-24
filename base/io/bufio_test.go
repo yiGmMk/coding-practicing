@@ -21,7 +21,7 @@ func TestBufio(t *testing.T) {
 		}
 		defer func() {
 			_ = f.Sync()
-			f.Close()
+			_ = f.Close()
 		}()
 
 		data := []byte("practicing,go \n") // ("I love golang!\n") //
@@ -29,17 +29,17 @@ func TestBufio(t *testing.T) {
 		bio := bufio.NewWriterSize(f, 32)
 
 		// 将15字节写入bio缓冲区，缓冲区缓存15字节，bufio.txt中内容仍为空
-		bio.Write(data)
+		_, _ = bio.Write(data)
 
 		// 将15字节写入bio缓冲区，缓冲区缓存30字节，bufio.txt中内容仍为空
-		bio.Write(data)
+		_, _ = bio.Write(data)
 
 		// 将15字节写入bio缓冲区后，bufio将32字节写入bufio.txt，
 		// bio缓冲区中仍然缓存（15*3-32）字节
-		bio.Write(data)
+		_, _ = bio.Write(data)
 
 		// 将bio缓冲区中的所有缓存数据均写入bufio.txt
-		bio.Flush()
+		_ = bio.Flush()
 
 		fmt.Println("write end")
 	})
@@ -47,7 +47,7 @@ func TestBufio(t *testing.T) {
 	time.Sleep(time.Second)
 	t.Run("read", func(t *testing.T) {
 		defer func() {
-			os.RemoveAll(file)
+			_ = os.RemoveAll(file)
 		}()
 
 		f, err := os.Open(file)
@@ -92,17 +92,17 @@ func TestBufio(t *testing.T) {
 func TestZipWithBuf(t *testing.T) {
 	file := "./tmp/zip.gz"
 	defer func() {
-		os.RemoveAll(file)
+		_ = os.RemoveAll(file)
 	}()
 	t.Run("zip", func(t *testing.T) {
 		f, err := os.OpenFile(file, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
 		if err != nil {
 			t.Fatal(err)
 		}
-		defer f.Close()
+		defer func() { _ = f.Close() }()
 
 		z := gzip.NewWriter(f)
-		defer z.Close() // zw.Close方法调用会将压缩变换后的数据刷新到文件实例中
+		defer func() { _ = z.Close() }() // zw.Close方法调用会将压缩变换后的数据刷新到文件实例中
 
 		_, err = z.Write([]byte("通过包裹类型实现数据压缩/解压缩"))
 		if err != nil {
