@@ -1,15 +1,19 @@
 package base
 
 import (
+	"bytes"
 	"fmt"
+	"io"
 	"strconv"
+	"strings"
 	"testing"
 	"unicode/utf8"
 	"unsafe"
 )
 
+// go的string是utf-8编码(变长编码),占用1~4字节,参考:<go语言精进之路>https://weread.qq.com/web/reader/b8f32d2072895edbb8fbb04k764323602597647966b7a1c
 // string是unicode的字符串
-// 按下标访问得到的是byte,字节码,如果是中文,下标访问拿不到完整的字符数据(中文4字节,下标访问得到的是byte,1字节)
+// 按下标访问得到的是byte,字节码,如果是中文,下标访问拿不到完整的字符数据(中文3字节,下标访问得到的是byte,1字节)
 // for range 访问得到的是rune,4字节
 func TestStrRange(t *testing.T) {
 	str := `中\a建`
@@ -146,4 +150,25 @@ func TestString(t *testing.T) {
 		fmt.Printf("%#U starts at byte position %d\n", runeValue, i)
 		w = width
 	}
+}
+
+func TestIo(t *testing.T) {
+
+	var buf bytes.Buffer
+	var s = "I love Go!!"
+
+	_, err := io.Copy(&buf, strings.NewReader(s))
+	if err != nil {
+		panic(err)
+	}
+	fmt.Printf("%q\n", buf.String()) // "I love Go!!"
+
+	buf.Reset()
+	var b = []byte("I love Go!!")
+	_, err = io.Copy(&buf, bytes.NewReader(b))
+	if err != nil {
+		panic(err)
+	}
+	fmt.Printf("%q\n", buf.String()) // "I love Go!!"
+
 }

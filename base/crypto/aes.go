@@ -9,7 +9,7 @@ const (
 	// aes 密钥(key) 32字节 => AES-256
 	_aesKey = "12345678123456781234567812345678"
 	// 这里初始变量采用固定字符串，这样多次运行结果相同，便于示例说明
-	_aesInitVariables = "abcdefghijklmnop"
+	_aesInitVariables = "abcdefghijklmnop" //iv
 )
 
 func AesEncrypt(data string) ([]byte, error) {
