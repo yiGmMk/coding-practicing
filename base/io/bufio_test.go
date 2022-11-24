@@ -10,6 +10,17 @@ import (
 	"time"
 )
 
+func init() {
+	dir, err := os.Stat("./tmp")
+	if err == nil {
+		fmt.Println(dir.Mode())
+		return
+	}
+	if os.IsNotExist(err) {
+		_ = os.Mkdir("./tmp", 0777)
+	}
+}
+
 func TestBufio(t *testing.T) {
 	t.Parallel()
 	file := "./tmp/bufio.txt"
