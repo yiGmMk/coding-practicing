@@ -13,6 +13,20 @@ func Add(ptr Pointer, len IntegerType) Pointer
 func Slice(ptr *ArbitraryType, len IntegerType) []ArbitraryType
 ```
 
+- [unsafe](#unsafe)
+  - [Sizeof](#sizeof)
+  - [Alignof](#alignof)
+  - [Offsetof](#offsetof)
+  - [Add](#add)
+  - [Pointer](#pointer)
+    - [安全使用Pointer](#安全使用pointer)
+      - [Conversion of a *T1 to Pointer to*T2](#conversion-of-a-t1-to-pointer-tot2)
+      - [Conversion of a Pointer to a uintptr (but not back to Pointer)](#conversion-of-a-pointer-to-a-uintptr-but-not-back-to-pointer)
+      - [Conversion of a Pointer to a uintptr and back, with arithmetic](#conversion-of-a-pointer-to-a-uintptr-and-back-with-arithmetic)
+      - [Conversion of a Pointer to a uintptr when calling syscall.Syscall](#conversion-of-a-pointer-to-a-uintptr-when-calling-syscallsyscall)
+      - [Conversion of the result of reflect.Value.Pointer or reflect.Value.UnsafeAddr from uintptr to Pointer](#conversion-of-the-result-of-reflectvaluepointer-or-reflectvalueunsafeaddr-from-uintptr-to-pointer)
+      - [Conversion of a reflect.SliceHeader or reflect.StringHeader Data field to or from Pointer](#conversion-of-a-reflectsliceheader-or-reflectstringheader-data-field-to-or-from-pointer)
+
 ## Sizeof
 
 获取一个表达式值的大小
