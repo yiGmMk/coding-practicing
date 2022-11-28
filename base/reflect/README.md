@@ -56,3 +56,6 @@ var i = 17
 val := reflect.ValueOf(i)
 val.SetInt(27) // panic: reflect: reflect.flag.mustBeAssignable using unaddressable value
 ```
+
+reflect.Value提供了CanSet、CanAddr及CanInterface等方法来帮助我们判断反射对象是否可设置（Settable）、可寻址、可恢复为一个interface{}类型变量
+
