@@ -7,7 +7,7 @@ import (
 
 func main() {
 	fmt.Println("http server start,listen on 8888")
-	http.ListenAndServe(":8888", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("hello"))
+	_ = http.ListenAndServe(":8888", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		_, _ = w.Write([]byte("hello"))
 	}))
 }
