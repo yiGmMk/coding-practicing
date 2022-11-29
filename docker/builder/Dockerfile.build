@@ -1,0 +1,4 @@
+FROM golang:1.19
+WORKDIR /go/src
+COPY ./server.go .
+RUN go build -o httpd ./server.go
