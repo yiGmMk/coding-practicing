@@ -20,6 +20,7 @@
         - [Time](#time)
         - [unsafe](#unsafe)
         - [reflect](#reflect)
+        - [go-tool](#go-tool)
       - [repo \& tool](#repo--tool)
       - [测试](#测试)
   - [leetcode](#leetcode)
@@ -142,6 +143,16 @@ memory profile同样基于采样生成
 [unsafe](./base/unsafe/README.md)
 
 ##### reflect
+
+[reflect](./base/reflect/README.md)
+
+##### go-tool
+
+- [go-tool:build](./base/go-tool/build.md)
+- [go-tool:build](./base/build/README.md)
+- [go-tool:list](./base/go-tool/list.md)
+- [go-tool:get](./base/go-tool/get.md)
+- [go-tool:install](./base/go-tool/install.md)
 
 #### repo & tool
 
