@@ -73,7 +73,7 @@ tree/list/array
 - [SQL 审核查询平台](https://github.com/hhyo/Archery)
 - [mysql 日期相关函数](https://blog.csdn.net/hu1010037197/article/details/115391335)
 - [知乎专栏,mysql 优化](https://www.zhihu.com/column/c_1439702957097447424)
-- [TiDB计数月刊](https://tidb.net/book/tidb-monthly/2022-09/)
+- [TiDB技术月刊](https://tidb.net/book/tidb-monthly/2022-09/)
 - [repo: 电子科技大学,分布式存储](<https://github.com/CDDSCLab/training-plan>)
 
 #### 博文
