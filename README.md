@@ -1,14 +1,15 @@
-# coding & practicing
+# coding practicing
 
-- [coding \& practicing](#coding--practicing)
+- [coding practicing](#coding-practicing)
   - [design patterns](#design-patterns)
     - [references](#references)
-  - [algorithm \& datastructure](#algorithm--datastructure)
+  - [algorithm and datastructure](#algorithm-and-datastructure)
     - [algorithm](#algorithm)
     - [datastructure](#datastructure)
-  - [awesome xxx \& mark](#awesome-xxx--mark)
+  - [awesome xxx and mark](#awesome-xxx-and-mark)
     - [collection](#collection)
     - [database](#database)
+      - [sql优化](#sql优化)
       - [博文](#博文)
     - [blog](#blog)
     - [notes](#notes)
@@ -21,7 +22,7 @@
         - [unsafe](#unsafe)
         - [reflect](#reflect)
         - [go-tool](#go-tool)
-      - [repo \& tool](#repo--tool)
+      - [repo and tool](#repo-and-tool)
       - [测试](#测试)
   - [leetcode](#leetcode)
     - [c++](#c)
@@ -44,7 +45,7 @@
 - [博文,设计模式](https://lailin.xyz/post/factory.html)
 - [博文,刘丹冰aceld,设计模式](https://www.yuque.com/aceld/lfhu8y/pebesh)
 
-## algorithm & datastructure
+## algorithm and datastructure
 
 ### algorithm
 
@@ -54,7 +55,7 @@ sort/search/bitmap
 
 tree/list/array
 
-## awesome xxx & mark
+## awesome xxx and mark
 
 ### collection
 
@@ -76,6 +77,11 @@ tree/list/array
 - [知乎专栏,mysql 优化](https://www.zhihu.com/column/c_1439702957097447424)
 - [TiDB技术月刊](https://tidb.net/book/tidb-monthly/2022-09/)
 - [repo: 电子科技大学,分布式存储](<https://github.com/CDDSCLab/training-plan>)
+
+#### sql优化
+
+- [字节,慢SQL分析与优化](https://mp.weixin.qq.com/s?__biz=MzI1MzYzMjE0MQ==&mid=2247496603&idx=1&sn=d1b2e6639850ea4c211fd8eb322d9fa7&chksm=e9d33879dea4b16f81f676fc9c96159f994c6b8d4dbf3b07d83ee6fb4d3f671512edd40db671&mpshare=1&scene=1&srcid=1130sOFNEWMhuTPoSrqpxWtt&sharer_sharetime=1669772107552&sharer_shareid=4e8d99f0a3202ef91dff0cc802f24f2d&version=4.0.12.6015&platform=win#rd)
+  [分析了影响sql执行的主要因素,介绍基本的优化思路和案例](./sql/optimize/long_query.md)
 
 #### 博文
 
@@ -154,10 +160,11 @@ memory profile同样基于采样生成
 - [go-tool:get](./base/go-tool/get.md)
 - [go-tool:install](./base/go-tool/install.md)
 
-#### repo & tool
+#### repo and tool
 
 - [apisix](https://apisix.apache.org/zh/blog/2021/05/24/tencent-games/)
 - [Introduction-to-Golang](https://github.com/0voice/Introduction-to-Golang)
+- [repo:用go写脚本](https://github.com/bitfield/script)
 
 #### 测试
 
