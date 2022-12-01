@@ -186,7 +186,7 @@ memory profile同样基于采样生成
 
 ### 常见题型
 
-[常见题型,来源,知乎:https://zhuanlan.zhihu.com/p/349940945](./go/to-do-list.md)
+[常见题型,来源,知乎:https://zhuanlan.zhihu.com/p/349940945](./golang/to-do-list.md)
 
 ### c++
 
