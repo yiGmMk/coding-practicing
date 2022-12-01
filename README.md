@@ -36,6 +36,7 @@
       - [issue](#issue)
         - [2022-10-10,在contos和ubuntu18.04上默认安装的python3.6.9调试python代码断点不能触发](#2022-10-10在contos和ubuntu1804上默认安装的python369调试python代码断点不能触发)
       - [fish 部分v2的版本支持conda](#fish-部分v2的版本支持conda)
+  - [blogs](#blogs)
 
 ## design patterns
 
@@ -270,3 +271,7 @@ gcc,g++,gdb,vscode
 4. 参考 <https://github.com/conda/conda/issues/11079>
 5. fish配置,输入fish_config,会弹出web页面,可视化配置
   ![fish_config](image/fish_config.png)
+
+## blogs
+
+- [io-is-no-longer-the-bottleneck](https://benhoyt.com/writings/io-is-no-longer-the-bottleneck/)
