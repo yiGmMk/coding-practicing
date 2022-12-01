@@ -27,6 +27,7 @@
       - [interface/接口](#interface接口)
       - [repo and tool](#repo-and-tool)
   - [leetcode](#leetcode)
+    - [常见题型](#常见题型)
     - [c++](#c)
       - [依赖](#依赖)
       - [编译/Compile](#编译compile)
@@ -182,6 +183,8 @@ memory profile同样基于采样生成
 - [repo:用go写脚本](https://github.com/bitfield/script)
 
 ## leetcode
+
+### 常见题型
 
 [常见题型,来源,知乎:https://zhuanlan.zhihu.com/p/349940945](./golang/to-do-list.md)
 

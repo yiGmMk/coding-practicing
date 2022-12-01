@@ -8,6 +8,7 @@
   - [链表类（Linked List）](#链表类linked-list)
   - [堆（Heap or Priority Queue）、栈（Stack）、队列（Queue）、哈希表类（Hashmap、Hashset）](#堆heap-or-priority-queue栈stack队列queue哈希表类hashmaphashset)
   - [二分法（Binary Search）](#二分法binary-search)
+    - [解题](#解题)
   - [双指针（2 Pointer）](#双指针2-pointer)
   - [宽度优先搜索（BFS）：面试中最常考的](#宽度优先搜索bfs面试中最常考的)
   - [深度优先搜索（DFS）](#深度优先搜索dfs)
@@ -19,6 +20,7 @@
     - [扫描线算法（Sweep Line）](#扫描线算法sweep-line)
     - [TreeMap](#treemap)
     - [动态规划（Dynamic Programming）](#动态规划dynamic-programming)
+  - [题解](#题解)
 
 ## 排序类（Sort）
 
@@ -100,14 +102,16 @@ Heap／Priority Queue题目：
 基础知识：二分法是用来解法基本模板，时间复杂度logN；常见的二分法题目可以分为两大类，显式与隐式，即是否能从字面上一眼看出二分法的特点：要查找的数据是否可以分为两部分，前半部分为X，后半部分为O
 显式二分法：
 
-- Leetcode 34. Find First and Last Position of Element in Sorted Array
+- [Leetcode 34. Find First and Last Position of Element in Sorted Array](https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/)
 - Leetcode 33. Search in Rotated Sorted Array
 - Leetcode 1095. Find in Mountain Array
 - Leetcode 162. Find Peak Element
 - Leetcode 278. First Bad Version
 - Leetcode 74. Search a 2D Matrix
 - Leetcode 240. Search a 2D Matrix II
+
 隐式二分法：
+
 - Leetcode 69. Sqrt(x)
 - Leetcode 540. Single Element in a Sorted Array
 - Leetcode 644. Maximum Average Subarray II
@@ -117,6 +121,8 @@ Heap／Priority Queue题目：
 - Leetcode 1062. Longest Repeating Substring
 - Leetcode 1891. Cutting Ribbons
 - Leetcode 410. Split Array Largest Sum (与1891类似)
+
+### 解题
 
 ## 双指针（2 Pointer）
 
@@ -366,3 +372,8 @@ DFS基本模板（需要记录路径，不需要返回值 and 不需要记录路
 - Leetcode 1235 Maximum Profit in Job Scheduling (DP + binary search)
 - Leetcode 1043 Partition Array for Maximum Sum
 - Leetcode 926 Flip String to Monotone Increasing
+
+## 题解
+
+- [codeforeces-go](https://github.com/EndlessCheng/codeforces-go)
+- [Leetcode-Go](https://books.halfrost.com/leetcode/ChapterFour/0200~0299/0218.The-Skyline-Problem/)
