@@ -21,9 +21,11 @@
         - [Time](#time)
         - [unsafe](#unsafe)
         - [reflect](#reflect)
+        - [got-raps](#got-raps)
         - [go-tool](#go-tool)
-      - [repo and tool](#repo-and-tool)
       - [测试](#测试)
+      - [interface/接口](#interface接口)
+      - [repo and tool](#repo-and-tool)
   - [leetcode](#leetcode)
     - [c++](#c)
       - [依赖](#依赖)
@@ -152,6 +154,10 @@ memory profile同样基于采样生成
 
 [reflect](./base/reflect/README.md)
 
+##### got-raps
+
+[traps](./base/go-traps/gotraps.md)
+
 ##### go-tool
 
 - [go-tool:build](./base/go-tool/build.md)
@@ -160,15 +166,19 @@ memory profile同样基于采样生成
 - [go-tool:get](./base/go-tool/get.md)
 - [go-tool:install](./base/go-tool/install.md)
 
+#### 测试
+
+[go测试之道](./base/tests/README.md)
+
+#### interface/接口
+
+[interface](./base/interface/README.md)
+
 #### repo and tool
 
 - [apisix](https://apisix.apache.org/zh/blog/2021/05/24/tencent-games/)
 - [Introduction-to-Golang](https://github.com/0voice/Introduction-to-Golang)
 - [repo:用go写脚本](https://github.com/bitfield/script)
-
-#### 测试
-
-[go测试之道](./base/tests/README.md)
 
 ## leetcode
 

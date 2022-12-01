@@ -11,11 +11,19 @@ import (
 	"unsafe"
 )
 
+// string的for range每次返回一个rune,即utf-8的一个'码点',不是一个字节.
+// 按下标访问才是字节.
+
 // go的string是utf-8编码(变长编码),占用1~4字节,参考:<go语言精进之路>https://weread.qq.com/web/reader/b8f32d2072895edbb8fbb04k764323602597647966b7a1c
 // string是unicode的字符串
 // 按下标访问得到的是byte,字节码,如果是中文,下标访问拿不到完整的字符数据(中文3字节,下标访问得到的是byte,1字节)
 // for range 访问得到的是rune,4字节
 func TestStrRange(t *testing.T) {
+
+	for _, s := range "Hi,中国" {
+		fmt.Printf("0x%X\n", s)
+	}
+
 	str := `中\a建`
 	fmt.Println(unsafe.Sizeof(rune('中')), unsafe.Sizeof(str[0]), str[0], string(str[0]))
 
@@ -171,4 +179,10 @@ func TestIo(t *testing.T) {
 	}
 	fmt.Printf("%q\n", buf.String()) // "I love Go!!"
 
+}
+
+func TestLen(t *testing.T) {
+	s := "大家好"
+	fmt.Printf("字符串\"%s\"的长度为%d,字符个数:%d\n",
+		s, len(s), utf8.RuneCountInString(s)) // 长度为9
 }

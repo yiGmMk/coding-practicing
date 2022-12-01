@@ -14,7 +14,7 @@ func TestCap(t *testing.T) {
 		unsafe.Sizeof(array), unsafe.Sizeof(&array), len(array), cap(array))
 }
 
-func TestSlice(t *testing.T) {
+func TestSliceStorge(t *testing.T) {
 	// reslicing创建的新切片append是什么行为,会产生什么结果
 	s := []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
 	log.Println(len(s), cap(s), "s:", s)

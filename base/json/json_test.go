@@ -70,6 +70,7 @@ func TestCodingText(t *testing.T) {
 	或导致乱码的内容。如果你的字节切片中存储的仅是合法Unicode字符的utf-8编码字节，
 	又不想将其编码为base64输出，那么可以先将其转换为string类型后再用json包进行编码处理。
 	*/
+	// echo "aGVsbG8sIGdv" | base64 -d
 }
 
 // interface{}的底层类型是float64，而不是int。
