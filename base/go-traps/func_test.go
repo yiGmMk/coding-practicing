@@ -14,7 +14,7 @@ type CusType struct {
 }
 
 func (c CusType) SetName(name string) {
-	c.Name = name
+	// c.Name = name // ineffective assignment to field CusType.Name
 }
 
 func (c *CusType) SetNameWithPointer(name string) {
