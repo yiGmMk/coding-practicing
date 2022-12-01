@@ -275,3 +275,4 @@ gcc,g++,gdb,vscode
 ## blogs
 
 - [io-is-no-longer-the-bottleneck](https://benhoyt.com/writings/io-is-no-longer-the-bottleneck/)
+  当今,SSD和机械磁盘的顺序读写速度已经很快了,在顺序读写的场景下,磁盘io不再是程序的瓶颈,作者以一个计算单词数的程序为例使用go和python测试对比了性能数据
