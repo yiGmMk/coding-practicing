@@ -38,6 +38,7 @@
         - [2022-10-10,在contos和ubuntu18.04上默认安装的python3.6.9调试python代码断点不能触发](#2022-10-10在contos和ubuntu1804上默认安装的python369调试python代码断点不能触发)
       - [fish 部分v2的版本支持conda](#fish-部分v2的版本支持conda)
   - [blogs](#blogs)
+  - [tool](#tool)
 
 ## design patterns
 
@@ -81,6 +82,11 @@ tree/list/array
 - [知乎专栏,mysql 优化](https://www.zhihu.com/column/c_1439702957097447424)
 - [TiDB技术月刊](https://tidb.net/book/tidb-monthly/2022-09/)
 - [repo: 电子科技大学,分布式存储](<https://github.com/CDDSCLab/training-plan>)
+- [sql for devs,许多sql可以实现的feature和sql优化建议](https://sqlfordevs.com/)
+  - [json字段校验](https://sqlfordevs.com/json-schema-validation)
+    可以在RDB里使用JSON字段存储复杂的数据结构,同时兼顾安全性和规范
+    [json-validation,解读,测试](./sql/json-validation/README.md)
+    [mysql doc](https://dev.mysql.com/doc/refman/8.0/en/json-validation-functions.html#function_json-schema-valid)
 
 #### sql优化
 
@@ -279,3 +285,11 @@ gcc,g++,gdb,vscode
 
 - [io-is-no-longer-the-bottleneck](https://benhoyt.com/writings/io-is-no-longer-the-bottleneck/)
   当今,SSD和机械磁盘的顺序读写速度已经很快了,在顺序读写的场景下,磁盘io不再是程序的瓶颈,作者以一个计算单词数的程序为例使用go和python测试对比了性能数据
+- [nginx 中文文档](https://blog.redis.com.cn/doc/standard/httprewrite.html)
+- [nginx location,root,alias](http://t.csdn.cn/J3npY)
+  [nginx](./cloud-native/nginx/README.md)
+  
+## tool
+
+- book <https://libgen.gs/>
+- neat-read,convert(支持azw3,epub,pdf等) <https://www.neat-reader.cn/webapp#/>
