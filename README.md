@@ -83,10 +83,10 @@ tree/list/array
 - [TiDB技术月刊](https://tidb.net/book/tidb-monthly/2022-09/)
 - [repo: 电子科技大学,分布式存储](<https://github.com/CDDSCLab/training-plan>)
 - [sql for devs,许多sql可以实现的feature和sql优化建议](https://sqlfordevs.com/)
-  - [json字段校验](https://sqlfordevs.com/json-schema-validation)
-    可以在RDB里使用JSON字段存储复杂的数据结构,同时兼顾安全性和规范
-    [json-validation,解读,测试](./sql/json-validation/README.md)
-    [mysql doc](https://dev.mysql.com/doc/refman/8.0/en/json-validation-functions.html#function_json-schema-valid)
+  - 可以在RDB里使用JSON字段存储复杂的数据结构,同时兼顾安全性和规范
+    - [json-validation,解读,测试](./sql/json-validation/README.md)
+    - [json字段校验](https://sqlfordevs.com/json-schema-validation)
+    - [mysql doc](https://dev.mysql.com/doc/refman/8.0/en/json-validation-functions.html#function_json-schema-valid)
 
 #### sql优化
 
