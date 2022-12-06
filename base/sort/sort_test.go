@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"log"
 	"sort"
-	"strings"
 	"testing"
 
 	"github.com/yiGmMk/leetcode/datastructure"
@@ -34,22 +33,6 @@ func Test6245(t *testing.T) {
 	fmt.Println(pivotInteger(8))
 }
 
-func appendCharacters(s string, t string) int {
-	last := 0
-	add := 0
-	for i, v := range t {
-		if last < len(s) && strings.IndexRune(s[last:], v) >= last {
-			continue
-		}
-		add++
-		if i != len(t)-1 {
-			last = len(s)
-		}
-		last = i
-	}
-	return add
-}
-
 type ListNode = datastructure.ListNode
 
 // func removeNodes(head *ListNode) *ListNode {
@@ -72,10 +55,6 @@ type ListNode = datastructure.ListNode
 // 	}
 
 // }
-
-func Test6247(t *testing.T) {
-
-}
 
 func Convey(t *testing.T, got, expect int) {
 	if got != expect {
