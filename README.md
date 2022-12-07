@@ -26,6 +26,7 @@
       - [测试](#测试)
       - [interface/接口](#interface接口)
       - [repo and tool](#repo-and-tool)
+      - [log](#log)
   - [leetcode](#leetcode)
     - [常见题型](#常见题型)
     - [c++](#c)
@@ -187,6 +188,21 @@ memory profile同样基于采样生成
 - [apisix](https://apisix.apache.org/zh/blog/2021/05/24/tencent-games/)
 - [Introduction-to-Golang](https://github.com/0voice/Introduction-to-Golang)
 - [repo:用go写脚本](https://github.com/bitfield/script)
+- [repo:learn go by example](https://github.com/gobyexample-cn/gobyexample)
+
+#### log
+
+日志是程序的重要组成部分,好的日志能帮助我们快速排查/定位/解决问题,记录现场信息
+
+一个好的Logger应该提供以下能力:
+
+- 支持把日志写入到多个输出流中，比如可以选择性的让测试、开发环境同时向控制台和日志文件输出日志，生产环境只输出到文件中。
+- 支持多级别的日志等级，比如常见的有：TRACE，DEBUG，INFO，WARN，ERROR 等。
+- 支持结构化输出，结构化输出现在常用的就是JSON形式的，这样可以统一日志平台，通过 logstash 之类的组件直接把日志聚合到日志平台上去。
+- 需要支持日志切割 -- log rotation， 按照日期、时间间隔或者文件大小对日志进行切割。
+- 在 Log Entry 中（就是每行记录）除了主动记录的信息外，还要包括如打印日志的函数、所在的文件、行号、记录时间等。
+
+[log](./log/README.md)
 
 ## leetcode
 
