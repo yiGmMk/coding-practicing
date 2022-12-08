@@ -9,6 +9,9 @@
   - [awesome xxx and mark](#awesome-xxx-and-mark)
     - [collection](#collection)
     - [database](#database)
+      - [JSON](#json)
+        - [JSON Array](#json-array)
+        - [JSON Object](#json-object)
       - [sql优化](#sql优化)
       - [博文](#博文)
     - [blog](#blog)
@@ -88,6 +91,23 @@ tree/list/array
     - [json-validation,解读,测试](./sql/json-validation/README.md)
     - [json字段校验](https://sqlfordevs.com/json-schema-validation)
     - [mysql doc](https://dev.mysql.com/doc/refman/8.0/en/json-validation-functions.html#function_json-schema-valid)
+
+#### JSON
+
+mysql的JSON总体上分为JOSN_ARRAY 和 JSON Object两块
+
+参考:
+
+- [mysql json api](https://www.sjkjc.com/mysql-ref/json_length/)
+
+##### JSON Array
+
+[API](./sql/json/README.md)
+
+- 数组长度,JSON_LENGTH
+- 值搜索,JSON_SEARCH
+
+##### JSON Object
 
 #### sql优化
 
