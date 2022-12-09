@@ -43,6 +43,7 @@
       - [fish 部分v2的版本支持conda](#fish-部分v2的版本支持conda)
   - [blogs](#blogs)
   - [tool](#tool)
+  - [统计](#统计)
 
 ## design patterns
 
@@ -53,6 +54,7 @@
 - [refactoringguru.cn](https://refactoringguru.cn/design-patterns/abstract-factory)
 - [博文,设计模式](https://lailin.xyz/post/factory.html)
 - [博文,刘丹冰aceld,设计模式](https://www.yuque.com/aceld/lfhu8y/pebesh)
+- [repo:go-patterns](https://github.com/tmrts/go-patterns)
 
 ## algorithm and datastructure
 
@@ -329,3 +331,7 @@ gcc,g++,gdb,vscode
 
 - book <https://libgen.gs/>
 - neat-read,convert(支持azw3,epub,pdf等) <https://www.neat-reader.cn/webapp#/>
+
+## 统计
+
+[![Goproxy.cn,下载总次数](https://goproxy.cn/stats/github.com/yiGmMk/leetcode/badges/download-count.svg)](https://goproxy.cn)
