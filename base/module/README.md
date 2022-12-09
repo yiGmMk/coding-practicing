@@ -4,6 +4,7 @@
   - [proxy](#proxy)
     - [proxy设置](#proxy设置)
     - [常用的proxy](#常用的proxy)
+    - [package 解析](#package-解析)
     - [自托管Go模块代理](#自托管go模块代理)
     - [参考](#参考)
   - [GOSUMDB](#gosumdb)
@@ -12,6 +13,12 @@
   - [module的主版本号升级](#module的主版本号升级)
     - [修改导入路径](#修改导入路径)
     - [major subdirectory方案](#major-subdirectory方案)
+
+当要使用他提供的package,只需要go get一下就获取到了源代码,这背后是如何实现的?
+从哪里下,用什么版本,如何保证安全性,有什么依赖?下面就通过go的Proxy设置一窥.
+
+go module通过GOPROXY,GOPRIVATE,GONOPROXY设置查找package的路径,
+用GOSUMDB设置的'检验和数据库'校验package数据的安全,使用最小版本抉择算法:MVS(Minimal version selection)决定需使用的版本.
 
 ## proxy
 
@@ -23,7 +30,24 @@ Go 1.15版本，新增以管道符“|”为分隔符的代理列表值。如果
 
 ### proxy设置
 
+通过环境变量GOPROXY设置proxy
+
+> The go command may be configured to contact proxies or source control servers using the GOPROXY environment variable, which accepts a list of proxy URLs. The list may include the keywords direct or off (see Environment variables for details). List elements may be separated by commas (,) or pipes (|), which determine error fallback behavior. When a URL is followed by a comma, the go command falls back to later sources only after a 404 (Not Found) or 410 (Gone) response. When a URL is followed by a pipe, the go command falls back to later sources after any error, including non-HTTP errors such as timeouts. This error handling behavior lets a proxy act as a gatekeeper for unknown modules. For example, a proxy could respond with error 403 (Forbidden) for modules not on an approved list (see Private proxy serving private modules).
+
+GOPROXY变量
+
+- 支持设置多个proxy
+- 默认值是"https://proxy.golang.org,direct"
+- 支持以关键字'direct'或'off'标识
+  - off: disallows downloading modules from any source
+  - off indicates that no communication should be attempted,不请求下载
+  - direct: download directly from version control repositories instead of using a module proxy.直接从版本控制系统下载,不使用proxy
+- 分隔符决定发生错误时的回退行为,支持的分隔符: ","或"|"
+  - 以','分割时,仅当前一个proxy返回错误码404(Not Found)或410(Gone)时才会向下一个proxy发送请求
+  - 以'|'分割时,无论发生什么错误,甚至请求超时(非HTTP错误),都会向下一个proxy请求
+
 ```sh
+export GOPROXY=https://goproxy.cn,direct
 ```
 
 go 1.15 多proxy,新增以管道符“|”为分隔符的代理列表值,前一个失败后会向下一个proxy发送请求
@@ -89,6 +113,34 @@ go: to switch to the latest unretracted version, run:
 - proxy.golang.com.cn:与goproxy.io同一主体提供的代理(大陆地区推荐使用)
 - Athens：开源module代理，可基于该代理自行搭建module代理服务。
 
+### package 解析
+
+go加载package时需要明确哪个module内包含那个package.
+go先从[build list](https://golang.google.cn/ref/mod#glos-build-list)使用前缀查询包.
+查找新的module时会先检查环境变量GOPROXY,根据规则查询:
+> A proxy URL indicates the go command should contact a module proxy using the GOPROXY protocol
+> direct indicates that the go command should communicate with a version control system.
+> off indicates that no communication should be attempted.
+> The GOPRIVATE and GONOPROXY environment variables can also be used to control this behavior.
+
+例如,现在GOPROXY设置为"https://corp.example.com,https://proxy.golang.org",需要查找包含golang.org/x/net/html的
+module,go的请求行为是这样的
+
+- To <https://corp.example.com/> (in parallel):
+  - Request for latest version of golang.org/x/net/html
+  - Request for latest version of golang.org/x/net
+  - Request for latest version of golang.org/x
+  - Request for latest version of golang.org
+- To <https://proxy.golang.org/>, if all requests to <https://corp.example.com/> have failed with 404 or 410:
+  - Request for latest version of golang.org/x/net/html
+  - Request for latest version of golang.org/x/net
+  - Request for latest version of golang.org/x
+  - Request for latest version of golang.org
+
+查找到一个适用版本后,会在go.mod内新增一个require项(包含module路径,版本)
+
+参考:[Resolving a package to a module](https://golang.google.cn/ref/mod#resolve-pkg-mod)
+
 ### 自托管Go模块代理
 
 ```go
@@ -127,6 +179,8 @@ func main() {
 - [repo:goproxy](https://github.com/goproxy/goproxy)
 - [go doc,module](https://golang.google.cn/ref/mod#private-modules) 或 [go doc,module](https://golang.org/ref/mod)
   - [GOPROXY设置](https://golang.google.cn/ref/mod#environment-variables)
+  - [GOPROXY protocol](https://golang.google.cn/ref/mod#module-proxy)
+  - [Resolve pkg](https://golang.google.cn/ref/mod#resolve-pkg-mod)
 
 ## GOSUMDB
 
