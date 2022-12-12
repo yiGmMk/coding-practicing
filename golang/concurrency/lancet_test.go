@@ -59,7 +59,7 @@ func TestRetry(t *testing.T) {
 // strutil 测试
 func TestLancetStrUtil(t *testing.T) {
 	s := "hello"
-	rs := strutil.ReverseStr(s)
+	rs := strutil.Reverse(s)
 	fmt.Println(rs) //olleh
 }
 
@@ -82,13 +82,13 @@ func (c *intComparator) Compare(v1, v2 any) int {
 func TestTreeNode(t *testing.T) {
 	Convey("tree", t, func() {
 		tt := tree.NewBSTree(1, &intComparator{})
-		tt.InsertNode(2)
-		tt.InsertNode(3)
-		tt.InsertNode(4)
-		tt.InsertNode(2)
-		tt.InsertNode(3)
-		tt.InsertNode(4)
-		tt.InsertNode(-2)
+		tt.Insert(2)
+		tt.Insert(3)
+		tt.Insert(4)
+		tt.Insert(2)
+		tt.Insert(3)
+		tt.Insert(4)
+		tt.Insert(-2)
 		tt.Print()
 	})
 }
