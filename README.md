@@ -121,6 +121,20 @@ mysql的JSON总体上分为JOSN_ARRAY 和 JSON Object两块
 - [LeetCode题解 mysql 查询策略,窗口函数,排序](https://leetcode.cn/problems/nth-highest-salary/solution/mysql-zi-ding-yi-bian-liang-by-luanz/)
 - [mysql 窗口函数(Window Function),文档](https://dev.mysql.com/doc/refman/8.0/en/window-function-descriptions.html)
 - [MySQL TIME_WAIT连接,2MSL](https://blog.csdn.net/fkew2009/article/details/86714699)
+- [too many connections](https://kalacloud.com/blog/mysql-error-too-many-connections)
+  优化方案(确认不是由于没有关闭连接导致的后),通过合理设置参数(减少Sleep的连接,防止大量Sleep的连接占满)
+  
+  - [interactive_timeout](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_interactive_timeout)
+    The number of seconds the server waits for activity on an interactive connection before closing it. An interactive client is defined as a client that uses the CLIENT_INTERACTIVE option to mysql_real_connect().
+  - [wait_timeout](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_wait_timeout)
+    The number of seconds the server waits for activity on a noninteractive connection before closing it.
+  - [max_connections：控制最大连接数](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_connections)
+  - [max_user_connections：控制单个用户的最大连接数](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_user_connections)
+  - [gorm,database/sql连接池,参数设置](https://gorm.io/docs/connecting_to_the_database.html#Connection-Pool)
+    - SetMaxOpenConns(_dbMaxOpenConns) 最大连接数
+    - SetMaxIdleConns(_dbMaxIdleConns) 最大空闲连接数
+    - SetConnMaxLifetime(_dbMaxLifeTime) 最大生命周期
+    - SetConnMaxIdleTime(_dbMaxIdleTime) 最大空闲时间
 
 ### blog
 
