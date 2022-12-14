@@ -51,6 +51,18 @@
 
 ## concurrency(并发) and parallellism(并行)
 
+并发就是可同时发起执行的程序，指**程序的逻辑结构**;
+并行就是可以在支持并行的硬件上执行的并发程序，指程序的运⾏状态。
+
+换句话说，并发程序代表了所有可以实现并发行为的程序，这是一个比较宽泛的概念，并行程序也只是他的一个子集。
+并发是并⾏的必要条件；但并发不是并⾏的充分条件。
+并发只是更符合现实问题本质的表达，目的是简化代码逻辑，⽽不是使程序运⾏更快。
+要使程序运⾏更快必是并发程序加多核并⾏。
+
+简言之，并发是同一时间应对（dealing with）多件事情的能力；并行是同一时间动手做（doing）多件事情的能力。
+
+![concurrency & parallellism](./image/concurrency/concurrency-parallellism.jpg)
+
 ### 基本同步原语
 
 ### 分布式同步原语
@@ -59,6 +71,8 @@
 
 - [ppt:Go并发编程](./static/ppt/Go%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.pptx)
 - [repo:深入go并发编程](https://github.com/smallnest/dive-to-gosync-workshop)
+- [post:并发编程导论](https://zhuanlan.zhihu.com/p/63309292)
+- [深入理解计算机系统]
 
 ## design patterns
 

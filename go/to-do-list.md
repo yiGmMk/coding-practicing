@@ -103,10 +103,11 @@ Heap／Priority Queue题目：
 显式二分法：
 
 - [Leetcode 34. Find First and Last Position of Element in Sorted Array](https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/)
-- Leetcode 33. Search in Rotated Sorted Array
-- Leetcode 1095. Find in Mountain Array
-- Leetcode 162. Find Peak Element
-- Leetcode 278. First Bad Version
+- [Leetcode 33. Search in Rotated Sorted Array](https://leetcode.cn/problems/search-in-rotated-sorted-array/)
+- [Leetcode 153. find-minimum-in-rotated-sorted-array,寻找旋转排序数组中的最小值](https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array/)
+- [Leetcode 1095. Find in Mountain Array](https://leetcode.cn/problems/find-in-mountain-array/)
+- [Leetcode 162. Find Peak Element](https://leetcode.cn/problems/find-peak-element/)
+- [Leetcode 278. First Bad Version](https://leetcode.cn/problems/first-bad-version/description)
 - Leetcode 74. Search a 2D Matrix
 - Leetcode 240. Search a 2D Matrix II
 
