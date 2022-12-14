@@ -4,7 +4,7 @@
   - [concurrency(并发) and parallellism(并行)](#concurrency并发-and-parallellism并行)
     - [基本同步原语](#基本同步原语)
     - [分布式同步原语](#分布式同步原语)
-    - [ref](#ref)
+    - [参考](#参考)
   - [design patterns](#design-patterns)
     - [references](#references)
   - [algorithm and datastructure](#algorithm-and-datastructure)
@@ -55,7 +55,7 @@
 
 ### 分布式同步原语
 
-### ref
+### 参考
 
 - [ppt:Go并发编程](./static/ppt/Go%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.pptx)
 - [repo:深入go并发编程](https://github.com/smallnest/dive-to-gosync-workshop)
