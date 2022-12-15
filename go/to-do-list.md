@@ -108,8 +108,8 @@ Heap／Priority Queue题目：
 - [Leetcode 1095. Find in Mountain Array](https://leetcode.cn/problems/find-in-mountain-array/)
 - [Leetcode 162. Find Peak Element](https://leetcode.cn/problems/find-peak-element/)
 - [Leetcode 278. First Bad Version](https://leetcode.cn/problems/first-bad-version/description)
-- Leetcode 74. Search a 2D Matrix
-- Leetcode 240. Search a 2D Matrix II
+- [Leetcode 74. Search a 2D Matrix](https://leetcode.cn/problems/search-a-2d-matrix/description/)
+- [Leetcode 240. Search a 2D Matrix II](https://leetcode.cn/problems/search-a-2d-matrix-ii/description/)
 
 隐式二分法：
 
