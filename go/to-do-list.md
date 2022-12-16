@@ -113,7 +113,7 @@ Heap／Priority Queue题目：
 
 隐式二分法：
 
-- Leetcode 69. Sqrt(x)
+- [Leetcode 69. Sqrt(x)](https://leetcode.cn/problems/sqrtx/description/)
 - Leetcode 540. Single Element in a Sorted Array
 - Leetcode 644. Maximum Average Subarray II
 - Leetcode 528. Random Pick with Weight
