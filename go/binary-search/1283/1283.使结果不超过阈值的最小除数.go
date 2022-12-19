@@ -82,7 +82,7 @@ func smallestDivisor1(nums []int, threshold int) (res int) {
 		}
 		if sum > threshold {
 			l = mid
-		} else {
+		} else { // <= threshold
 			r = mid
 		}
 	}
