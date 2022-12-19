@@ -8,6 +8,11 @@ var _1283TestCase = []struct {
 	expect    int
 }{
 	{
+		nums:      []int{44, 22, 33, 11, 1},
+		threshold: 5,
+		expect:    44,
+	},
+	{
 		nums:      []int{1, 2, 5, 9},
 		threshold: 6,
 		expect:    5,
@@ -29,6 +34,11 @@ func Test1283(t *testing.T) {
 		got := smallestDivisor(v.nums, v.threshold)
 		if got != v.expect {
 			t.Errorf("[%d].got:%d,want:%d", i, got, v.expect)
+		}
+
+		got = smallestDivisor1(v.nums, v.threshold)
+		if got != v.expect {
+			t.Errorf("[%d]1.got:%d,want:%d", i, got, v.expect)
 		}
 	}
 }

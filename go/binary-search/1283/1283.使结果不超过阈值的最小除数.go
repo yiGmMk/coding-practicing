@@ -65,10 +65,10 @@ import (
 
 // TODO,类似287
 // @lc code=start
-func smallestDivisor(nums []int, threshold int) (res int) {
+func smallestDivisor1(nums []int, threshold int) (res int) {
 	sort.Ints(nums)
-	l, r := 1, nums[len(nums)-1]
-	for l <= r {
+	l, r := 0, nums[len(nums)-1]
+	for l+1 < r {
 		mid := int(uint(l+r) >> 1)
 		sum := 0
 		for _, v := range nums {
@@ -78,6 +78,25 @@ func smallestDivisor(nums []int, threshold int) (res int) {
 			// if val != val2 {
 			// 	fmt.Printf("v=%d,mid=%d,ceil=%d,ceil1=%d,ceil2=%d\n", v, mid, val, val1, val2)
 			// }
+			sum += val2
+		}
+		if sum > threshold {
+			l = mid
+		} else {
+			r = mid
+		}
+	}
+	return r
+}
+
+func smallestDivisor(nums []int, threshold int) (res int) {
+	sort.Ints(nums)
+	l, r := 1, nums[len(nums)-1]
+	for l <= r {
+		mid := int(uint(l+r) >> 1)
+		sum := 0
+		for _, v := range nums {
+			val2 := (v-1)/mid + 1
 			sum += val2
 		}
 		if sum > threshold {
