@@ -81,8 +81,13 @@
  */
 package jzoffer
 
+import (
+	"math"
+	"sort"
+)
+
 // @lc code=start
-func minDays(bloomDay []int, m int, k int) (res int) {
+func minDays1(bloomDay []int, m int, k int) (res int) {
 	max := 0
 	for _, v := range bloomDay {
 		if v > max {
@@ -127,6 +132,80 @@ func minDays(bloomDay []int, m int, k int) (res int) {
 		return r
 	}
 	return -1
+}
+
+func minDays(bloomDay []int, m int, k int) (res int) {
+	max := 0
+	for _, v := range bloomDay {
+		if v > max {
+			max = v
+		}
+	}
+
+	check := func(day int, days []int, m, k int) bool {
+		nm, nk := m, k
+		for i := 0; i < len(days); i++ {
+			if days[i] > day { // 不连续,重置
+				nk = k
+				continue
+			} else { //连续
+				nk--
+			}
+
+			if nk == 0 { // 制作一束花
+				nk = k
+				nm--
+			}
+			if nm <= 0 { // 需要的花束够了
+				break
+			}
+		}
+		if nm <= 0 {
+			return true
+		}
+		return false
+	}
+
+	r := sort.Search(max, func(i int) bool { return check(i, bloomDay, m, k) })
+	if check(r, bloomDay, m, k) {
+		return r
+	}
+	return -1
+}
+
+// 作者：LeetCode-Solution
+// 链接：https://leetcode.cn/problems/minimum-number-of-days-to-make-m-bouquets/solution/zhi-zuo-m-shu-hua-suo-xu-de-zui-shao-tia-mxci/
+// 来源：力扣（LeetCode）
+// 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+func minDays2(bloomDay []int, m, k int) int {
+	if m > len(bloomDay)/k {
+		return -1
+	}
+	minDay, maxDay := math.MaxInt32, 0
+	for _, day := range bloomDay {
+		if day < minDay {
+			minDay = day
+		}
+		if day > maxDay {
+			maxDay = day
+		}
+	}
+	return minDay + sort.Search(maxDay-minDay, func(days int) bool {
+		days += minDay
+		flowers, bouquets := 0, 0
+		for _, d := range bloomDay {
+			if d > days {
+				flowers = 0
+			} else {
+				flowers++
+				if flowers == k {
+					bouquets++
+					flowers = 0
+				}
+			}
+		}
+		return bouquets >= m
+	})
 }
 
 // @lc code=end

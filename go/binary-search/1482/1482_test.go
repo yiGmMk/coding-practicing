@@ -39,5 +39,15 @@ func Test1482(t *testing.T) {
 		if got != v.expect {
 			t.Errorf("[%d].got:%d,want:%d", i, got, v.expect)
 		}
+
+		got = minDays1(v.nums, v.m, v.k)
+		if got != v.expect {
+			t.Errorf("[%d]1.got:%d,want:%d", i, got, v.expect)
+		}
+
+		got = minDays2(v.nums, v.m, v.k)
+		if got != v.expect {
+			t.Errorf("[%d]2.got:%d,want:%d", i, got, v.expect)
+		}
 	}
 }
