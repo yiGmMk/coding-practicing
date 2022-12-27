@@ -9,6 +9,7 @@
   - [堆（Heap or Priority Queue）、栈（Stack）、队列（Queue）、哈希表类（Hashmap、Hashset）](#堆heap-or-priority-queue栈stack队列queue哈希表类hashmaphashset)
   - [二分法（Binary Search）](#二分法binary-search)
     - [解题](#解题)
+    - [其他](#其他)
   - [双指针（2 Pointer）](#双指针2-pointer)
   - [宽度优先搜索（BFS）：面试中最常考的](#宽度优先搜索bfs面试中最常考的)
   - [深度优先搜索（DFS）](#深度优先搜索dfs)
@@ -116,8 +117,8 @@ Heap／Priority Queue题目：
 - [Leetcode 69. Sqrt(x)](https://leetcode.cn/problems/sqrtx/description/)
 - [Leetcode 540. Single Element in a Sorted Array](https://leetcode.cn/problems/single-element-in-a-sorted-array/description/)
 - Leetcode 644. Maximum Average Subarray II
-- Leetcode 528. Random Pick with Weight
-- Leetcode 1300. Sum of Mutated Array Closest to Target
+- [Leetcode 528. Random Pick with Weight](https://leetcode.cn/problems/random-pick-with-weight/description/)
+- [Leetcode 1300. Sum of Mutated Array Closest to Target](https://leetcode.cn/problems/sum-of-mutated-array-closest-to-target/description/)
 - Leetcode 1060. Missing Element in Sorted Array
 - Leetcode 1062. Longest Repeating Substring
 - Leetcode 1891. Cutting Ribbons
@@ -126,6 +127,10 @@ Heap／Priority Queue题目：
 ### 解题
 
 [binary search](../go/binary-search/README.md)
+
+### 其他
+
+[leetcode 二分查找学习计划](https://leetcode.cn/study-plan/)
 
 ## 双指针（2 Pointer）
 
