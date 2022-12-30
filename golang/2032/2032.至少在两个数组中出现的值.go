@@ -109,6 +109,7 @@ func twoOutOfThree(nums1 []int, nums2 []int, nums3 []int) []int {
 	return vs
 }
 
+// 先两两取交集,再取并集
 func twoOutOfThree1(nums1 []int, nums2 []int, nums3 []int) []int {
 	v12 := lo.Intersect(nums1, nums2)
 	v23 := lo.Intersect(nums2, nums3)
