@@ -5,6 +5,9 @@
     - [基本同步原语](#基本同步原语)
     - [分布式同步原语](#分布式同步原语)
     - [参考](#参考)
+  - [distribution](#distribution)
+    - [paper](#paper)
+      - [共识算法](#共识算法)
   - [design patterns](#design-patterns)
     - [references](#references)
   - [algorithm and datastructure](#algorithm-and-datastructure)
@@ -74,6 +77,20 @@
 - [post:并发编程导论](https://zhuanlan.zhihu.com/p/63309292)
 - [深入理解计算机系统]
 
+## distribution
+
+### paper
+
+#### 共识算法
+
+共识是可容错系统中的一个基本问题：即使面对故障，服务器如何在共享状态上达成一致?
+这个问题出现在需要提供高可用性且不能在一致性上妥协的各种系统中
+
+- [raft,中文翻译](https://github.com/OneSizeFitsQuorum/raft-thesis-zh_cn/blob/master/raft-thesis-zh_cn.md)
+  Paxos共识算法复杂且难以理解.在设计Raft时,作者通过分解(Raft分离了领导者选举,日志复制,和安全性)和
+  状态空间缩减(Raft减少了不确定程度和服务器彼此之间不一致的方式)提高可理解性.
+  节点状态: 领导者,跟随者,候选人.
+  
 ## design patterns
 
 ![design patterns](./design-pattern/view.PNG)
