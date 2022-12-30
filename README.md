@@ -90,6 +90,7 @@
   Paxos共识算法复杂且难以理解.在设计Raft时,作者通过分解(Raft分离了领导者选举,日志复制,和安全性)和
   状态空间缩减(Raft减少了不确定程度和服务器彼此之间不一致的方式)提高可理解性.
   节点状态: 领导者,跟随者,候选人.
+- [raft,in English](https://raft.github.io/raft.pdf)
   
 ## design patterns
 
