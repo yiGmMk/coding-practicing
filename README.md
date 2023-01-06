@@ -124,6 +124,8 @@ tree/list/array
 5. [repo: algorithm & data structure](https://github.com/KeKe-Li/data-structures-questions)
 6. [repo: it资料大全](https://github.com/0voice)
 7. [repo: k8s-tutorials](https://github.com/guangzhengli/k8s-tutorials)
+8. [bytebytego: system design interview](https://bytebytego.com/courses/system-design-interview/scale-from-zero-to-millions-of-users)
+9. [bytebytego: Newsletter](https://blog.bytebytego.com/)
 
 ### database
 
@@ -391,6 +393,11 @@ gcc,g++,gdb,vscode
 ## tool
 
 - book <https://libgen.gs/>
+  - [镜像](https://www.ooopn.com/tool/libgen/)
+- [IFPS repo,官方](https://github.com/ipfs/public-gateway-checker)
+  - [IPFS 下载](https://ipfs-public-gateway-checker.on.fleek.co/)
+  - [IPFS 下载](https://ipfs-checker.1kbtool.com/)
+  - [教程,在ipfs服务后添加ipfs cid即可下载](https://1kbtool.com/web/ipfs-checker/)
 - neat-read,convert(支持azw3,epub,pdf等) <https://www.neat-reader.cn/webapp#/>
 
 ## 统计
