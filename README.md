@@ -394,6 +394,8 @@ gcc,g++,gdb,vscode
 
 - book <https://libgen.gs/>
   - [镜像](https://www.ooopn.com/tool/libgen/)
+- [repo zlib/libgen index](https://github.com/zlib-searcher/zlib-searcher)
+  - [demo](https://zlib.knat.network/)
 - [IFPS repo,官方](https://github.com/ipfs/public-gateway-checker)
   - [IPFS 下载](https://ipfs-public-gateway-checker.on.fleek.co/)
   - [IPFS 下载](https://ipfs-checker.1kbtool.com/)
