@@ -22,5 +22,9 @@ func Test2283(t *testing.T) {
 		if got != v.expect {
 			t.Errorf("[%d].got:%v,expect:%v", i, got, v.expect)
 		}
+		got = digitCount1(v.num)
+		if got != v.expect {
+			t.Errorf("[%d]1.got:%v,expect:%v", i, got, v.expect)
+		}
 	}
 }

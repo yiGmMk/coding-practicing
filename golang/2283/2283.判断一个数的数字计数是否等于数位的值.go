@@ -73,4 +73,21 @@ func digitCount(num string) bool {
 	return true
 }
 
+// 作者：LeetCode-Solution
+// 链接：https://leetcode.cn/problems/check-if-number-has-equal-digit-count-and-digit-value/solution/pan-duan-yi-ge-shu-de-shu-zi-ji-shu-shi-ozwa7/
+// 来源：力扣（LeetCode）
+// 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+func digitCount1(num string) bool {
+	cnt := map[rune]int{}
+	for _, c := range num {
+		cnt[c-'0']++
+	}
+	for i, c := range num {
+		if cnt[rune(i)] != int(c-'0') {
+			return false
+		}
+	}
+	return true
+}
+
 // @lc code=end
