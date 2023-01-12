@@ -99,6 +99,7 @@ func specialArray(nums []int) int {
 	sort.Sort(sort.Reverse(sort.IntSlice(nums))) //降序排序
 	for i, n := 1, len(nums); i <= n; i++ {
 		if nums[i-1] >= i && (i == n || nums[i] < i) {
+			// 0 ~ (i-1)个数都>=i && (i==n,说明n个数都>=i || nums[i]<i 说明 i个数>=i)
 			return i
 		}
 	}
