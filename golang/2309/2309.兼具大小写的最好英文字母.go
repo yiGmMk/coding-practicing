@@ -64,7 +64,7 @@ package jzoffer
 import "unicode"
 
 // @lc code=start
-func greatestLetter(s string) string {
+func greatestLetterOn(s string) string {
 	res := ""
 	rm := make(map[rune]bool)
 	update := func(str string) {
@@ -72,7 +72,7 @@ func greatestLetter(s string) string {
 			res = str
 			return
 		}
-		if str > res {
+		if str != res && str > res {
 			res = str
 		}
 
@@ -87,6 +87,23 @@ func greatestLetter(s string) string {
 		rm[v] = true
 	}
 	return res
+}
+
+// 作者：LeetCode-Solution
+// 链接：https://leetcode.cn/problems/greatest-english-letter-in-upper-and-lower-case/solution/jian-ju-da-xiao-xie-de-zui-hao-ying-wen-o5u2s/
+// 来源：力扣（LeetCode）
+// 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+func greatestLetter(s string) string {
+	set := map[rune]bool{}
+	for _, c := range s {
+		set[c] = true
+	}
+	for i := 'Z'; i >= 'A'; i-- {
+		if set[i] && set[unicode.ToLower(i)] {
+			return string(i)
+		}
+	}
+	return ""
 }
 
 // @lc code=end
