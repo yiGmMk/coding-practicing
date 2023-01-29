@@ -39,6 +39,8 @@
       - [log](#log)
   - [leetcode](#leetcode)
     - [常见题型](#常见题型)
+    - [技巧](#技巧)
+      - [向上取证,ceil](#向上取证ceil)
     - [c++](#c)
       - [依赖](#依赖)
       - [编译/Compile](#编译compile)
@@ -48,6 +50,10 @@
       - [issue](#issue)
         - [2022-10-10,在contos和ubuntu18.04上默认安装的python3.6.9调试python代码断点不能触发](#2022-10-10在contos和ubuntu1804上默认安装的python369调试python代码断点不能触发)
       - [fish 部分v2的版本支持conda](#fish-部分v2的版本支持conda)
+    - [java](#java)
+      - [环境](#环境)
+      - [issues](#issues)
+        - [Program Error: Could not find or load main class x](#program-error-could-not-find-or-load-main-class-x)
   - [blogs](#blogs)
   - [tool](#tool)
   - [统计](#统计)
@@ -295,6 +301,15 @@ memory profile同样基于采样生成
 
 [常见题型,来源,知乎:https://zhuanlan.zhihu.com/p/349940945](./go/to-do-list.md)
 
+### 技巧
+
+#### 向上取证,ceil
+
+ceil(a/b)=(a+b-1)/b=(a-1)/b+1
+
+当a/b能除尽,那么(a-1)/b除不尽取整+1后是向上取证的值
+当a/b能除不尽,那么(a-1)/b除不尽取整+1后是向上取证的值
+
 ### c++
 
 #### 依赖
@@ -381,6 +396,36 @@ gcc,g++,gdb,vscode
 4. 参考 <https://github.com/conda/conda/issues/11079>
 5. fish配置,输入fish_config,会弹出web页面,可视化配置
   ![fish_config](image/fish_config.png)
+
+### java
+
+#### 环境
+
+vscode + 插件 (Extension Pack for Java,多个插件集合)
+
+#### issues
+
+##### Program Error: Could not find or load main class x
+
+可能是launch.josn中的主类名称错误或者文件不再classpath
+主要检测以下几项:
+
+- Check whether the class name specified in mainClass exists and is in the right form.
+- Run VS Code command "Java: List all Java source paths" to show all source paths recognized by the workspace.
+- Check the Java file you are running is under any source path? If not, go to File Explorer, right click the folder containing your Java file, and run the menu "Add Folder to Java Source Path" to mark the containing folder as a Java source root.
+- Run VS Code command "Java: Force Java compilation" to rebuild your workspace.
+- If the problem persists, it's probably because the language server doesn't load your project correctly. Please reference the language server troubleshooting paragraph for more troubleshooting info.
+
+首先确认下java源文件是否在"Java source paths",不在可以右击所在目录选择"Add Folder to Java Source Path"添加
+然后确认源文件文件名称是否与主类名称一致.
+点击Run或Debug Vscode会自动在.vscode/launch.json中添加配置,如图
+
+![vscode,java,debug](./image/java/vscode-java.png)
+
+参考:
+
+- [vscode java常见问题,troubleshooting guide](https://github.com/microsoft/vscode-java-debug/blob/main/Troubleshooting.md)
+- [vscode java常见问题](https://code.visualstudio.com/docs/java/java-debugging)
 
 ## blogs
 

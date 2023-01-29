@@ -5,6 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "Launch Solution",
+            "request": "launch",
+            "mainClass": "Solution" // 主类名称,要能调试/运行,文件名需要与主类名相同
+        },
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
             "name": "Python: Current File",
             "type": "python",
             "request": "launch",
@@ -30,8 +42,7 @@
                     "ignoreFailures": true
                 }
             ],
-            //对应tasks.json中的"label": "g++ build active file",指定在debug前需要完成的任务(这里是编译cpp生成可执行文件)
-            "preLaunchTask": "g++ build active file",
+            "preLaunchTask": "g++ build active file", //对应tasks.json中的"label": "g++ build active file",指定在debug前需要完成的任务(这里是编译cpp生成可执行文件)
             "miDebuggerPath": "/usr/bin/gdb"
         }
     ]
