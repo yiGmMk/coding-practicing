@@ -24,4 +24,4 @@ s = Solution
 for i, v in enumerate(testCases):
     got = s.judeSquareSum(v["num"])
     if got != v["res"]:
-        print("[%d].got:%d,expect:%d", i, got, v["res"])
+        print(i, "got:",  got, "expect:", v["res"])
