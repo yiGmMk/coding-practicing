@@ -17,7 +17,7 @@ class Solution:
 
 testCases = [
     {"num": 5, "res": True},
-    {"num":3,"res": False},
+    {"num": 3, "res": False},
 ]
 
 s = Solution
