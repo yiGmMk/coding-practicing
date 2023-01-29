@@ -1,6 +1,6 @@
 
-# def isBadVersion(version: int) -> bool:
-#     return False
+def isBadVersion(version: int) -> bool:
+    return False
 
 
 class Solution:
