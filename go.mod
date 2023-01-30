@@ -4,7 +4,7 @@ go 1.19
 
 require (
 	github.com/RoaringBitmap/roaring v1.2.2
-	github.com/alicebob/miniredis/v2 v2.23.1
+	github.com/alicebob/miniredis/v2 v2.30.0
 	github.com/apache/rocketmq-client-go/v2 v2.1.1
 	github.com/duke-git/lancet/v2 v2.1.11
 	github.com/emirpasic/gods v1.18.1
@@ -27,7 +27,7 @@ require (
 	github.com/spf13/cobra v1.6.1
 	github.com/urfave/cli/v2 v2.23.7
 	github.com/yiGmMk/go-pdf v1.0.0
-	github.com/zeromicro/go-zero v1.4.3
+	github.com/zeromicro/go-zero v1.4.4
 	go.uber.org/zap v1.24.0
 	golang.org/x/crypto v0.5.0
 	golang.org/x/exp v0.0.0-20220303212507-bbda1eaf7a17
@@ -89,6 +89,7 @@ require (
 	go.opentelemetry.io/otel/exporters/otlp/internal/retry v1.11.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.11.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc v1.11.0 // indirect
+	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp v1.10.0 // indirect
 	go.opentelemetry.io/otel/exporters/zipkin v1.11.0 // indirect
 	go.opentelemetry.io/otel/sdk v1.11.0 // indirect
 	go.opentelemetry.io/otel/trace v1.11.0 // indirect
