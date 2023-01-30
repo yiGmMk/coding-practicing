@@ -1,10 +1,8 @@
 package mathutil
 
-import (
-	"github.com/duke-git/lancet/v2/lancetconstraints"
-)
+import "golang.org/x/exp/constraints"
 
-func Min[T lancetconstraints.Number](a, b T) T {
+func Min[T constraints.Ordered](a, b T) T {
 	if a < b {
 		return a
 	}

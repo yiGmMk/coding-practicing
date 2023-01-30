@@ -4,7 +4,7 @@ import (
 	"container/list"
 	"strconv"
 
-	"github.com/duke-git/lancet/v2/lancetconstraints"
+	"golang.org/x/exp/constraints"
 )
 
 const (
@@ -166,7 +166,7 @@ func (root *TreeNode) Depth() int {
 }
 
 // return max value
-func Max[T lancetconstraints.Number](a, b T) T {
+func Max[T constraints.Ordered](a, b T) T {
 	if a > b {
 		return a
 	}

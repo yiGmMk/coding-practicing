@@ -33,18 +33,18 @@ public:
 import (
 	"math"
 
-	"github.com/duke-git/lancet/v2/lancetconstraints"
 	"github.com/liyue201/gostl/ds/set"
+	"golang.org/x/exp/constraints"
 )
 
-func max[T lancetconstraints.Number](x T, y T) T {
+func max[T constraints.Ordered](x T, y T) T {
 	if x > y {
 		return x
 	}
 	return y
 }
 
-func min[T lancetconstraints.Number](x T, y T) T {
+func min[T constraints.Ordered](x T, y T) T {
 	if x < y {
 		return x
 	}

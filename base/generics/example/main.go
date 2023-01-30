@@ -4,17 +4,17 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/duke-git/lancet/v2/lancetconstraints"
+	"golang.org/x/exp/constraints"
 )
 
-func Sort[T lancetconstraints.Number](items []T) {
+func Sort[T constraints.Ordered](items []T) {
 	sort.Slice(items, func(x, y int) bool {
 		return items[x] < items[y]
 	})
 	return
 }
 
-func Max[T lancetconstraints.Number](a, b T) T {
+func Max[T constraints.Ordered](a, b T) T {
 	if a < b {
 		return b
 	}

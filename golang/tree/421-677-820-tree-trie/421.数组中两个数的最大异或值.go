@@ -70,9 +70,7 @@
  */
 package jzoffer
 
-import (
-	"github.com/duke-git/lancet/v2/lancetconstraints"
-)
+import "golang.org/x/exp/constraints"
 
 const (
 	_highBit = 30
@@ -145,7 +143,7 @@ func findMaximumXOR(nums []int) int {
 	return x
 }
 
-func Max[T lancetconstraints.Number](a, b T) T {
+func Max[T constraints.Ordered](a, b T) T {
 	if a > b {
 		return a
 	}
