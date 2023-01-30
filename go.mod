@@ -3,7 +3,7 @@ module github.com/yiGmMk/leetcode
 go 1.19
 
 require (
-	github.com/RoaringBitmap/roaring v1.2.1
+	github.com/RoaringBitmap/roaring v1.2.2
 	github.com/alicebob/miniredis/v2 v2.23.1
 	github.com/apache/rocketmq-client-go/v2 v2.1.1
 	github.com/duke-git/lancet/v2 v2.1.11
@@ -22,14 +22,14 @@ require (
 	github.com/pkg/errors v0.9.1
 	github.com/prashantv/gostub v1.1.0
 	github.com/samber/lo v1.37.0
-	github.com/sergi/go-diff v1.2.0
+	github.com/sergi/go-diff v1.3.1
 	github.com/smartystreets/goconvey v1.7.2
 	github.com/spf13/cobra v1.6.1
 	github.com/urfave/cli/v2 v2.23.7
 	github.com/yiGmMk/go-pdf v1.0.0
 	github.com/zeromicro/go-zero v1.4.3
 	go.uber.org/zap v1.24.0
-	golang.org/x/crypto v0.4.0
+	golang.org/x/crypto v0.5.0
 	golang.org/x/exp v0.0.0-20220303212507-bbda1eaf7a17
 	golang.org/x/sync v0.1.0
 )
@@ -96,9 +96,9 @@ require (
 	go.uber.org/atomic v1.10.0 // indirect
 	go.uber.org/automaxprocs v1.5.1 // indirect
 	go.uber.org/multierr v1.8.0 // indirect
-	golang.org/x/net v0.3.0 // indirect
-	golang.org/x/sys v0.3.0 // indirect
-	golang.org/x/text v0.5.0 // indirect
+	golang.org/x/net v0.5.0 // indirect
+	golang.org/x/sys v0.4.0 // indirect
+	golang.org/x/text v0.6.0 // indirect
 	google.golang.org/genproto v0.0.0-20221111202108-142d8a6fa32e // indirect
 	google.golang.org/grpc v1.50.1 // indirect
 	google.golang.org/protobuf v1.28.1 // indirect
