@@ -6,7 +6,7 @@ require (
 	github.com/RoaringBitmap/roaring v1.2.2
 	github.com/alicebob/miniredis/v2 v2.30.0
 	github.com/apache/rocketmq-client-go/v2 v2.1.1
-	github.com/duke-git/lancet/v2 v2.1.11
+	github.com/duke-git/lancet/v2 v2.1.13
 	github.com/emirpasic/gods v1.18.1
 	github.com/go-playground/assert/v2 v2.2.0
 	github.com/go-redis/redis/v8 v8.11.5
@@ -30,7 +30,7 @@ require (
 	github.com/zeromicro/go-zero v1.4.4
 	go.uber.org/zap v1.24.0
 	golang.org/x/crypto v0.5.0
-	golang.org/x/exp v0.0.0-20220303212507-bbda1eaf7a17
+	golang.org/x/exp v0.0.0-20221208152030-732eee02a75a
 	golang.org/x/sync v0.1.0
 )
 
@@ -66,7 +66,6 @@ require (
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/mschoch/smat v0.2.0 // indirect
 	github.com/openzipkin/zipkin-go v0.4.0 // indirect
-	github.com/panjf2000/ants/v2 v2.7.1 // indirect
 	github.com/patrickmn/go-cache v2.1.0+incompatible // indirect
 	github.com/pelletier/go-toml/v2 v2.0.6 // indirect
 	github.com/prometheus/client_golang v1.13.0 // indirect
