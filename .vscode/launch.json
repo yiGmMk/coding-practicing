@@ -9,7 +9,8 @@
             "type": "java",
             "name": "Launch Current File",
             "request": "launch",
-            "mainClass": "${file}"
+            "mainClass": "${file}",
+            "console": "integratedTerminal" // 要调试输入输出程序需要使用这个,才能控制台输入数据
         },
         {
             "name": "Python: Current File",
