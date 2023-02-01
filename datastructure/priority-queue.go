@@ -35,9 +35,11 @@ func (pq PQ) Swap(i, j int) {
 
 // Push 往 pq 中放 entry
 func (pq *PQ) Push(x interface{}) {
-	temp := x.(*entry)
-	temp.index = len(*pq)
-	*pq = append(*pq, temp)
+	temp, ok := x.(*entry)
+	if ok {
+		temp.index = len(*pq)
+		*pq = append(*pq, temp)
+	}
 }
 
 // Pop 从 pq 中取出最优先的 entry
