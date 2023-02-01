@@ -16,6 +16,7 @@
     - [private](#private)
     - [protected](#protected)
     - [package](#package)
+  - [模块,.jmod](#模块jmod)
 
 ## polymorphic 多态
 
@@ -190,3 +191,10 @@ protected作用于继承关系。定义为protected的字段和方法可以被�
 
 - 没有public、private修饰的class，
 - 以及没有public、protected、private修饰的字段和方法
+
+## 模块,.jmod
+
+从Java 9开始引入的模块，主要是为了解决“依赖”这个问题。
+如果a.jar必须依赖另一个b.jar才能运行，那我们应该给a.jar加点说明啥的，让程序在编译和运行的时候能自动定位到b.jar，这种自带“依赖关系”的class容器就是模块。
+
+通过模块拆分可以更小的可执行文件
