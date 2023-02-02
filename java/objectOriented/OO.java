@@ -19,8 +19,8 @@ public class OO {
     public static void override() {
         System.out.println();
 
-        Person s = new Student("王二", 100, 100, 100);
-        Person p = new Person("王二", 1, 1);
+        Person s = new Student("王二", 100, 100);
+        Person p = new Person("王二", 1);
 
         System.out.println("p_student:" + s.toString() + " p_person:" + p.toString());
         System.out.println("ps:" + s.getName());
