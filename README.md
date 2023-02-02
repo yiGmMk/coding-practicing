@@ -55,6 +55,7 @@
       - [issues](#issues)
         - [Program Error: Could not find or load main class x](#program-error-could-not-find-or-load-main-class-x)
       - [OOP,面向对象编程](#oop面向对象编程)
+      - [基础](#基础)
   - [blogs](#blogs)
   - [tool](#tool)
   - [统计](#统计)
@@ -431,6 +432,10 @@ vscode + 插件 (Extension Pack for Java,多个插件集合)
 #### OOP,面向对象编程
 
 [OOP](./java/objectOriented/oop.md)
+
+#### 基础
+
+[base](./java/base/base.md)
 
 ## blogs
 
