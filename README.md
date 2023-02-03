@@ -5,7 +5,7 @@
     - [基本同步原语](#基本同步原语)
     - [分布式同步原语](#分布式同步原语)
     - [参考](#参考)
-  - [distribution](#distribution)
+  - [distribution/分布式](#distribution分布式)
     - [paper](#paper)
       - [共识算法](#共识算法)
   - [design patterns](#design-patterns)
@@ -85,7 +85,7 @@
 - [post:并发编程导论](https://zhuanlan.zhihu.com/p/63309292)
 - [深入理解计算机系统]
 
-## distribution
+## distribution/分布式
 
 ### paper
 
@@ -99,6 +99,7 @@
   状态空间缩减(Raft减少了不确定程度和服务器彼此之间不一致的方式)提高可理解性.
   节点状态: 领导者,跟随者,候选人.
 - [raft,in English](https://raft.github.io/raft.pdf)
+- [raft,可视化](http://thesecretlivesofdata.com/raft/)
   
 ## design patterns
 
