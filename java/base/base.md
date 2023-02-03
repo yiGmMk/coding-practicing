@@ -8,6 +8,8 @@
   - [JavaBean](#javabean)
     - [枚举JavaBean属性](#枚举javabean属性)
   - [记录类](#记录类)
+  - [日志](#日志)
+  - [包管理](#包管理)
   - [参考](#参考)
 
 ## 类型
@@ -136,6 +138,12 @@ public record Point(int x, int y) {}
 除了用final修饰class以及每个字段外，编译器还自动为我们创建了构造方法，和字段名同名的方法，以及覆写toString()、equals()和hashCode()方法。
 
 换句话说，使用record关键字，可以一行写出一个不变类。
+
+## 日志
+
+Commons Logging和Log4j: 一个负责充当日志API，一个负责实现日志底层，搭配使用非常方便
+
+## 包管理
 
 ## 参考
 
