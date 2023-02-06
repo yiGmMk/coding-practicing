@@ -62,12 +62,17 @@
 
 -- @lc code=start
 # Write your MySQL query statement below
+-- select distinct v1.author_id as id
+-- from Views v1
+-- left join Views v2 on v1.article_id=v2.article_id 
+-- where v1.author_id=v2.author_id and v1.author_id=v2.viewer_id
+-- order by id
+
+
 select distinct v1.author_id as id
-from Views v1
-left join Views v2 on v1.article_id=v2.article_id 
+from Views v1,Views v2
 where v1.author_id=v2.author_id and v1.author_id=v2.viewer_id
 order by id
-
 
 -- @lc code=end
 
