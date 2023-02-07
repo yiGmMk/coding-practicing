@@ -67,7 +67,10 @@ func pickGifts(gifts []int, k int) int64 {
 		heap.Push(&h, v)
 	}
 	for k > 0 {
-		v := heap.Pop(&h).(int)
+		v, ok := heap.Pop(&h).(int)
+		if !ok {
+			continue
+		}
 		heap.Push(&h, int(math.Sqrt(float64(v))))
 		k--
 	}
