@@ -158,7 +158,7 @@ Heap／Priority Queue题目：
 - Leetcode 340. Longest Substring with At Most K Distinct Characters
 - Leetcode 424. Longest Repeating Character Replacement
 - Leetcode 76. Minimum Window Substring
-- Leetcode 3. Longest Substring Without Repeating Characters
+- [Leetcode 3. Longest Substring Without Repeating Characters](https://leetcode.cn/problems/longest-substring-without-repeating-characters/)
 - Leetcode 1004 Max Consecutive Ones III
 - Leetcode 1658 Minimum Operations to Reduce X to Zero
 
