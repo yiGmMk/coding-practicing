@@ -3,6 +3,9 @@
 - [binary search](#binary-search)
   - [sort.SearchInts使用技巧](#sortsearchints使用技巧)
   - [sort.Search的使用技巧](#sortsearch的使用技巧)
+  - [套路](#套路)
+    - [最大化最小值/最小化最大值](#最大化最小值最小化最大值)
+      - [例题](#例题)
   - [参考](#参考)
     - [蓝红二分](#蓝红二分)
 
@@ -54,6 +57,22 @@ sort.Search(10, func(x int) bool {
   return x*x > 90
 })
 ```
+
+## 套路
+
+### 最大化最小值/最小化最大值
+
+看到「最大化最小值」或者「最小化最大值」就要想到二分答案，这是一个固定的套路。
+为什么？一般来说，二分的值越大，越能/不能满足要求；二分的值越小，越不能/能满足要求，有单调性，可以二分。
+
+#### 例题
+
+- [Leetcode 2560. 打家劫舍 IV](https://leetcode.cn/problems/house-robber-iv/)
+  [题解](https://leetcode.cn/problems/house-robber-iv/solution/er-fen-da-an-dp-by-endlesscheng-m558/)
+- [Leetcode 2439. 最小化数组中的最大值](https://leetcode.cn/problems/minimize-maximum-of-array/)
+- [Leetcode 2513. 最小化两个数组中的最大值](https://leetcode.cn/problems/minimize-the-maximum-of-two-arrays/)
+- [Leetcode 2517. 礼盒的最大甜蜜度](https://leetcode.cn/problems/maximum-tastiness-of-candy-basket/)
+- [Leetcode 2528. 最大化城市的最小供电站数目](https://leetcode.cn/problems/maximize-the-minimum-powered-city/)
 
 ## 参考
 

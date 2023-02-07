@@ -123,6 +123,11 @@ Heap／Priority Queue题目：
 - Leetcode 1062. Longest Repeating Substring
 - Leetcode 1891. Cutting Ribbons
 - Leetcode 410. Split Array Largest Sum (与1891类似)
+- [Leetcode 2560. 打家劫舍 IV](https://leetcode.cn/problems/house-robber-iv/)
+- [Leetcode 2439. 最小化数组中的最大值](https://leetcode.cn/problems/minimize-maximum-of-array/)
+- [Leetcode 2513. 最小化两个数组中的最大值](https://leetcode.cn/problems/minimize-the-maximum-of-two-arrays/)
+- [Leetcode 2517. 礼盒的最大甜蜜度](https://leetcode.cn/problems/maximum-tastiness-of-candy-basket/)
+- [Leetcode 2528. 最大化城市的最小供电站数目](https://leetcode.cn/problems/maximize-the-minimum-powered-city/)
 
 ### 解题
 
