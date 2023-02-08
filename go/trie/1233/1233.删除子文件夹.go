@@ -109,6 +109,15 @@ type trie struct {
 	childer map[string]*trie
 }
 
+/*
+我们首先将每一个文件夹按照“/”进行分割，作为一条路径加入字典树中。
+随后我们对字典树进行一次深度优先搜索，搜索的过程中，如果我们走到了一个
+ref≥0的节点，就将其加入答案，并且可以直接回溯，因为后续（更深的）所有节点都是该节点的子文件夹
+作者：LeetCode-Solution
+链接：https://leetcode.cn/problems/remove-sub-folders-from-the-filesystem/solution/shan-chu-zi-wen-jian-jia-by-leetcode-sol-0x8d/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+*/
 func removeSubfolders(folder []string) (ans []string) {
 	root := &trie{ref: -1, childer: map[string]*trie{}}
 	for i, v := range folder {
