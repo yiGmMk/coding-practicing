@@ -156,7 +156,9 @@ Heap／Priority Queue题目：
 - Leetcode 277. Find the Celebrity
 - Leetcode 11. Container With Most Water
 - Leetcode 186 Reverse Words in a String II
+
 同向双指针：（个人觉得最难的一类题，可以参考下这里 TimothyL：Leetcode 同向双指针/滑动窗口类代码模板）
+
 - Leetcode 283. Move Zeroes
 - Leetcode 26. Remove Duplicate Numbers in Array
 - Leetcode 395. Longest Substring with At Least K Repeating Characters
@@ -166,6 +168,7 @@ Heap／Priority Queue题目：
 - [Leetcode 3. Longest Substring Without Repeating Characters](https://leetcode.cn/problems/longest-substring-without-repeating-characters/)
 - Leetcode 1004 Max Consecutive Ones III
 - Leetcode 1658 Minimum Operations to Reduce X to Zero
+- [同向双指针,滑动窗口](./sliding-window/sliding-window.md)
 
 ## 宽度优先搜索（BFS）：面试中最常考的
 
