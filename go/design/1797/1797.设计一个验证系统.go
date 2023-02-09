@@ -114,6 +114,7 @@ func (this *AuthenticationManager0) CountUnexpiredTokens(currentTime int) (res i
 	return
 }
 
+// 每次操作时删除超时的,使用优先队列按时间排序(小顶堆),超时越早的放前面
 // ----------map+priorityqueue----------------
 type (
 	Node struct {
