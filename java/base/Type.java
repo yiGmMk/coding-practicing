@@ -6,5 +6,8 @@ public class Type {
         Integer b = Integer.valueOf(111111111);
         System.out.println("a==b  :" + (a == b));
         System.out.println("equals:" + (a.equals(b)));
+
+        System.out.println("abc".equals(new String("abc")));
+        System.out.println("abc" == (new String("abc")));
     }
 }
