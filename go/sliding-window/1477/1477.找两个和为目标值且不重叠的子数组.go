@@ -84,7 +84,7 @@ import (
 		target: 6,
 		expect: 5,
 	},
-// 从前往后+从后往前 两次遍历还是有些过不了
+ 从前往后+从后往前 两次遍历还是有些过不了
 */
 func minSumOfLengthsWrongSolution(arr []int, target int) int {
 	cal := func(arr []int) int {
