@@ -22,6 +22,7 @@
     - [TreeMap](#treemap)
     - [动态规划（Dynamic Programming）](#动态规划dynamic-programming)
   - [题解](#题解)
+  - [刷题总结](#刷题总结)
 
 ## 排序类（Sort）
 
@@ -393,3 +394,8 @@ DFS基本模板（需要记录路径，不需要返回值 and 不需要记录路
 
 - [codeforeces-go](https://github.com/EndlessCheng/codeforces-go)
 - [Leetcode-Go](https://books.halfrost.com/leetcode/ChapterFour/0200~0299/0218.The-Skyline-Problem/)
+
+## 刷题总结
+
+- [Leetcode,灵茶山艾府](https://leetcode.cn/circle/discuss/WR1MJP/)
+- [Leetcode](https://leetcode.cn/circle/discuss/G0n5iY/)
