@@ -1,4 +1,3 @@
-coding practicing
 
 - [concurrency(并发) and parallellism(并行)](#concurrency并发-and-parallellism并行)
   - [基本同步原语](#基本同步原语)
@@ -56,6 +55,7 @@ coding practicing
     - [OOP,面向对象编程](#oop面向对象编程)
     - [Spring](#spring)
     - [基础](#基础)
+  - [math](#math)
 - [blogs](#blogs)
 - [tool](#tool)
 - [统计](#统计)
@@ -441,6 +441,10 @@ vscode + 插件 (Extension Pack for Java,多个插件集合)
 #### 基础
 
 [base](./java/base/base.md)
+
+### math
+
+[math](./go/math/math.md)
 
 ## blogs
 
