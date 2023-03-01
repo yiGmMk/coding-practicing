@@ -29,7 +29,7 @@ require (
 	github.com/yiGmMk/go-pdf v1.0.0
 	github.com/zeromicro/go-zero v1.4.4
 	go.uber.org/zap v1.24.0
-	golang.org/x/crypto v0.5.0
+	golang.org/x/crypto v0.6.0
 	golang.org/x/exp v0.0.0-20220303212507-bbda1eaf7a17
 	golang.org/x/sync v0.1.0
 )
