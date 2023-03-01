@@ -16,7 +16,7 @@ require (
 	github.com/imdario/mergo v0.3.13
 	github.com/json-iterator/go v1.1.12
 	github.com/liyue201/gostl v1.0.1
-	github.com/looplab/fsm v0.3.0
+	github.com/looplab/fsm v1.0.1
 	github.com/mackerelio/go-osstat v0.2.3
 	github.com/natefinch/lumberjack v2.0.0+incompatible
 	github.com/pkg/errors v0.9.1
