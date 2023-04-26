@@ -119,7 +119,9 @@ func recover(root *TreeNode, count, x, y int) {
     recover(root.Left, count, x, y)
 }
 */
-
+// 对二叉搜索树进行中序遍历，得到的值序列是递增有序的，而如果我们错误地交换了两个节点，
+// 等价于在这个值序列中交换了两个值，破坏了值序列的递增性
+// 1 2 3 4 5 6 7 => 1 6 3 4 5 2 7
 func recoverTree1(root *TreeNode) {
 	var nodes []*TreeNode
 	var dfs func(node *TreeNode)
@@ -158,6 +160,14 @@ func recoverTree1(root *TreeNode) {
 	return
 }
 
+/*
+我们只关心中序遍历的值序列中每个相邻的位置的大小关系是否满足条件，且错误交换后最多两个位置不满足条件，
+因此在中序遍历的过程我们只需要维护当前中序遍历到的最后一个节点pred，
+然后在遍历到下一个节点的时候，看两个节点的值是否满足前者小于后者即可，
+如果不满足说明找到了一个交换的节点，且在找到两次以后就可以终止遍历。
+这样我们就可以在中序遍历中直接找到被错误交换的两个节点
+x 和 y，不用显式建立 nums 数组。
+*/
 func recoverTree(root *TreeNode) {
 	nodes := []*TreeNode{}
 	swap := func(x, y *TreeNode) {
