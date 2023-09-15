@@ -56,13 +56,20 @@ import "strings"
 
 // @lc code=start
 
+//	func check(check, str string) bool {
+//		l, r := len(check), 1
+//		for l*r <= len(str) {
+//			if strings.Repeat(check, r) == str {
+//				return true
+//			}
+//			r++
+//		}
+//		return false
+//	}
 func check(check, str string) bool {
-	l, r := len(check), 1
-	for l*r <= len(str) {
-		if strings.Repeat(check, r) == str {
-			return true
-		}
-		r++
+	c := len(str) / len(check)
+	if strings.Repeat(check, c) == str {
+		return true
 	}
 	return false
 }
