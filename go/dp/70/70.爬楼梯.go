@@ -51,7 +51,7 @@
 package jzoffer
 
 // @lc code=start
-// f(x)=f(x-1)+f(x-2) 排到第x级的方案数
+// f(x)=f(x-1)+f(x-2) 爬到第x级的方案数
 func climbStairs(n int) int {
 	p, q, r := 0, 0, 1
 	for i := 1; i <= n; i++ {
