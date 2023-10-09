@@ -51,20 +51,23 @@
 package jzoffer
 
 // @lc code=start
-func nextGreaterElements(nums []int) []int {
+func nextGreaterElementsMy(nums []int) []int {
 	var (
-		idx   = -1
-		n     = len(nums)
+		idx = -1
+		n   = len(nums)
+		// 环形数组,多一份数据用于模拟
 		num   = append(nums, nums...)
 		stack = []struct{ i, v int }{}
 		res   = make([]int, len(nums))
 	)
+	// 默认没有下一个更大的值,有则在单调栈中更新
 	for i := 0; i < len(res); i++ {
 		res[i] = -1
 	}
+
 	for _, v := range num {
 		idx++
-		if idx == n {
+		if idx == n { //到数组尾部了,开始找前头有没有更大的值(环形)
 			idx = 0
 		}
 		for len(stack) > 0 && v > stack[len(stack)-1].v {
@@ -80,4 +83,26 @@ func nextGreaterElements(nums []int) []int {
 	return res
 }
 
+// 实际不需要拷贝一份数据,多遍历一次就好了
+func nextGreaterElements(nums []int) []int {
+	n := len(nums)
+	ans := make([]int, n)
+	for i := range ans {
+		ans[i] = -1
+	}
+	stack := []int{}
+	for i := 0; i < n*2-1; i++ {
+		for len(stack) > 0 && nums[stack[len(stack)-1]] < nums[i%n] {
+			ans[stack[len(stack)-1]] = nums[i%n]
+			stack = stack[:len(stack)-1]
+		}
+		stack = append(stack, i%n)
+	}
+	return ans
+}
+
+// 作者：力扣官方题解
+// 链接：https://leetcode.cn/problems/next-greater-element-ii/description/
+// 来源：力扣（LeetCode）
+// 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 // @lc code=end
