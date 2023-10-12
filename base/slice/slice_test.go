@@ -36,6 +36,11 @@ func TestAppend(t *testing.T) {
 	// go1.19=> 	1 2 4 8 16 32 64 128 256 512 848 1280 1792 2560
 	// go1.20=>		1 2 4 8 16 32 64 128 256 512 848 1280 1792 2560
 	// go1.21=> 	1 2 4 8 16 32 64 128 256 512 848 1280 1792 2560
+
+	a := []int{1, 2}
+	fmt.Println("\nlen=", len(a), "cap=", cap(a))
+	a = append(a, 1, 2, 3)
+	fmt.Println("len=", len(a), "cap=", cap(a))
 }
 
 func TestSliceStorge(t *testing.T) {
