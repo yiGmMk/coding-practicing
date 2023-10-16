@@ -1,4 +1,4 @@
-package chantest
+package channel
 
 import (
 	"bufio"
