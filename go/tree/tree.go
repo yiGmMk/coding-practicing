@@ -17,11 +17,14 @@ func postTree(pre, mid string) string {
 			return &node{val: p}
 		}
 		bRoot := p[0]
-		i := strings.IndexByte(p, bRoot) // [0:i][i+1:]
+		// 从中序遍历找根节点位置
+		i := strings.IndexByte(m, bRoot) // [0:i][i+1:]
+		pl, ml := p[1:i+1], m[:i]
+		pr, mr := p[i+1:], m[i+1:]
 		root := &node{
 			val: string(bRoot),
-			l:   dfs(p[1:i+1], m[:i]), // 左子树
-			r:   dfs(p[i+1:], m[i+1:]),
+			l:   dfs(pl, ml), // 左子树
+			r:   dfs(pr, mr),
 		}
 
 		return root
@@ -55,6 +58,7 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
+// 基于前/中序遍历 重建二叉树
 func buildTree(preorder []int, inorder []int) *TreeNode {
 	var dfs func(p, m []int) *TreeNode
 	dfs = func(p, m []int) *TreeNode {
@@ -72,14 +76,32 @@ func buildTree(preorder []int, inorder []int) *TreeNode {
 				break
 			}
 		}
+		pl, ml := p[1:i+1], m[:i]
+		pr, mr := p[i+1:], m[i+1:]
 		root := &TreeNode{
 			Val:   bRoot,
-			Left:  dfs(p[1:i+1], m[:i]), // 左子树
-			Right: dfs(p[i+1:], m[i+1:]),
+			Left:  dfs(pl, ml), // 左子树
+			Right: dfs(pr, mr),
 		}
 
 		return root
 	}
 	root := dfs(preorder, inorder)
 	return root
+}
+
+// 后续遍历
+func postItrate(root *TreeNode) (res []int) {
+	var dfs func(root *TreeNode)
+
+	dfs = func(root *TreeNode) {
+		if root == nil {
+			return
+		}
+		dfs(root.Left)
+		dfs(root.Right)
+		res = append(res, root.Val)
+	}
+	dfs(root)
+	return
 }
