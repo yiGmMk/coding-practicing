@@ -1,6 +1,7 @@
 package trace
 
 import (
+	"context"
 	"fmt"
 	"log"
 	"os"
@@ -29,6 +30,10 @@ func TestTrace(t *testing.T) {
 	}
 	defer trace.Stop()
 
+	// 用户任务
+	ctx, task := trace.NewTask(context.Background(), "trace 用户任务")
+	defer task.End()
+
 	// 下面就是你的监控的程序
 	// 我简单写了一个文件读写
 	var wg sync.WaitGroup
@@ -37,6 +42,9 @@ func TestTrace(t *testing.T) {
 	// 一个协程用来读文件
 	go func() {
 		defer wg.Done()
+		r := trace.StartRegion(ctx, "reading file")
+		defer r.End()
+
 		content, err := os.ReadFile(`mxc.txt`)
 		fmt.Println(content, err)
 	}()
@@ -44,6 +52,9 @@ func TestTrace(t *testing.T) {
 	// 写文件协程
 	go func() {
 		defer wg.Done()
+		r := trace.StartRegion(ctx, "reading file")
+		defer r.End()
+
 		fmt.Println("hello trace")
 	}()
 	wg.Wait()
