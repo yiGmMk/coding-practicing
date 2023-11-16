@@ -66,17 +66,17 @@ import "sort"
 // @lc code=start
 func minEatingSpeed(piles []int, h int) (res int) {
 	sort.Ints(piles)
-	check := func(i int) bool {
-		if i == 0 {
+	check := func(speed int) bool {
+		if speed == 0 {
 			return false
 		}
 		hour := 0
 		for _, v := range piles {
-			if v <= i {
+			if v <= speed {
 				hour++
 			} else {
-				hour += v / i
-				if v%i > 0 {
+				hour += v / speed
+				if v%speed > 0 {
 					hour++
 				}
 			}
