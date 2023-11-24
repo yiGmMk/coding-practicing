@@ -59,6 +59,7 @@
 package jzoffer
 
 // @lc code=start
+// 两个一样的数异或为0，0与任何数异或为任何数
 func singleNumber(nums []int) int {
 	single := 0
 	for _, num := range nums {
