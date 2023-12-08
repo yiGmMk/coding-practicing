@@ -106,10 +106,10 @@ func combinationSumMy(candidates []int, target int) (res [][]int) {
 // 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 func combinationSum(candidates []int, target int) [][]int {
 	sort.Ints(candidates)
-	return dfs(candidates, target)
+	return dfs(candidates, target, []int{})
 }
 
-func dfs(candidates []int, target int) [][]int {
+func dfs1(candidates []int, target int) [][]int {
 	ret := [][]int{}
 	for i, d := range candidates {
 		if target-d < 0 {
@@ -118,7 +118,24 @@ func dfs(candidates []int, target int) [][]int {
 			ret = append(ret, []int{d})
 			continue
 		}
-		for _, v := range dfs(candidates[i:], target-d) {
+		for _, v := range dfs1(candidates[i:], target-d) {
+			ret = append(ret, append([]int{d}, v...))
+		}
+	}
+	return ret
+}
+
+func dfs(candidates []int, target int, path []int) [][]int {
+	ret := [][]int{}
+	for i, d := range candidates {
+		if target-d < 0 {
+			break
+		} else if target-d == 0 {
+			path = append(path, d)
+			ret = append(ret, path)
+			continue
+		}
+		for _, v := range dfs(candidates[i:], target-d, path) {
 			ret = append(ret, append([]int{d}, v...))
 		}
 	}
