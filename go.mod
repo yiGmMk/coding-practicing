@@ -3,7 +3,7 @@ module github.com/yiGmMk/leetcode
 go 1.21
 
 require (
-	github.com/RoaringBitmap/roaring v1.2.3
+	github.com/RoaringBitmap/roaring v1.6.0
 	github.com/alicebob/miniredis/v2 v2.31.0
 	github.com/apache/rocketmq-client-go/v2 v2.1.1
 	github.com/duke-git/lancet/v2 v2.1.11
