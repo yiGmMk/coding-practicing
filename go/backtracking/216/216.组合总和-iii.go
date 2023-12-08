@@ -93,7 +93,7 @@ func combinationSum3(k int, n int) (res [][]int) {
 	return
 }
 
-// TODO 二进制枚举
+// TODO 二进制枚举, 最多9个数,不允许重复,每个数只有2中状态=> 那么最多2^9种状态
 // 作者：力扣官方题解
 // 链接：https://leetcode.cn/problems/combination-sum-iii/
 // 来源：力扣（LeetCode）
