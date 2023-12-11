@@ -92,7 +92,10 @@ func maxScore(nums1, nums2 []int, k int) int64 {
 	heap.Init(&h)
 	for _, p := range a[k:] {
 		if p.x > h.IntSlice[0] {
-			x := heap.Pop(&h).(int)
+			x, ok := heap.Pop(&h).(int)
+			if !ok {
+				continue
+			}
 			sum += p.x - x
 			heap.Push(&h, p.x)
 			ans = max(ans, sum*p.y)
