@@ -65,8 +65,8 @@ package jzoffer
 // 直接用回溯会超时,使用map存储中间结果或者使用dp解答
 func combinationSum4Backtrack(nums []int, target int) (res int) {
 	mRes := make(map[int]int)
-	var dfs func(cancidate []int, left int) int
-	dfs = func(cancidate []int, left int) int {
+	var dfs func(left int) int
+	dfs = func(left int) int {
 		if left < 0 {
 			return 0
 		}
@@ -83,13 +83,13 @@ func combinationSum4Backtrack(nums []int, target int) (res int) {
 				num += n
 				continue
 			}
-			n := dfs(cancidate, left-v)
+			n := dfs(left - v)
 			mRes[left-v] = n
 			num += n
 		}
 		return num
 	}
-	res += dfs(nums, target)
+	res += dfs(target)
 	return
 }
 
