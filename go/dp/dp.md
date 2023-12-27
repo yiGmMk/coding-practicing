@@ -7,3 +7,12 @@
 - 1024. 视频拼接
 - 1326. 灌溉花园的最少水龙头数目
 - 53. 最大子数组和
+
+## 股票买卖系列
+
+- 121. [买卖股票的最佳时机](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/solutions/38477/bao-li-mei-ju-dong-tai-gui-hua-chai-fen-si-xiang-b/)
+- 122. 买卖股票的最佳时机 II
+- 123. 买卖股票的最佳时机 III
+- 188. [买卖股票的最佳时机 IV](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iv/solutions/2201488/shi-pin-jiao-ni-yi-bu-bu-si-kao-dong-tai-kksg/)
+- 309. 最佳买卖股票时机含冷冻
+- 714. 买卖股票的最佳时机含手续费
