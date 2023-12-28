@@ -78,15 +78,21 @@ func minDistance(word1 string, word2 string) int {
 	for i := 0; i < m+1; i++ {
 		dp[0][i] = i
 	}
+	// "horse", "ros"
+	// [][]int len: 6, cap: 6, [
+	// [0,1,2,3],
+	// [1,0,0,0],
+	// [2,0,0,0],
+	// [3,0,0,0],
+	// [4,0,0,0],
+	// [5,0,0,0]]
 	for i := 1; i < n+1; i++ {
 		for j := 1; j < m+1; j++ {
-			left := dp[i-1][j] + 1
-			down := dp[i][j-1] + 1
 			leftDown := dp[i-1][j-1]
 			if word1[i-1] != word2[j-1] {
 				leftDown += 1
 			}
-			dp[i][j] = min(left, down, leftDown)
+			dp[i][j] = min(dp[i-1][j]+1, dp[i][j-1]+1, leftDown)
 		}
 	}
 	return dp[n][m]
