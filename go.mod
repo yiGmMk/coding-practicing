@@ -20,14 +20,13 @@ require (
 	github.com/looplab/fsm v0.3.0
 	github.com/mackerelio/go-osstat v0.2.4
 	github.com/natefinch/lumberjack v2.0.0+incompatible
-	github.com/panjf2000/ants/v2 v2.9.0
 	github.com/pkg/errors v0.9.1
 	github.com/prashantv/gostub v1.1.0
 	github.com/samber/lo v1.38.1
 	github.com/sergi/go-diff v1.3.1
 	github.com/smartystreets/goconvey v1.7.2
 	github.com/spf13/cobra v1.6.1
-	github.com/urfave/cli/v2 v2.24.4
+	github.com/urfave/cli/v2 v2.27.1
 	github.com/yiGmMk/go-pdf v1.0.0
 	github.com/zeromicro/go-zero v1.6.0
 	go.uber.org/zap v1.24.0
