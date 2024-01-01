@@ -5,7 +5,7 @@ go 1.21
 require (
 	github.com/RoaringBitmap/roaring v1.7.0
 	github.com/alicebob/miniredis/v2 v2.31.0
-	github.com/apache/rocketmq-client-go/v2 v2.1.1
+	github.com/apache/rocketmq-client-go/v2 v2.1.2
 	github.com/duke-git/lancet/v2 v2.1.11
 	github.com/emirpasic/gods v1.18.1
 	github.com/go-playground/assert/v2 v2.2.0
@@ -20,7 +20,6 @@ require (
 	github.com/looplab/fsm v0.3.0
 	github.com/mackerelio/go-osstat v0.2.4
 	github.com/natefinch/lumberjack v2.0.0+incompatible
-	github.com/panjf2000/ants/v2 v2.9.0
 	github.com/pkg/errors v0.9.1
 	github.com/prashantv/gostub v1.1.0
 	github.com/samber/lo v1.38.1
@@ -75,12 +74,10 @@ require (
 	github.com/prometheus/common v0.44.0 // indirect
 	github.com/prometheus/procfs v0.11.1 // indirect
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect
-	github.com/satori/go.uuid v1.2.0 // indirect
 	github.com/sirupsen/logrus v1.8.1 // indirect
 	github.com/smartystreets/assertions v1.2.0 // indirect
 	github.com/spaolacci/murmur3 v1.1.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
-	github.com/stathat/consistent v1.0.0 // indirect
 	github.com/tidwall/gjson v1.13.0 // indirect
 	github.com/tidwall/match v1.1.1 // indirect
 	github.com/tidwall/pretty v1.2.0 // indirect
@@ -109,4 +106,5 @@ require (
 	google.golang.org/protobuf v1.31.0 // indirect
 	gopkg.in/natefinch/lumberjack.v2 v2.0.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
+	stathat.com/c/consistent v1.0.0 // indirect
 )
