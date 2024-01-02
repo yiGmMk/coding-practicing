@@ -49,7 +49,7 @@
 package jzoffer
 
 // @lc code=start
-func minPathSum(grid [][]int) int {
+func minPathSumMy(grid [][]int) int {
 	if len(grid) == 0 || len(grid[0]) == 0 {
 		return 0
 	}
@@ -79,6 +79,24 @@ func minPathSum(grid [][]int) int {
 		}
 	}
 	return dp[m-1][n-1]
+}
+
+func minPathSum(grid [][]int) int {
+	var m int = len(grid)
+	var n int = len(grid[0])
+	for i := 1; i < m; i++ {
+		grid[i][0] += grid[i-1][0]
+	}
+	for j := 1; j < n; j++ {
+		grid[0][j] += grid[0][j-1]
+	}
+	for i := 1; i < m; i++ {
+		for j := 1; j < n; j++ {
+			grid[i][j] += min(grid[i-1][j], grid[i][j-1])
+		}
+	}
+	return grid[m-1][n-1]
+
 }
 
 // @lc code=end
