@@ -64,9 +64,21 @@ outer:
 		t := []int{}
 		for i, v := range nums {
 			if mask>>i&1 > 0 {
-				fmt.Printf("mask:%d, idx:%d, v:%d\n", mask, i, v)
+				fmt.Printf("mask:%d.%b, idx:%d, v:%d\n", mask, mask, i, v)
 				// 前一个数目和当前数相同，且前一个数之前没有出现过，
 				// 说明是重复的，直接跳过
+				// mask:1.1,   idx:0, v:1
+				// mask:2.10,  idx:1, v:2
+				// mask:3.11,  idx:0, v:1
+				// mask:3.11,  idx:1, v:2
+				// mask:4.100, idx:2, v:2
+				// mask:5.101, idx:0, v:1
+				// mask:5.101, idx:2, v:2
+				// mask:6.110, idx:1, v:2
+				// mask:6.110, idx:2, v:2
+				// mask:7.111, idx:0, v:1
+				// mask:7.111, idx:1, v:2
+				// mask:7.111, idx:2, v:2
 				if i > 0 && mask>>(i-1)&1 == 0 && v == nums[i-1] {
 					continue outer
 				}
