@@ -28,6 +28,7 @@ require (
 	github.com/spf13/cobra v1.6.1
 	github.com/urfave/cli/v2 v2.24.4
 	github.com/yiGmMk/go-pdf v1.0.0
+	github.com/yuin/goldmark v1.3.5
 	github.com/zeromicro/go-zero v1.6.0
 	go.uber.org/zap v1.24.0
 	golang.org/x/crypto v0.17.0
