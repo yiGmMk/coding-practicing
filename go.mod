@@ -16,7 +16,7 @@ require (
 	github.com/google/uuid v1.4.0
 	github.com/imdario/mergo v0.3.16
 	github.com/json-iterator/go v1.1.12
-	github.com/liyue201/gostl v1.0.1
+	github.com/liyue201/gostl v1.2.0
 	github.com/looplab/fsm v0.3.0
 	github.com/mackerelio/go-osstat v0.2.4
 	github.com/natefinch/lumberjack v2.0.0+incompatible
